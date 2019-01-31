@@ -34,6 +34,7 @@
 			<Add option="-std=c++1z" />
 			<Add option="-fexceptions" />
 			<Add directory="../lib/freeglut/mingw/include" />
+			<Add directory="../lib/imgui" />
 		</Compiler>
 		<Linker>
 			<Add option="-lopengl32 -lglu32 -lfreeglut" />
@@ -42,10 +43,21 @@
 		<ExtraCommands>
 			<Add after='xcopy &quot;$(PROJECT_DIR)..\lib\freeglut\mingw\bin\freeglut.dll&quot; &quot;$(TARGET_OUTPUT_DIR)&quot; /y /d' />
 		</ExtraCommands>
-		<Unit filename="CGLab01.cpp" />
-		<Unit filename="CGLab01.hpp" />
-		<Unit filename="CGLabmain.cpp" />
-		<Unit filename="CGLabmain.hpp" />
+		<Unit filename="../lib/imgui/bindings/imgui_impl_freeglut.cpp" />
+		<Unit filename="../lib/imgui/bindings/imgui_impl_freeglut.h" />
+		<Unit filename="../lib/imgui/bindings/imgui_impl_opengl2.cpp" />
+		<Unit filename="../lib/imgui/bindings/imgui_impl_opengl2.h" />
+		<Unit filename="../lib/imgui/imconfig.h" />
+		<Unit filename="../lib/imgui/imgui.cpp" />
+		<Unit filename="../lib/imgui/imgui.h" />
+		<Unit filename="../lib/imgui/imgui_demo.cpp" />
+		<Unit filename="../lib/imgui/imgui_draw.cpp" />
+		<Unit filename="../lib/imgui/imgui_internal.h" />
+		<Unit filename="../lib/imgui/imgui_widgets.cpp" />
+		<Unit filename="../lib/imgui/imstb_rectpack.h" />
+		<Unit filename="../lib/imgui/imstb_textedit.h" />
+		<Unit filename="../lib/imgui/imstb_truetype.h" />
+		<Unit filename="Main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
