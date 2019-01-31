@@ -66,4 +66,9 @@
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="..\lib\imgui\misc\natvis\imgui.natvis">
+      <Filter>Source Files\imgui</Filter>
+    </Natvis>
+  </ItemGroup>
 </Project>
