@@ -1,105 +1,42 @@
 #include "pch.h"
-#include "IdGenerator.h"
 #include "Vector3.h"
 #include <boost/format.hpp>
 #include "imgui_custom.h"
+#include "ContainerBase.h"
+#include "IGui.h"
+#include "GuiContainer.h"
+#include "IObject.h"
+#include "ObjectContainer.h"
+#include "IdGenerator.h"
+#include "ObjectGuiBase.h"
 
 using namespace std;
 using namespace Hypodermic;
 
 shared_ptr<Container> _container = nullptr;
 
-template <class T>
-class ContainerBase
-{
-protected:
-	vector<shared_ptr<T>> _items{};
-public:
-	void Add(const shared_ptr<T>& item)
-	{
-		_items.push_back(item);
-	}
-
-	vector<shared_ptr<T>>& All()
-	{
-		return _items;
-	}
-
-	// todo: remove those marked as delete
-};
-
-class IGui
-{
-public:
-	virtual void Render() = 0;
-};
-
-class GuiContainer : public ContainerBase<IGui>
-{
-};
-
-
-// GuiRenderer?
-class Gui
+class GuiRenderer
 {
 private:
 	bool _showDemoWindow = true;
-	bool _showAnotherWindow = false;
-	ImVec4 _clearColor = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-	vector<std::shared_ptr<IGui>> _guis;
+	vector<std::shared_ptr<IGui>> _globalGuis;
 	shared_ptr<GuiContainer> _guiContainer;
 
 public:
-	Gui(const vector<std::shared_ptr<IGui>>& guis,
-	    const shared_ptr<GuiContainer>& guiContainer) : _guis(guis), _guiContainer(std::move(guiContainer))
+	GuiRenderer(const vector<std::shared_ptr<IGui>>& globalGuis,
+	            const shared_ptr<GuiContainer>& guiContainer) : _globalGuis(globalGuis),
+	                                                            _guiContainer(guiContainer)
 	{
 	}
 
 	void Render()
 	{
-		// 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
 		if (_showDemoWindow)
 			ImGui::ShowDemoWindow(&_showDemoWindow);
 
-		// 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
-		{
-			static float f = 0.0f;
-			static int counter = 0;
-
-			ImGui::Begin("Hello, world!"); // Create a window called "Hello, world!" and append into it.
-
-			ImGui::Text("This is some useful text."); // Display some text (you can use a format strings too)
-			ImGui::Checkbox("Demo Window", &_showDemoWindow); // Edit bools storing our window open/close state
-			ImGui::Checkbox("Another Window", &_showAnotherWindow);
-
-			ImGui::SliderFloat("float", &f, 0.0f, 1.0f); // Edit 1 float using a slider from 0.0f to 1.0f
-			ImGui::ColorEdit3("clear color", (float*)&_clearColor); // Edit 3 floats representing a color
-
-			if (ImGui::Button("Button"))
-				// Buttons return true when clicked (most widgets return true when edited/activated)
-				counter++;
-			ImGui::SameLine();
-			ImGui::Text("counter = %d", counter);
-
-			ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate,
-			            ImGui::GetIO().Framerate);
-			ImGui::End();
-		}
-
-		// 3. Show another simple window.
-		if (_showAnotherWindow)
-		{
-			ImGui::Begin("Another Window", &_showAnotherWindow);
-			// Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
-			ImGui::Text("Hello from another window!");
-			if (ImGui::Button("Close Me"))
-				_showAnotherWindow = false;
-			ImGui::End();
-		}
-
 		// todo: test keyboard and mouse
 		// auto&& io = ImGui::GetIO();
-		for (auto&& gui : _guis)
+		for (auto&& gui : _globalGuis)
 		{
 			// render global gui
 			gui->Render();
@@ -112,63 +49,13 @@ public:
 	}
 };
 
-class IInitializable
+class IOnInit
 {
 public:
-	virtual ~IInitializable() = default;
-	virtual void Initialize() = 0;
+	virtual ~IOnInit() = default;
+	virtual void OnInit() = 0;
 };
 
-
-class IObject
-{
-	// bounding box, scale, position, rotation
-protected:
-	Vector3<float> _scale{0, 0, 0};
-	Vector3<float> _boundingBox{ 0,0,0 };
-	Vector3<float> _position{ 0,0,0 };
-	Vector3<float> _rotation{ 0,0,0 };
-	Vector3<float> _delta{ 0,0,0 };
-
-	// id is property-injected
-	unsigned int _id = 0;
-
-	void ApplyTranformations()
-	{
-		glTranslatef(_position.x, _position.y, _position.z);
-		glRotatef(_rotation.x, 1, 0, 0);
-		glRotatef(_rotation.y, 0, 1, 0);
-		glRotatef(_rotation.z, 0, 0, 1);
-		glScalef(_scale.x, _scale.y, _scale.z);
-	}
-
-public:
-	unsigned int Id() const { return _id; }
-	void Id(unsigned int value) { _id = value; }
-
-	Vector3<float>& BoundingBox() { return _boundingBox; }
-	Vector3<float>& Scale() { return _scale; }
-	Vector3<float>& Position() { return _position; }
-	Vector3<float>& Rotation() { return _rotation; }
-	Vector3<float>& Delta() { return _delta; }
-
-	virtual ~IObject() = default;
-	virtual void Render() = 0;
-};
-
-template <class TObject, class = IsBaseOf<TObject, IObject>>
-class ObjectGuiBase : public IGui
-{
-protected:
-	shared_ptr<IObject> _object;
-
-public:
-	// the object is property-injected
-	shared_ptr<IObject> Object() const { return _object; }
-	void Object(shared_ptr<IObject> value) { _object = value; }
-
-	virtual ~ObjectGuiBase() = default;
-};
 
 class Triangle : public IObject
 {
@@ -180,7 +67,7 @@ public:
 
 	void Render() override
 	{
-		ApplyTranformations();
+		ApplyTransformations();
 
 		glColor3f(1.0, 0.0, 0.0);
 		glBegin(GL_TRIANGLES);
@@ -222,10 +109,6 @@ public:
 };
 
 
-class ObjectContainer : public ContainerBase<IObject>
-{
-};
-
 class ObjectFactory
 {
 private:
@@ -259,7 +142,18 @@ public:
 	}
 };
 
-class Game : public IInitializable
+class IMutator
+{
+public:
+	virtual ~IMutator() = default;
+	virtual void Mutate() = 0;
+};
+
+//class MutatorContainer : public ContainerBase<IMutator>
+//{
+//};
+
+class Game : public IOnInit
 {
 private:
 	// move into config
@@ -311,33 +205,70 @@ public:
 
 		glPushMatrix();
 		{
+			Mutate();
+
 			glTranslatef(_position.x, _position.y, _position.z);
 			glRotatef(_rotation.x, 1, 0, 0);
 			glRotatef(_rotation.y, 0, 1, 0);
 			glRotatef(_rotation.z, 0, 0, 1);
 			glScalef(_scale.x, _scale.y, _scale.z);
 
+			// todo: apply mutator
 			glPushMatrix();
 			{
 				for (auto&& object : _objectContainer->All())
 				{
 					glPushMatrix();
+					// must apply before an object renders, not on one shot
+					// object->Mutate(); ->Attach() , ->Detach(), Mutator->Apply()
 					object->Render();
 					glPopMatrix();
 				}
-
-				glColor3f(0.0, 0.0, 1.0);
-				glutSolidCube(1);
 			}
 			glPopMatrix();
 		}
 		glPopMatrix();
 	}
 
-	void Initialize() override
+	void Mutate()
+	{
+		auto&& io = ImGui::GetIO();
+		if (io.WantCaptureMouse) return;
+		
+		float deltaX = io.MouseDelta.x;
+		float deltaY = io.MouseDelta.y;
+		float deltaZ = io.MouseWheel;
+
+		if (ImGui::IsMouseDown(0)) // left button
+		{
+			_rotation.x += deltaY;
+			_rotation.y += deltaX;
+		}
+		if (ImGui::IsMouseDown(1)) // right button
+		{
+			_position.x += -deltaX * 0.1;
+			_position.y += deltaY * 0.1;
+		}
+		_position.z += deltaZ * 0.1;
+	}
+
+	void OnInit() override
 	{
 	}
 };
+
+//
+//class GameMutator : public IMutator
+//{
+//private:
+//	std::shared_ptr<Game> _game;
+//public:
+//	// todo: get iobject from objectfactory
+//	GameMutator(std::shared_ptr<Game> game) : _game(game)
+//	{
+//	}
+//};
+
 
 class GameGui : public IGui
 {
@@ -401,6 +332,75 @@ public:
 			_objectFactory->Make<Triangle>();
 		}
 
+		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate,
+		            ImGui::GetIO().Framerate);
+
+		ImGuiIO& io = ImGui::GetIO();
+
+		ImGui::Text("WantCaptureMouse: %d", io.WantCaptureMouse);
+		ImGui::Text("WantCaptureKeyboard: %d", io.WantCaptureKeyboard);
+		ImGui::Text("WantTextInput: %d", io.WantTextInput);
+		ImGui::Text("WantSetMousePos: %d", io.WantSetMousePos);
+
+		if (ImGui::IsMousePosValid())
+			ImGui::Text("Mouse pos: (%g, %g)", io.MousePos.x, io.MousePos.y);
+		else
+			ImGui::Text("Mouse pos: <INVALID>");
+		ImGui::Text("Mouse delta: (%g, %g)", io.MouseDelta.x, io.MouseDelta.y);
+		ImGui::Text("Mouse down:");
+		for (int i = 0; i < IM_ARRAYSIZE(io.MouseDown); i++)
+			if (io.MouseDownDuration[i] >= 0.0f)
+			{
+				ImGui::SameLine();
+				ImGui::Text("b%d (%.02f secs)", i, io.MouseDownDuration[i]);
+			}
+		ImGui::Text("Mouse clicked:");
+		for (int i = 0; i < IM_ARRAYSIZE(io.MouseDown); i++)
+			if (ImGui::IsMouseClicked(i))
+			{
+				ImGui::SameLine();
+				ImGui::Text("b%d", i);
+			}
+		ImGui::Text("Mouse dbl-clicked:");
+		for (int i = 0; i < IM_ARRAYSIZE(io.MouseDown); i++)
+			if (ImGui::IsMouseDoubleClicked(i))
+			{
+				ImGui::SameLine();
+				ImGui::Text("b%d", i);
+			}
+		ImGui::Text("Mouse released:");
+		for (int i = 0; i < IM_ARRAYSIZE(io.MouseDown); i++)
+			if (ImGui::IsMouseReleased(i))
+			{
+				ImGui::SameLine();
+				ImGui::Text("b%d", i);
+			}
+		ImGui::Text("Mouse wheel: %.1f", io.MouseWheel);
+
+		ImGui::Text("Keys down:");
+		for (int i = 0; i < IM_ARRAYSIZE(io.KeysDown); i++)
+			if (io.KeysDownDuration[i] >= 0.0f)
+			{
+				ImGui::SameLine();
+				ImGui::Text("%d (%.02f secs)", i, io.KeysDownDuration[i]);
+			}
+		ImGui::Text("Keys pressed:");
+		for (int i = 0; i < IM_ARRAYSIZE(io.KeysDown); i++)
+			if (ImGui::IsKeyPressed(i))
+			{
+				ImGui::SameLine();
+				ImGui::Text("%d", i);
+			}
+		ImGui::Text("Keys release:");
+		for (int i = 0; i < IM_ARRAYSIZE(io.KeysDown); i++)
+			if (ImGui::IsKeyReleased(i))
+			{
+				ImGui::SameLine();
+				ImGui::Text("%d", i);
+			}
+		ImGui::Text("Keys mods: %s%s%s%s", io.KeyCtrl ? "CTRL " : "", io.KeyShift ? "SHIFT " : "",
+		            io.KeyAlt ? "ALT " : "", io.KeySuper ? "SUPER " : "");
+
 		ImGui::End();
 	}
 };
@@ -414,7 +414,7 @@ void Loop()
 	ImGui_ImplOpenGL2_NewFrame();
 	ImGui_ImplFreeGLUT_NewFrame();
 
-	_container->resolve<Gui>()->Render();
+	_container->resolve<GuiRenderer>()->Render();
 	ImGui::Render();
 	ImGuiIO& io = ImGui::GetIO();
 	glViewport(0, 0, (GLsizei)io.DisplaySize.x, (GLsizei)io.DisplaySize.y);
@@ -475,16 +475,18 @@ int main(int argc, char** argv)
 	InitImGui();
 
 	ContainerBuilder builder;
-	builder.registerType<Gui>()
+	builder.registerType<GuiRenderer>()
 	       .singleInstance();
 
 	builder.registerType<Game>()
-	       .as<IInitializable>()
+	       .as<IOnInit>()
 	       .asSelf()
 	       .singleInstance();
 
 	builder.registerType<ObjectContainer>()
 	       .singleInstance();
+	/*builder.registerType<MutatorContainer>()
+	       .singleInstance();*/
 	builder.registerType<GuiContainer>()
 	       .singleInstance();
 	builder.registerType<ObjectFactory>()
@@ -513,14 +515,15 @@ int main(int argc, char** argv)
 	_container = builder.build();
 
 	// todo: try this initialization
-	auto&& initializables = _container->resolveAll<IInitializable>();
+	auto&& initializables = _container->resolveAll<IOnInit>();
 	for (auto&& init : initializables)
 	{
-		init->Initialize();
+		init->OnInit();
 	}
 	_container->resolve<ObjectFactory>()->Make<Triangle>();
 
-	// todo: add new controller for spawning objects
+	// todo: move to mutatorfactory: attach() <- resolve object from container then add, add() <- add to container
+	// _container->resolve<MutatorContainer>()->Add(make_shared<GameMutator>(_container->resolve<Game>()));
 
 	glutMainLoop();
 	Cleanup();

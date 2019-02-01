@@ -43,6 +43,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="IObject.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -58,8 +59,14 @@
     <ClInclude Include="..\lib\imgui\imstb_rectpack.h" />
     <ClInclude Include="..\lib\imgui\imstb_textedit.h" />
     <ClInclude Include="..\lib\imgui\imstb_truetype.h" />
+    <ClInclude Include="ContainerBase.h" />
+    <ClInclude Include="GuiContainer.h" />
     <ClInclude Include="IdGenerator.h" />
+    <ClInclude Include="IGui.h" />
     <ClInclude Include="imgui_custom.h" />
+    <ClInclude Include="IObject.h" />
+    <ClInclude Include="ObjectContainer.h" />
+    <ClInclude Include="ObjectGuiBase.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
@@ -129,7 +136,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\freeglut\msvc\include;$(SolutionDir)..\lib\imgui;$(SolutionDir)..\lib\boost;$(SolutionDir)..\lib\Hypodermic;$(SolutionDir)..\lib\linq;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\freeglut\msvc\include;$(SolutionDir)..\lib\imgui;$(SolutionDir)..\lib\boost;$(SolutionDir)..\lib\Hypodermic;$(SolutionDir)..\lib\linq;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -159,7 +166,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\freeglut\msvc\include;$(SolutionDir)..\lib\imgui;$(SolutionDir)..\lib\boost;$(SolutionDir)..\lib\Hypodermic;$(SolutionDir)..\lib\linq;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\freeglut\msvc\include;$(SolutionDir)..\lib\imgui;$(SolutionDir)..\lib\boost;$(SolutionDir)..\lib\Hypodermic;$(SolutionDir)..\lib\linq;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>

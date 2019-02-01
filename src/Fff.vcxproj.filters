@@ -42,6 +42,9 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\imgui\imconfig.h">
@@ -71,14 +74,32 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IdGenerator.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Vector3.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="imgui_custom.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ContainerBase.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiContainer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IdGenerator.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IGui.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IObject.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectContainer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectGuiBase.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
