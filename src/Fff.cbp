@@ -35,6 +35,8 @@
 			<Add option="-fexceptions" />
 			<Add directory="../lib/freeglut/mingw/include" />
 			<Add directory="../lib/imgui" />
+			<Add directory="../lib/boost" />
+			<Add directory="../lib/Hypodermic" />
 		</Compiler>
 		<Linker>
 			<Add option="-lopengl32 -lglu32 -lfreeglut" />
@@ -58,6 +60,8 @@
 		<Unit filename="../lib/imgui/imstb_textedit.h" />
 		<Unit filename="../lib/imgui/imstb_truetype.h" />
 		<Unit filename="Main.cpp" />
+		<Unit filename="pch.cpp" />
+		<Unit filename="pch.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
