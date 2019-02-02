@@ -432,6 +432,14 @@ void Init(int& argc, char** argv)
 	glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_MULTISAMPLE | GLUT_DEPTH);
 
+	// todo: move this into config?
+	const int height = 720;
+	const int width = 1280;
+
+
+	glutInitWindowSize(width, height);
+	glutCreateWindow("Fff: Fight For Food");
+
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -442,12 +450,6 @@ void Init(int& argc, char** argv)
 
 	// glEnable(GL_CULL_FACE);
 
-	const int height = 720;
-	const int width = 1280;
-
-
-	glutInitWindowSize(width, height);
-	glutCreateWindow("Fff: Fight For Food");
 	glutDisplayFunc(Loop);
 }
 
