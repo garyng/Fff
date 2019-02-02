@@ -9,8 +9,15 @@ GuiRenderer::GuiRenderer(const std::vector<std::shared_ptr<IGui>>& globalGuis,
 
 void GuiRenderer::Render()
 {
-	if (_showDemoWindow)
-		ImGui::ShowDemoWindow(&_showDemoWindow);
+
+	auto && io = ImGui::GetIO();
+	// todo: extract keybindings to configuration
+	if (io.KeysDown[96] && io.KeysDownDuration[96] > 0.2) // `
+	{
+		io.KeysDownDuration[96] = 0;
+		_showGui = !_showGui;
+	}
+	if (!_showGui) return;
 
 	for (auto&& gui : _globalGuis)
 	{

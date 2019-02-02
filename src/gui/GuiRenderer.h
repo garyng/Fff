@@ -4,9 +4,9 @@
 class GuiRenderer
 {
 private:
-	bool _showDemoWindow = true;
 	std::vector<std::shared_ptr<IGui>> _globalGuis;
 	std::shared_ptr<GuiContainer> _guiContainer;
+	bool _showGui;
 
 public:
 	GuiRenderer(const std::vector<std::shared_ptr<IGui>>& globalGuis,
