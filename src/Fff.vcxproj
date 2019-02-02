@@ -43,8 +43,20 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="IObject.cpp" />
+    <ClCompile Include="colors\Colors.cpp" />
+    <ClCompile Include="game\GameGui.cpp" />
+    <ClCompile Include="game\GameRenderer.cpp" />
+    <ClCompile Include="game\GameService.cpp" />
+    <ClCompile Include="gui\DebugGui.cpp" />
+    <ClCompile Include="gui\GuiRenderer.cpp" />
+    <ClCompile Include="gui\ObjectsDebugGui.cpp" />
+    <ClCompile Include="logger\CompositeLogger.cpp" />
+    <ClCompile Include="logger\ConsoleLogger.cpp" />
+    <ClCompile Include="logger\GuiLogger.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="mutators\NullMutator.cpp" />
+    <ClCompile Include="objects\IObject.cpp" />
+    <ClCompile Include="objects\ObjectFactory.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -59,15 +71,35 @@
     <ClInclude Include="..\lib\imgui\imstb_rectpack.h" />
     <ClInclude Include="..\lib\imgui\imstb_textedit.h" />
     <ClInclude Include="..\lib\imgui\imstb_truetype.h" />
+    <ClInclude Include="colors\Colors.h" />
     <ClInclude Include="ContainerBase.h" />
-    <ClInclude Include="GuiContainer.h" />
+    <ClInclude Include="game\GameGui.h" />
+    <ClInclude Include="game\GameRenderer.h" />
+    <ClInclude Include="game\GameService.h" />
+    <ClInclude Include="gui\DebugGui.h" />
+    <ClInclude Include="gui\GuiContainer.h" />
+    <ClInclude Include="gui\GuiRenderer.h" />
+    <ClInclude Include="gui\IGui.h" />
+    <ClInclude Include="gui\ObjectsDebugGui.h" />
     <ClInclude Include="IdGenerator.h" />
-    <ClInclude Include="IGui.h" />
     <ClInclude Include="imgui_custom.h" />
-    <ClInclude Include="IObject.h" />
-    <ClInclude Include="ObjectContainer.h" />
-    <ClInclude Include="ObjectGuiBase.h" />
+    <ClInclude Include="logger\CompositeLogger.h" />
+    <ClInclude Include="logger\ConsoleLogger.h" />
+    <ClInclude Include="logger\GuiLogger.h" />
+    <ClInclude Include="logger\IChildLogger.h" />
+    <ClInclude Include="logger\ILogger.h" />
+    <ClInclude Include="mutators\IMutable.h" />
+    <ClInclude Include="mutators\IMutator.h" />
+    <ClInclude Include="mutators\MutatorFactory.h" />
+    <ClInclude Include="mutators\NullMutator.h" />
+    <ClInclude Include="objects\Cube.h" />
+    <ClInclude Include="objects\IObject.h" />
+    <ClInclude Include="objects\ObjectContainer.h" />
+    <ClInclude Include="objects\ObjectFactory.h" />
+    <ClInclude Include="objects\ObjectGuiBase.h" />
+    <ClInclude Include="objects\Triangle.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="utilities\nameof.h" />
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <ItemGroup>

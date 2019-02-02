@@ -6,7 +6,7 @@ namespace ImGui
 {
 	// todo: move to cpp file?
 
-	bool BeginDefaultResizableWindow(const std::string& name)
+	inline bool BeginDefault(const std::string& name)
 	{
 		return Begin(name.c_str(), nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 	}

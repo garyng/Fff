@@ -16,5 +16,18 @@ public:
 		return _items;
 	}
 
+	template <class TObject>
+	std::shared_ptr<T> First()
+	{
+		return _items | first_or_default([&](std::shared_ptr<T> item)
+		{
+			return typeid(*item) == typeid(TObject);
+		});
+	}
+
+	// find by type
+	// find by id
+	// find by canDelete
+
 	// todo: remove those marked as delete
 };

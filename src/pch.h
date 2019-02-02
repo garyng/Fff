@@ -8,6 +8,8 @@ struct unary_function
 	typedef ResultType result_type;
 };
 
+#include <memory.h>
+
 #include <imgui.h>
 #include <bindings/imgui_impl_freeglut.h>
 #include <bindings/imgui_impl_opengl2.h>
@@ -20,7 +22,7 @@ struct unary_function
 #include <Hypodermic/ContainerBuilder.h>
 
 #include <coveo/linq.h>
-using namespace coveo;
+using namespace coveo::linq;
 
 #ifdef _MSC_VER
 template <class TDerived, class TBase>

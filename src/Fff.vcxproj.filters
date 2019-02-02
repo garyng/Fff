@@ -16,6 +16,27 @@
     <Filter Include="Source Files\imgui">
       <UniqueIdentifier>{e2aa53a3-4b56-461e-b038-aa240b61f846}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\colors">
+      <UniqueIdentifier>{896bc1a5-6236-491f-9489-8fb32b3deeb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\logger">
+      <UniqueIdentifier>{e9fca59e-f5f0-4525-81a3-06ed228d2105}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utilities">
+      <UniqueIdentifier>{f083e385-3df1-435e-b896-4459d424ac7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mutators">
+      <UniqueIdentifier>{fde03c0a-a744-4683-abfe-ac99a1207075}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game">
+      <UniqueIdentifier>{540f38b0-889d-4d8b-9e97-879a24143d32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui">
+      <UniqueIdentifier>{cbe8993c-54be-4f71-852a-8bc4d25f0a65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\objects">
+      <UniqueIdentifier>{0ba8214e-755e-44f5-ad96-78911b1e5d46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -42,8 +63,44 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IObject.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="colors\Colors.cpp">
+      <Filter>Source Files\colors</Filter>
+    </ClCompile>
+    <ClCompile Include="logger\ConsoleLogger.cpp">
+      <Filter>Source Files\logger</Filter>
+    </ClCompile>
+    <ClCompile Include="logger\CompositeLogger.cpp">
+      <Filter>Source Files\logger</Filter>
+    </ClCompile>
+    <ClCompile Include="logger\GuiLogger.cpp">
+      <Filter>Source Files\logger</Filter>
+    </ClCompile>
+    <ClCompile Include="mutators\NullMutator.cpp">
+      <Filter>Source Files\mutators</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\GuiRenderer.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="game\GameRenderer.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\GameService.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\IObject.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\ObjectFactory.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="game\GameGui.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\DebugGui.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\ObjectsDebugGui.cpp">
+      <Filter>Source Files\gui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -83,23 +140,83 @@
     <ClInclude Include="ContainerBase.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="GuiContainer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="IdGenerator.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="IGui.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="colors\Colors.h">
+      <Filter>Source Files\colors</Filter>
     </ClInclude>
-    <ClInclude Include="IObject.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="logger\ConsoleLogger.h">
+      <Filter>Source Files\logger</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectContainer.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="logger\IChildLogger.h">
+      <Filter>Source Files\logger</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectGuiBase.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="logger\ILogger.h">
+      <Filter>Source Files\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="logger\CompositeLogger.h">
+      <Filter>Source Files\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="logger\GuiLogger.h">
+      <Filter>Source Files\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\nameof.h">
+      <Filter>Source Files\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="mutators\IMutator.h">
+      <Filter>Source Files\mutators</Filter>
+    </ClInclude>
+    <ClInclude Include="mutators\NullMutator.h">
+      <Filter>Source Files\mutators</Filter>
+    </ClInclude>
+    <ClInclude Include="mutators\IMutable.h">
+      <Filter>Source Files\mutators</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\GuiRenderer.h">
+      <Filter>Source Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\GuiContainer.h">
+      <Filter>Source Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\IGui.h">
+      <Filter>Source Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="game\GameRenderer.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\GameService.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\IObject.h">
+      <Filter>Source Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\ObjectContainer.h">
+      <Filter>Source Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\ObjectFactory.h">
+      <Filter>Source Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\ObjectGuiBase.h">
+      <Filter>Source Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="mutators\MutatorFactory.h">
+      <Filter>Source Files\mutators</Filter>
+    </ClInclude>
+    <ClInclude Include="game\GameGui.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\DebugGui.h">
+      <Filter>Source Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\Cube.h">
+      <Filter>Source Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\Triangle.h">
+      <Filter>Source Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\ObjectsDebugGui.h">
+      <Filter>Source Files\gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
