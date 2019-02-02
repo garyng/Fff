@@ -24,11 +24,4 @@ struct unary_function
 #include <coveo/linq.h>
 using namespace coveo::linq;
 
-#ifdef _MSC_VER
-template <class TDerived, class TBase>
-using IsBaseOf = std::enable_if_t<std::is_base_of_v<TBase, TDerived>>;
-#elif __GNUC__
-// code::blocks's gcc is too old
-template <class TDerived, class TBase>
-using IsBaseOf = typename std::enable_if<std::is_base_of<TBase, TDerived>::value>::type;
-#endif
+#include "utilities/constraints.h"

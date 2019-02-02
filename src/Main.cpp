@@ -158,8 +158,7 @@ void Init(int& argc, char** argv)
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
-	// glEnable(GL_CULL_FACE);
-
+	glDisable(GL_CULL_FACE);
 	glutDisplayFunc(Loop);
 }
 
@@ -269,13 +268,9 @@ int main(int argc, char** argv)
 	_container->resolve<ObjectFactory>()->Make<Triangle>();
 	_container->resolve<ObjectFactory>()->Make<Cube>();
 
-	// todo: move to mutatorfactory: attach() <- resolve object from container then add, add() <- add to container
-	// _container->resolve<MutatorContainer>()->Add(make_shared<GameMutator>(_container->resolve<Game>()));
 	_container->resolve<MutatorFactory>()->Attach<KeyboardMutator, Cube>();
 	_container->resolve<MutatorFactory>()->Attach<FreezedMutator, Cube>();
-	// todo: move this to attach()
-	// auto&& triangle = _container->resolve<ObjectContainer>()->First<GuiRenderer>();
-	// triangle->Position().x = 100;
+
 
 	glutMainLoop();
 	Cleanup();

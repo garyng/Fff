@@ -108,6 +108,9 @@
     <ClCompile Include="gui\ImGuiDemoGui.cpp">
       <Filter>Source Files\gui</Filter>
     </ClCompile>
+    <ClCompile Include="objects\Cube.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\imgui\imconfig.h">
@@ -235,6 +238,9 @@
     </ClInclude>
     <ClInclude Include="gui\CubeGui.h">
       <Filter>Source Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\constraints.h">
+      <Filter>Source Files\utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

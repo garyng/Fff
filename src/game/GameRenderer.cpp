@@ -58,6 +58,7 @@ void GameRenderer::Render()
 				for (auto&& object : _objectContainer->All())
 				{
 					glPushMatrix();
+					object->Elapsed(_gameService->DeltaTime());
 					object->Mutate();
 					object->Render();
 					object->TryDetach();
@@ -77,7 +78,7 @@ void GameRenderer::Render()
 	float width = io.DisplaySize.x;
 	float height = io.DisplaySize.y;
 
-	glViewport(width - 64, height - 64, 64, 64);
+	glViewport(width - 64, 0, 64, 64);
 	glPushMatrix();
 	{
 		glMatrixMode(GL_PROJECTION);
