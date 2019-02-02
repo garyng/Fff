@@ -19,6 +19,8 @@
 #include "objects/Cube.h"
 #include "objects/Triangle.h"
 #include "gui/ObjectsDebugGui.h"
+#include "gui/DockSpaceGui.h"
+#include "gui/ImGuiDemoGui.h"
 
 using namespace Hypodermic;
 using namespace std;
@@ -139,7 +141,6 @@ public:
 	}
 };
 
-
 // todo: example of skill
 class FreezedMutator : public IMutator
 {
@@ -177,7 +178,6 @@ public:
 		_logger->Debug("Detach %1% from %2% [#%3%]", {nameof(*this), nameof(*_target), std::to_string(_target->Id())});
 	}
 };
-
 
 void Loop()
 {
@@ -281,9 +281,21 @@ int main(int argc, char** argv)
 
 	builder.registerType<IdGenerator>()
 	       .singleInstance();
+
+	// DockSpace Gui must be the first
+
+	builder.registerType<DockSpaceGui>()
+	       .singleInstance()
+	       .as<IGui>();
+
 	builder.registerType<DebugGui>()
 	       .singleInstance()
 	       .as<IGui>();
+	builder.registerType<ImGuiDemoGui>()
+	       .singleInstance()
+	       .as<IGui>();
+
+
 	builder.registerType<ObjectsDebugGui>()
 	       .singleInstance()
 	       .as<IGui>();

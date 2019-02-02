@@ -102,6 +102,12 @@
     <ClCompile Include="gui\ObjectsDebugGui.cpp">
       <Filter>Source Files\gui</Filter>
     </ClCompile>
+    <ClCompile Include="gui\DockSpaceGui.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\ImGuiDemoGui.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\imgui\imconfig.h">
@@ -216,6 +222,12 @@
       <Filter>Source Files\objects</Filter>
     </ClInclude>
     <ClInclude Include="gui\ObjectsDebugGui.h">
+      <Filter>Source Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\DockSpaceGui.h">
+      <Filter>Source Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\ImGuiDemoGui.h">
       <Filter>Source Files\gui</Filter>
     </ClInclude>
   </ItemGroup>

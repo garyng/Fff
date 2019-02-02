@@ -48,7 +48,9 @@
     <ClCompile Include="game\GameRenderer.cpp" />
     <ClCompile Include="game\GameService.cpp" />
     <ClCompile Include="gui\DebugGui.cpp" />
+    <ClCompile Include="gui\DockSpaceGui.cpp" />
     <ClCompile Include="gui\GuiRenderer.cpp" />
+    <ClCompile Include="gui\ImGuiDemoGui.cpp" />
     <ClCompile Include="gui\ObjectsDebugGui.cpp" />
     <ClCompile Include="logger\CompositeLogger.cpp" />
     <ClCompile Include="logger\ConsoleLogger.cpp" />
@@ -77,9 +79,11 @@
     <ClInclude Include="game\GameRenderer.h" />
     <ClInclude Include="game\GameService.h" />
     <ClInclude Include="gui\DebugGui.h" />
+    <ClInclude Include="gui\DockSpaceGui.h" />
     <ClInclude Include="gui\GuiContainer.h" />
     <ClInclude Include="gui\GuiRenderer.h" />
     <ClInclude Include="gui\IGui.h" />
+    <ClInclude Include="gui\ImGuiDemoGui.h" />
     <ClInclude Include="gui\ObjectsDebugGui.h" />
     <ClInclude Include="IdGenerator.h" />
     <ClInclude Include="imgui_custom.h" />
