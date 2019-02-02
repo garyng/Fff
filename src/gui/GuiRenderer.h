@@ -6,7 +6,7 @@ class GuiRenderer
 private:
 	std::vector<std::shared_ptr<IGui>> _globalGuis;
 	std::shared_ptr<GuiContainer> _guiContainer;
-	bool _showGui;
+	bool _showGui = true;
 
 public:
 	GuiRenderer(const std::vector<std::shared_ptr<IGui>>& globalGuis,

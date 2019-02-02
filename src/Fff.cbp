@@ -37,6 +37,8 @@
 			<Add directory="../lib/imgui" />
 			<Add directory="../lib/boost" />
 			<Add directory="../lib/Hypodermic" />
+			<Add directory="../lib/linq" />
+			<Add directory="../src" />
 		</Compiler>
 		<Linker>
 			<Add option="-lopengl32 -lglu32 -lfreeglut" />
@@ -59,9 +61,55 @@
 		<Unit filename="../lib/imgui/imstb_rectpack.h" />
 		<Unit filename="../lib/imgui/imstb_textedit.h" />
 		<Unit filename="../lib/imgui/imstb_truetype.h" />
+		<Unit filename="ContainerBase.h" />
+		<Unit filename="IdGenerator.h" />
 		<Unit filename="Main.cpp" />
+		<Unit filename="Vector3.h" />
+		<Unit filename="colors/Colors.cpp" />
+		<Unit filename="colors/Colors.h" />
+		<Unit filename="game/GameGui.cpp" />
+		<Unit filename="game/GameGui.h" />
+		<Unit filename="game/GameRenderer.cpp" />
+		<Unit filename="game/GameRenderer.h" />
+		<Unit filename="game/GameService.cpp" />
+		<Unit filename="game/GameService.h" />
+		<Unit filename="gui/DebugGui.cpp" />
+		<Unit filename="gui/DebugGui.h" />
+		<Unit filename="gui/DockSpaceGui.cpp" />
+		<Unit filename="gui/DockSpaceGui.h" />
+		<Unit filename="gui/GuiContainer.h" />
+		<Unit filename="gui/GuiRenderer.cpp" />
+		<Unit filename="gui/GuiRenderer.h" />
+		<Unit filename="gui/IGui.h" />
+		<Unit filename="gui/ImGuiDemoGui.cpp" />
+		<Unit filename="gui/ImGuiDemoGui.h" />
+		<Unit filename="gui/ObjectsDebugGui.cpp" />
+		<Unit filename="gui/ObjectsDebugGui.h" />
+		<Unit filename="imgui_custom.h" />
+		<Unit filename="logger/CompositeLogger.cpp" />
+		<Unit filename="logger/CompositeLogger.h" />
+		<Unit filename="logger/ConsoleLogger.cpp" />
+		<Unit filename="logger/ConsoleLogger.h" />
+		<Unit filename="logger/GuiLogger.cpp" />
+		<Unit filename="logger/GuiLogger.h" />
+		<Unit filename="logger/IChildLogger.h" />
+		<Unit filename="logger/ILogger.h" />
+		<Unit filename="mutators/IMutable.h" />
+		<Unit filename="mutators/IMutator.h" />
+		<Unit filename="mutators/MutatorFactory.h" />
+		<Unit filename="mutators/NullMutator.cpp" />
+		<Unit filename="mutators/NullMutator.h" />
+		<Unit filename="objects/Cube.h" />
+		<Unit filename="objects/IObject.cpp" />
+		<Unit filename="objects/IObject.h" />
+		<Unit filename="objects/ObjectContainer.h" />
+		<Unit filename="objects/ObjectFactory.cpp" />
+		<Unit filename="objects/ObjectFactory.h" />
+		<Unit filename="objects/ObjectGuiBase.h" />
+		<Unit filename="objects/Triangle.h" />
 		<Unit filename="pch.cpp" />
 		<Unit filename="pch.h" />
+		<Unit filename="utilities/nameof.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
