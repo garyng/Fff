@@ -21,6 +21,8 @@
 #include "gui/ObjectsDebugGui.h"
 #include "gui/DockSpaceGui.h"
 #include "gui/ImGuiDemoGui.h"
+#include "gui/TriangleGui.h"
+#include "gui/CubeGui.h"
 
 using namespace Hypodermic;
 using namespace std;
@@ -32,72 +34,6 @@ class IOnInit
 public:
 	virtual ~IOnInit() = default;
 	virtual void OnInit() = 0;
-};
-
-
-class TriangleGui : public ObjectGuiBase<Triangle>
-{
-public:
-
-	void Render() override
-	{
-		const std::string name = "Triangle #" + std::to_string(_object->Id());
-		ImGui::BeginDefault(name);
-
-
-		ImGui::Text("Scale");
-		ImGui::DragFloat("x##Scale", &_object->Scale().x, 0.05, 0, 100);
-		ImGui::DragFloat("y##Scale", &_object->Scale().y, 0.05, 0, 100);
-		ImGui::DragFloat("z##Scale", &_object->Scale().z, 0.05, 0, 100);
-
-
-		ImGui::Text("Rotation");
-		ImGui::DragFloat("x##Rotation", &_object->Rotation().x, 0.05, 0, 360);
-		ImGui::DragFloat("y##Rotation", &_object->Rotation().y, 0.05, 0, 360);
-		ImGui::DragFloat("z##Rotation", &_object->Rotation().z, 0.05, 0, 360);
-
-		ImGui::Text("Position");
-		ImGui::DragFloat("x##Position", &_object->Position().x, 0.05, -100, 100);
-		ImGui::DragFloat("y##Position", &_object->Position().y, 0.05, -100, 100);
-		ImGui::DragFloat("z##Position", &_object->Position().z, 0.05, -100, 100);
-
-		ImGui::End();
-	}
-};
-
-class CubeGui : public ObjectGuiBase<Cube>
-{
-public:
-	void Render() override
-	{
-		const string name = "Cube #" + to_string(_object->Id());
-		ImGui::BeginDefault(name);
-
-		ImGui::Text("Scale");
-		ImGui::DragFloat("x##Scale", &_object->Scale().x, 0.05, 0, 100);
-		ImGui::DragFloat("y##Scale", &_object->Scale().y, 0.05, 0, 100);
-		ImGui::DragFloat("z##Scale", &_object->Scale().z, 0.05, 0, 100);
-
-
-		ImGui::Text("Rotation");
-		ImGui::DragFloat("x##Rotation", &_object->Rotation().x, 0.05, 0, 360);
-		ImGui::DragFloat("y##Rotation", &_object->Rotation().y, 0.05, 0, 360);
-		ImGui::DragFloat("z##Rotation", &_object->Rotation().z, 0.05, 0, 360);
-
-		ImGui::Text("Position");
-		ImGui::DragFloat("x##Position", &_object->Position().x, 0.05, -100, 100);
-		ImGui::DragFloat("y##Position", &_object->Position().y, 0.05, -100, 100);
-		ImGui::DragFloat("z##Position", &_object->Position().z, 0.05, -100, 100);
-
-		ImVec4 color{_object->Color().x, _object->Color().y, _object->Color().z, 1};
-		ImGui::ColorEdit3("MyColor##1", (float*)&color, ImGuiColorEditFlags_Float);
-		_object->Color().x = color.x;
-		_object->Color().y = color.y;
-		_object->Color().z = color.z;
-
-
-		ImGui::End();
-	}
 };
 
 class KeyboardMutator : public IMutator

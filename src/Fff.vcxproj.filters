@@ -230,6 +230,12 @@
     <ClInclude Include="gui\ImGuiDemoGui.h">
       <Filter>Source Files\gui</Filter>
     </ClInclude>
+    <ClInclude Include="gui\TriangleGui.h">
+      <Filter>Source Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\CubeGui.h">
+      <Filter>Source Files\gui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="..\lib\imgui\misc\natvis\imgui.natvis">
