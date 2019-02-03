@@ -5,6 +5,7 @@
 		<Option title="Fff" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
+		<Option virtualFolders="imgui\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="../dist/mingw/Debug/Fff" prefix_auto="1" extension_auto="1" />
@@ -47,20 +48,25 @@
 		<ExtraCommands>
 			<Add after='xcopy &quot;$(PROJECT_DIR)..\lib\freeglut\mingw\bin\freeglut.dll&quot; &quot;$(TARGET_OUTPUT_DIR)&quot; /y /d' />
 		</ExtraCommands>
-		<Unit filename="../lib/imgui/bindings/imgui_impl_freeglut.cpp" />
-		<Unit filename="../lib/imgui/bindings/imgui_impl_freeglut.h" />
-		<Unit filename="../lib/imgui/bindings/imgui_impl_opengl2.cpp" />
-		<Unit filename="../lib/imgui/bindings/imgui_impl_opengl2.h" />
-		<Unit filename="../lib/imgui/imconfig.h" />
-		<Unit filename="../lib/imgui/imgui.cpp" />
-		<Unit filename="../lib/imgui/imgui.h" />
-		<Unit filename="../lib/imgui/imgui_demo.cpp" />
-		<Unit filename="../lib/imgui/imgui_draw.cpp" />
-		<Unit filename="../lib/imgui/imgui_internal.h" />
-		<Unit filename="../lib/imgui/imgui_widgets.cpp" />
-		<Unit filename="../lib/imgui/imstb_rectpack.h" />
-		<Unit filename="../lib/imgui/imstb_textedit.h" />
-		<Unit filename="../lib/imgui/imstb_truetype.h" />
+		<Unit filename="../lib/imgui/bindings/imgui_impl_freeglut.cpp">
+			<Option virtualFolder="imgui/" />
+		</Unit>
+		<Unit filename="../lib/imgui/bindings/imgui_impl_opengl2.cpp">
+			<Option virtualFolder="imgui/" />
+		</Unit>
+		<Unit filename="../lib/imgui/imgui.cpp">
+			<Option virtualFolder="imgui/" />
+		</Unit>
+		<Unit filename="../lib/imgui/imgui_demo.cpp">
+			<Option virtualFolder="imgui/" />
+		</Unit>
+		<Unit filename="../lib/imgui/imgui_draw.cpp">
+			<Option virtualFolder="imgui/" />
+		</Unit>
+		<Unit filename="../lib/imgui/imgui_widgets.cpp">
+			<Option virtualFolder="imgui/" />
+		</Unit>
+		<Unit filename="Config.h" />
 		<Unit filename="ContainerBase.h" />
 		<Unit filename="IdGenerator.h" />
 		<Unit filename="Main.cpp" />
@@ -73,6 +79,7 @@
 		<Unit filename="game/GameRenderer.h" />
 		<Unit filename="game/GameService.cpp" />
 		<Unit filename="game/GameService.h" />
+		<Unit filename="gui/CubeGui.h" />
 		<Unit filename="gui/DebugGui.cpp" />
 		<Unit filename="gui/DebugGui.h" />
 		<Unit filename="gui/DockSpaceGui.cpp" />
@@ -85,6 +92,7 @@
 		<Unit filename="gui/ImGuiDemoGui.h" />
 		<Unit filename="gui/ObjectsDebugGui.cpp" />
 		<Unit filename="gui/ObjectsDebugGui.h" />
+		<Unit filename="gui/TriangleGui.h" />
 		<Unit filename="imgui_custom.h" />
 		<Unit filename="logger/CompositeLogger.cpp" />
 		<Unit filename="logger/CompositeLogger.h" />
@@ -99,6 +107,7 @@
 		<Unit filename="mutators/MutatorFactory.h" />
 		<Unit filename="mutators/NullMutator.cpp" />
 		<Unit filename="mutators/NullMutator.h" />
+		<Unit filename="objects/Cube.cpp" />
 		<Unit filename="objects/Cube.h" />
 		<Unit filename="objects/IObject.cpp" />
 		<Unit filename="objects/IObject.h" />
@@ -109,6 +118,7 @@
 		<Unit filename="objects/Triangle.h" />
 		<Unit filename="pch.cpp" />
 		<Unit filename="pch.h" />
+		<Unit filename="utilities/constraints.h" />
 		<Unit filename="utilities/nameof.h" />
 		<Extensions>
 			<code_completion />

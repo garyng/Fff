@@ -69,7 +69,7 @@ public:
 		ImGui::RadioButton("Wrap", &index, static_cast<int>(WrappingBehaviour::Wrap)); ImGui::SameLine();
 		ImGui::RadioButton("Stop", &index, static_cast<int>(WrappingBehaviour::Stop)); ImGui::SameLine();
 		ImGui::RadioButton("Bounce", &index, static_cast<int>(WrappingBehaviour::Bounce));
-		return WrappingBehaviour{ index };
+		return WrappingBehaviour(index); // need use function notation in gcc 5
 	}
 
 	std::string GetName()

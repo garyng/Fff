@@ -3,10 +3,10 @@
 
 struct PlayerKeysBinding
 {
-	int Up = 'w';
-	int Down = 's';
-	int Left = 'a';
-	int Right = 'd';
+	int Up;
+	int Down;
+	int Left;
+	int Right;
 };
 
 class Config
@@ -20,7 +20,7 @@ public:
 
 
 	const PlayerKeysBinding Player1{'w', 's', 'a', 's'};
-	const PlayerKeysBinding Player2{357, 359, 356, 358}; // arrow keys 
+	const PlayerKeysBinding Player2{357, 359, 356, 358}; // arrow keys
 	const int ToggleTerminalKey = 96; // `
 	// duration in seconds before a key is registered as key press
 	const float KeyDownDuration = 0.2f;
