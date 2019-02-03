@@ -19,5 +19,9 @@ void SceneSpotLight::Render()
 
 	float direction[]{_direction.x, _direction.y, _direction.z, 1};
 	glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, direction);
+	glPushAttrib(GL_LIGHTING_BIT);
+	glMaterialfv(GL_FRONT, GL_EMISSION, (float*)&_diffuse);
 	glutSolidSphere(1, 64, 64);
+	glPopAttrib();
+
 }
