@@ -47,6 +47,7 @@
     <ClCompile Include="game\GameGui.cpp" />
     <ClCompile Include="game\GameRenderer.cpp" />
     <ClCompile Include="game\GameService.cpp" />
+    <ClCompile Include="game\TextureService.cpp" />
     <ClCompile Include="gui\AmbientLightGui.cpp" />
     <ClCompile Include="gui\DebugGui.cpp" />
     <ClCompile Include="gui\DockSpaceGui.cpp" />
@@ -94,6 +95,7 @@
     <ClInclude Include="game\GameGui.h" />
     <ClInclude Include="game\GameRenderer.h" />
     <ClInclude Include="game\GameService.h" />
+    <ClInclude Include="game\TextureService.h" />
     <ClInclude Include="gui\AmbientLightGui.h" />
     <ClInclude Include="gui\CubeGui.h" />
     <ClInclude Include="gui\DebugGui.h" />
@@ -221,7 +223,8 @@
       <AdditionalDependencies>freeglut.lib;glu32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)..\lib\freeglut\msvc\bin\freeglut.dll" "$(TargetDir)" /y /d</Command>
+      <Command>xcopy "$(SolutionDir)..\lib\freeglut\msvc\bin\freeglut.dll" "$(TargetDir)" /y /d
+xcopy "$(SolutionDir)textures" "$(TargetDir)textures" /s /i /y /d</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -254,7 +257,8 @@
       <AdditionalDependencies>freeglut.lib;glu32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)..\lib\freeglut\msvc\bin\freeglut.dll" "$(TargetDir)" /y /d</Command>
+      <Command>xcopy "$(SolutionDir)..\lib\freeglut\msvc\bin\freeglut.dll" "$(TargetDir)" /y /d
+xcopy "$(SolutionDir)textures" "$(TargetDir)textures" /s /i /y /d</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

@@ -32,6 +32,7 @@
 #include "gui/AmbientLightGui.h"
 #include "lights/SceneSpotLight.h"
 #include "gui/SceneSpotLightGui.h"
+#include "game/TextureService.h"
 
 using namespace Hypodermic;
 using namespace std;
@@ -144,6 +145,8 @@ int main(int argc, char** argv)
 	       .singleInstance();
 	builder.registerType<GameService>()
 	       .singleInstance();
+	builder.registerType<TextureService>()
+	       .singleInstance();
 
 	builder.registerType<IdGenerator>()
 	       .singleInstance();
@@ -200,6 +203,7 @@ int main(int argc, char** argv)
 
 	// todo: start only when user pressed key?
 	_container->resolve<GameService>()->Start();
+	_container->resolve<TextureService>()->LoadAll();
 
 	// _container->resolve<ObjectFactory>()->Make<Triangle>();
 	// _container->resolve<ObjectFactory>()->Make<Cube>();

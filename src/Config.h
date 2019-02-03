@@ -25,6 +25,10 @@ public:
 	const int ToggleWireFrameModeKey = 257; // F1
 	const int ToggleLightingKey = 258; // F2
 
+	const std::string BrickTexturePath = "textures/brick.jpg";
+	const std::string SandTexturePath = "textures/sand.jpg";
+	const std::string MarbleTexturePath = "textures/marble.png";
+
 	// game duration
 	// disable mouse input on game
 };

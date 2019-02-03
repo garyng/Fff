@@ -162,6 +162,9 @@
     <ClCompile Include="gui\SceneSpotLightGui.cpp">
       <Filter>Source Files\gui</Filter>
     </ClCompile>
+    <ClCompile Include="game\TextureService.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\imgui\imconfig.h">
@@ -349,6 +352,9 @@
     </ClInclude>
     <ClInclude Include="IRemovable.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\TextureService.h">
+      <Filter>Source Files\game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

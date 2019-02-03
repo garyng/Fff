@@ -7,12 +7,12 @@
 class GameRenderer // : public IOnInit
 {
 private:
-	Vector3<float> _eye{0.0, 1.0, 40.0};
-	Vector3<float> _center{0.0, 0.0, 0.0};
-	Vector3<float> _scale{1.0, 1.0, 1.0};
-	Vector3<float> _rotation{0.0, 0.0, 0.0};
-	Vector3<float> _position{0.0, 0.0, 0.0};
-	Vector3<float> _up{0.0, 1.0, 0.0};
+	Vector3<float> _eye{ 0.0f, 1.0f, 40.0f };
+	Vector3<float> _center{ 0.0f, 0.0f, 0.0f };
+	Vector3<float> _scale{ 1.0f, 1.0f, 1.0f };
+	Vector3<float> _rotation{ 35.0f, 0.0f, 0.0f };
+	Vector3<float> _position{ 0.0f, 0.0f, 0.0f };
+	Vector3<float> _up{ 0.0f, 1.0f, 0.0f };
 
 	float _zNear = 0.1f;
 	float _zFar = 500.0f;
