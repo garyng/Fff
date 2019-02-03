@@ -8,7 +8,7 @@ void GameRenderer::Mutate()
 
 	float deltaX = io.MouseDelta.x;
 	float deltaY = io.MouseDelta.y;
-	float deltaZ = io.MouseWheel;
+	float deltaZ = io.MouseWheel * (io.KeyCtrl ? 5 : 1);
 
 	if (ImGui::IsMouseDown(0)) // left button
 	{
@@ -30,15 +30,15 @@ void GameRenderer::Render()
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		gluPerspective(_fieldOfView,
-					   _aspectRatio,
-					   _zNear,
-					   _zFar);
+		               _aspectRatio,
+		               _zNear,
+		               _zFar);
 
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 		gluLookAt(_eye.x, _eye.y, _eye.z,
-				  _center.x, _center.y, _center.z,
-				  _up.x, _up.y, _up.z);
+		          _center.x, _center.y, _center.z,
+		          _up.x, _up.y, _up.z);
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
