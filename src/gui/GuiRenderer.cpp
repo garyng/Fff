@@ -4,10 +4,7 @@
 
 void GuiRenderer::Render()
 {
-	if (ImGui::IsKeyPressed(_config->ToggleTerminalKey, false))
-	{
-		_showGui = !_showGui;
-	}
+	OnKeyboard();
 	if (!_showGui) return;
 
 	for (auto&& gui : _globalGuis)
@@ -19,5 +16,16 @@ void GuiRenderer::Render()
 	{
 		// render gui that has object
 		gui->Render();
+	}
+}
+
+void GuiRenderer::OnKeyboard()
+{
+	auto&& io = ImGui::GetIO();
+	if (io.WantCaptureKeyboard) return;
+
+	if (ImGui::IsKeyPressed(_config->ToggleTerminalKey, false))
+	{
+		_showGui = !_showGui;
 	}
 }

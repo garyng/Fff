@@ -40,6 +40,12 @@
     <Filter Include="Source Files\config">
       <UniqueIdentifier>{36c1561d-feb6-47bc-b8a6-1045cb5b9add}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\init">
+      <UniqueIdentifier>{a1976af7-0a58-4e56-ab65-2bb08754cc23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lights">
+      <UniqueIdentifier>{81a0b735-d4c7-48a2-9e90-94eb63c1baf6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -142,6 +148,18 @@
       <Filter>Source Files\objects</Filter>
     </ClCompile>
     <ClCompile Include="gui\FloorGui.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="lights\AmbientLight.cpp">
+      <Filter>Source Files\lights</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\AmbientLightGui.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="lights\SceneSpotLight.cpp">
+      <Filter>Source Files\lights</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\SceneSpotLightGui.cpp">
       <Filter>Source Files\gui</Filter>
     </ClCompile>
   </ItemGroup>
@@ -306,6 +324,27 @@
       <Filter>Source Files\objects</Filter>
     </ClInclude>
     <ClInclude Include="gui\FloorGui.h">
+      <Filter>Source Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="init\IOnInit.h">
+      <Filter>Source Files\init</Filter>
+    </ClInclude>
+    <ClInclude Include="lights\AmbientLight.h">
+      <Filter>Source Files\lights</Filter>
+    </ClInclude>
+    <ClInclude Include="lights\ILight.h">
+      <Filter>Source Files\lights</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\LightGuiBase.h">
+      <Filter>Source Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\AmbientLightGui.h">
+      <Filter>Source Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="lights\SceneSpotLight.h">
+      <Filter>Source Files\lights</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\SceneSpotLightGui.h">
       <Filter>Source Files\gui</Filter>
     </ClInclude>
   </ItemGroup>

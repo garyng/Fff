@@ -3,6 +3,12 @@
 
 void GameRenderer::Mutate()
 {
+	OnMouse();
+	OnKeyboard();
+}
+
+void GameRenderer::OnMouse()
+{
 	auto&& io = ImGui::GetIO();
 	if (io.WantCaptureMouse) return;
 
@@ -21,8 +27,14 @@ void GameRenderer::Mutate()
 		_position.y += deltaY * 0.1;
 	}
 	_position.z += deltaZ;
+}
 
-	if (ImGui::IsKeyPressed(_config->ToggleWireFrameMode, false))
+void GameRenderer::OnKeyboard()
+{
+	auto&& io = ImGui::GetIO();
+	if (io.WantCaptureKeyboard) return;
+
+	if (ImGui::IsKeyPressed(_config->ToggleWireFrameModeKey, false))
 	{
 		_isWireFrameMode = !_isWireFrameMode;
 		if (_isWireFrameMode)
@@ -32,6 +44,19 @@ void GameRenderer::Mutate()
 		else
 		{
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		}
+	}
+
+	if (ImGui::IsKeyPressed(_config->ToggleLightingKey, false))
+	{
+		_isLightingOn = !_isLightingOn;
+		if (_isLightingOn)
+		{
+			glEnable(GL_LIGHTING);
+		}
+		else
+		{
+			glDisable(GL_LIGHTING);
 		}
 	}
 }

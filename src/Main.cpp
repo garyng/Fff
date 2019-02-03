@@ -24,23 +24,19 @@
 #include "Config.h"
 #include "gui/Player1Gui.h"
 #include "gui/Player2Gui.h"
-#include "mutators/KeyboardMutator.h"
 #include "mutators/PlayerKeyboardMutator.h"
 #include "mutators/FreezedMutator.h"
 #include "objects/Floor.h"
 #include "gui/FloorGui.h"
+#include "init/IOnInit.h"
+#include "gui/AmbientLightGui.h"
+#include "lights/SceneSpotLight.h"
+#include "gui/SceneSpotLightGui.h"
 
 using namespace Hypodermic;
 using namespace std;
 
 std::shared_ptr<Container> _container = nullptr;
-
-class IOnInit
-{
-public:
-	virtual ~IOnInit() = default;
-	virtual void OnInit() = 0;
-};
 
 void Loop()
 {
@@ -81,8 +77,22 @@ void Init(int& argc, char** argv)
 	glShadeModel(GL_SMOOTH);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-
 	glDisable(GL_CULL_FACE);
+
+	glEnable(GL_LIGHTING);
+	glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+	glEnable(GL_COLOR_MATERIAL);
+	glEnable(GL_NORMALIZE);
+
+	glEnable(GL_LIGHT0);
+	glEnable(GL_LIGHT1);
+	glEnable(GL_LIGHT2);
+	glEnable(GL_LIGHT3);
+	glEnable(GL_LIGHT4);
+	glEnable(GL_LIGHT5);
+	glEnable(GL_LIGHT6);
+	glEnable(GL_LIGHT7);
+
 	glutDisplayFunc(Loop);
 }
 
@@ -109,7 +119,7 @@ void registerObject(ContainerBuilder& builder)
 {
 	builder.registerType<TObject>();
 	builder.registerType<TGui>()
-		.template as<ObjectGuiBase<TObject>>();
+	       .template as<ObjectGuiBase<TObject>>();
 }
 
 int main(int argc, char** argv)
@@ -119,57 +129,59 @@ int main(int argc, char** argv)
 
 	ContainerBuilder builder;
 	builder.registerType<GuiRenderer>()
-		.singleInstance();
+	       .singleInstance();
 
 	builder.registerType<GameRenderer>()
-		// .as<IOnInit>()
-		// .asSelf()
-		.singleInstance();
+	       // .as<IOnInit>()
+	       // .asSelf()
+	       .singleInstance();
 
 	builder.registerType<ObjectContainer>()
-		.singleInstance();
+	       .singleInstance();
 	builder.registerType<GuiContainer>()
-		.singleInstance();
+	       .singleInstance();
 	builder.registerType<ObjectFactory>()
-		.singleInstance();
+	       .singleInstance();
 	builder.registerType<GameService>()
-		.singleInstance();
+	       .singleInstance();
 
 	builder.registerType<IdGenerator>()
-		.singleInstance();
+	       .singleInstance();
 
 	builder.registerType<Config>()
-		.singleInstance();
+	       .singleInstance();
 
 	// DockSpace Gui must be the first
 	builder.registerType<DockSpaceGui>()
-		.singleInstance()
-		.as<IGui>();
+	       .singleInstance()
+	       .as<IGui>();
 
 	builder.registerType<DebugGui>()
-		.singleInstance()
-		.as<IGui>();
+	       .singleInstance()
+	       .as<IGui>();
 	builder.registerType<ImGuiDemoGui>()
-		.singleInstance()
-		.as<IGui>();
+	       .singleInstance()
+	       .as<IGui>();
 	builder.registerType<ObjectsDebugGui>()
-		.singleInstance()
-		.as<IGui>();
+	       .singleInstance()
+	       .as<IGui>();
 
 	builder.registerType<ConsoleLogger>()
-		.as<IChildLogger>();
+	       .as<IChildLogger>();
 	builder.registerType<GuiLogger>()
-		.as<IGui>()
-		.as<IChildLogger>()
-		.singleInstance();
+	       .as<IGui>()
+	       .as<IChildLogger>()
+	       .singleInstance();
 	builder.registerType<CompositeLogger>()
-		.as<ILogger>();
+	       .as<ILogger>();
 
 	registerObject<Triangle, TriangleGui>(builder);
 	registerObject<Cube, CubeGui>(builder);
 	registerObject<Player1, Player1Gui>(builder);
 	registerObject<Player2, Player2Gui>(builder);
 	registerObject<Floor, FloorGui>(builder);
+	registerObject<AmbientLight, AmbientLightGui>(builder);
+	registerObject<SceneSpotLight, SceneSpotLightGui>(builder);
 
 
 	builder.registerInstanceFactory([&](ComponentContext& context)
@@ -194,6 +206,8 @@ int main(int argc, char** argv)
 	_container->resolve<ObjectFactory>()->Make<Floor>();
 	_container->resolve<ObjectFactory>()->Make<Player1>();
 	_container->resolve<ObjectFactory>()->Make<Player2>();
+	_container->resolve<ObjectFactory>()->Make<AmbientLight>();
+	_container->resolve<ObjectFactory>()->Make<SceneSpotLight>();
 
 	// todo: attach all
 	// _container->resolve<MutatorFactory>()->Attach<KeyboardMutator, Cube>();

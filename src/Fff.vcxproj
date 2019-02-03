@@ -47,6 +47,7 @@
     <ClCompile Include="game\GameGui.cpp" />
     <ClCompile Include="game\GameRenderer.cpp" />
     <ClCompile Include="game\GameService.cpp" />
+    <ClCompile Include="gui\AmbientLightGui.cpp" />
     <ClCompile Include="gui\DebugGui.cpp" />
     <ClCompile Include="gui\DockSpaceGui.cpp" />
     <ClCompile Include="gui\FloorGui.cpp" />
@@ -55,6 +56,9 @@
     <ClCompile Include="gui\ObjectsDebugGui.cpp" />
     <ClCompile Include="gui\Player1Gui.cpp" />
     <ClCompile Include="gui\Player2Gui.cpp" />
+    <ClCompile Include="gui\SceneSpotLightGui.cpp" />
+    <ClCompile Include="lights\AmbientLight.cpp" />
+    <ClCompile Include="lights\SceneSpotLight.cpp" />
     <ClCompile Include="logger\CompositeLogger.cpp" />
     <ClCompile Include="logger\ConsoleLogger.cpp" />
     <ClCompile Include="logger\GuiLogger.cpp" />
@@ -90,6 +94,7 @@
     <ClInclude Include="game\GameGui.h" />
     <ClInclude Include="game\GameRenderer.h" />
     <ClInclude Include="game\GameService.h" />
+    <ClInclude Include="gui\AmbientLightGui.h" />
     <ClInclude Include="gui\CubeGui.h" />
     <ClInclude Include="gui\DebugGui.h" />
     <ClInclude Include="gui\DockSpaceGui.h" />
@@ -98,12 +103,18 @@
     <ClInclude Include="gui\GuiRenderer.h" />
     <ClInclude Include="gui\IGui.h" />
     <ClInclude Include="gui\ImGuiDemoGui.h" />
+    <ClInclude Include="gui\LightGuiBase.h" />
     <ClInclude Include="gui\ObjectsDebugGui.h" />
     <ClInclude Include="gui\Player1Gui.h" />
     <ClInclude Include="gui\Player2Gui.h" />
+    <ClInclude Include="gui\SceneSpotLightGui.h" />
     <ClInclude Include="gui\TriangleGui.h" />
     <ClInclude Include="IdGenerator.h" />
     <ClInclude Include="imgui_custom.h" />
+    <ClInclude Include="init\IOnInit.h" />
+    <ClInclude Include="lights\AmbientLight.h" />
+    <ClInclude Include="lights\ILight.h" />
+    <ClInclude Include="lights\SceneSpotLight.h" />
     <ClInclude Include="logger\CompositeLogger.h" />
     <ClInclude Include="logger\ConsoleLogger.h" />
     <ClInclude Include="logger\GuiLogger.h" />

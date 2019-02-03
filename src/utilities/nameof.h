@@ -10,5 +10,7 @@ std::string demangle(const char* name);
 template <class T>
 std::string nameof(const T& t)
 {
-	return boost::core::demangle(typeid(t).name());
+	std::string name = boost::core::demangle(typeid(t).name());
+	boost::erase_first(name, "class ");
+	return name;
 }

@@ -19,4 +19,5 @@ public:
 	}
 
 	void Render();
+	void OnKeyboard();
 };

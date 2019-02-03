@@ -23,6 +23,7 @@ private:
 	std::shared_ptr<GameService> _gameService;
 	std::shared_ptr<Config> _config;
 	bool _isWireFrameMode = false;
+	bool _isLightingOn = true;
 
 public:
 
@@ -48,6 +49,9 @@ public:
 	void Render();
 
 	void Mutate();
+
+	void OnMouse();
+	void OnKeyboard();
 
 	/*void OnInit() override
 	{

@@ -9,11 +9,12 @@ class ObjectGuiBase : public IGui
 protected:
 	std::shared_ptr<TObject> _object;
 	std::shared_ptr<IObject> _castedObject;
-	
+
 public:
 	// the object is property-injected
 	std::shared_ptr<TObject> Object() const { return _object; }
-	void Object(std::shared_ptr<TObject> value)
+
+	virtual void Object(std::shared_ptr<TObject> value)
 	{
 		_object = value;
 		_castedObject = std::static_pointer_cast<IObject>(_object);
@@ -51,7 +52,8 @@ public:
 		ImGui::Text("Position wrapping behaviour");
 
 		ImGui::PushID(0);
-		WrappingBehaviour position = DrawWrappingBehaviourRadios(static_cast<int>(_castedObject->PositionWrappingBehaviour()));
+		WrappingBehaviour position = DrawWrappingBehaviourRadios(
+			static_cast<int>(_castedObject->PositionWrappingBehaviour()));
 		_castedObject->PositionWrappingBehaviour(position);
 		ImGui::PopID();
 
@@ -64,15 +66,18 @@ public:
 		ImGui::Text("Rotation wrapping behaviour");
 
 		ImGui::PushID(1);
-		WrappingBehaviour rotation = DrawWrappingBehaviourRadios(static_cast<int>(_castedObject->RotationWrappingBehaviour()));
+		WrappingBehaviour rotation = DrawWrappingBehaviourRadios(
+			static_cast<int>(_castedObject->RotationWrappingBehaviour()));
 		_castedObject->RotationWrappingBehaviour(rotation);
 		ImGui::PopID();
 	}
 
 	WrappingBehaviour DrawWrappingBehaviourRadios(int index)
 	{
-		ImGui::RadioButton("Wrap", &index, static_cast<int>(WrappingBehaviour::Wrap)); ImGui::SameLine();
-		ImGui::RadioButton("Stop", &index, static_cast<int>(WrappingBehaviour::Stop)); ImGui::SameLine();
+		ImGui::RadioButton("Wrap", &index, static_cast<int>(WrappingBehaviour::Wrap));
+		ImGui::SameLine();
+		ImGui::RadioButton("Stop", &index, static_cast<int>(WrappingBehaviour::Stop));
+		ImGui::SameLine();
 		ImGui::RadioButton("Bounce", &index, static_cast<int>(WrappingBehaviour::Bounce));
 		return WrappingBehaviour(index); // need use function notation in gcc 5
 	}

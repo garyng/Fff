@@ -5,6 +5,8 @@
 #include "objects/Triangle.h"
 #include "objects/Cube.h"
 #include "objects/Floor.h"
+#include "lights/SceneSpotLight.h"
+
 
 void ObjectsDebugGui::Render()
 {
@@ -14,5 +16,6 @@ void ObjectsDebugGui::Render()
 	RenderButton<Floor>();
 	RenderButton<Player1>();
 	RenderButton<Player2>();
+	RenderButton<SceneSpotLight>();
 	ImGui::End();
 }
