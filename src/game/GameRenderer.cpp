@@ -21,6 +21,19 @@ void GameRenderer::Mutate()
 		_position.y += deltaY * 0.1;
 	}
 	_position.z += deltaZ;
+
+	if (ImGui::IsKeyPressed(_config->ToggleWireFrameMode, false))
+	{
+		if (_isWireFrameMode)
+		{
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		}
+		else
+		{
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		}
+		_isWireFrameMode = !_isWireFrameMode;
+	}
 }
 
 void GameRenderer::Render()

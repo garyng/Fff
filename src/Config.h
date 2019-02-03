@@ -22,6 +22,7 @@ public:
 	const PlayerKeysBinding Player1Keys{'w', 's', 'a', 'd'};
 	const PlayerKeysBinding Player2Keys{357, 359, 356, 358}; // arrow keys
 	const int ToggleTerminalKey = 96; // `
+	const int ToggleWireFrameMode = 257; // F1
 
 	// game duration
 	// disable mouse input on game
