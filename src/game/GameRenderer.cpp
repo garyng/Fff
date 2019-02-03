@@ -24,6 +24,7 @@ void GameRenderer::Mutate()
 
 	if (ImGui::IsKeyPressed(_config->ToggleWireFrameMode, false))
 	{
+		_isWireFrameMode = !_isWireFrameMode;
 		if (_isWireFrameMode)
 		{
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -32,7 +33,6 @@ void GameRenderer::Mutate()
 		{
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		}
-		_isWireFrameMode = !_isWireFrameMode;
 	}
 }
 
