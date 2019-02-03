@@ -47,6 +47,9 @@ protected:
 	// wrap position and rotation
 	void Wrap();
 
+	// move the object so that the center of the base (XZ plane) is at the center
+	void Center();
+
 	// apply delta with wrapping and transform the model
 	void Apply()
 	{

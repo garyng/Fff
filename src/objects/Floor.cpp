@@ -12,14 +12,11 @@ void Floor::Render()
 		for (size_t x = 0; x < xCount; x++)
 		{
 			glPushMatrix();
-			{
-				glTranslatef(x * _quadDimension.x, 0, z * _quadDimension.z);
-				DrawQuad();
-			}
+			glTranslatef(x * _quadDimension.x, 0, z * _quadDimension.z);
+			DrawQuad();
 			glPopMatrix();
 		}
 	}
-
 }
 
 void Floor::DrawQuad()

@@ -14,6 +14,7 @@ public:
 		: _config(config)
 	{
 		_dimension = _config->WorldDimension;
+		Center();
 	}
 
 	void Render() override;

@@ -8,6 +8,10 @@ void DebugGui::Render()
 {
 	ImGui::BeginDefault("Debug");
 
+	int maximumLights = 0;
+	glGetIntegerv(GL_MAX_LIGHTS, &maximumLights);
+	ImGui::Text("OpenGL maximum lights: %d", maximumLights);
+
 	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate,
 				ImGui::GetIO().Framerate);
 
