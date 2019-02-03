@@ -13,4 +13,5 @@ void Player::Render()
 		glScalef(0.01f, 0.01f, 0.01f);
 		glutStrokeString(GLUT_STROKE_ROMAN, (unsigned char*)nameof(*this).c_str());
 	}
+	glPopMatrix();
 }
