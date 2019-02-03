@@ -11,7 +11,7 @@ public:
 	{
 		ImGui::BeginDefault(GetName());
 
-		RenderDefault();
+		RenderDefaultControls();
 
 		ImVec4 color{ _object->Color().x, _object->Color().y, _object->Color().z, 1 };
 		ImGui::ColorEdit3("MyColor##1", (float*)&color, ImGuiColorEditFlags_Float);

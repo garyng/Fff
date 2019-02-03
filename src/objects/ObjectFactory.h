@@ -31,8 +31,10 @@ public:
 
 		std::shared_ptr<TObject> object = _container->resolve<TObject>();
 		object->Id(_idGenerator->Next());
+
 		std::shared_ptr<ObjectGuiBase<TObject>> gui = _container->resolve<ObjectGuiBase<TObject>>();
 		gui->Object(object);
+
 		_objectContainer->Add(object);
 		_guiContainer->Add(gui);
 

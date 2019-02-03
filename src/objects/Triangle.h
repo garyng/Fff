@@ -11,7 +11,7 @@ public:
 
 	void Render() override
 	{
-		ApplyTransformations();
+		Transform();
 
 		glColor3f(_color.x, _color.y, _color.z);
 		glBegin(GL_TRIANGLES);

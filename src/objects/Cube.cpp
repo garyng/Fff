@@ -5,7 +5,8 @@
 void Cube::Render()
 {
 	ApplyDeltas();
-	ApplyTransformations();
+	Wrap();
+	Transform();
 
 	glColor3f(_color.x, _color.y, _color.z);
 	glutSolidCube(1);

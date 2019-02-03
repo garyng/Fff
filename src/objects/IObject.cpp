@@ -1,7 +1,7 @@
 ﻿#include "pch.h"
 #include "IObject.h"
 
-void IObject::ApplyTransformations() const
+void IObject::Transform() const
 {
 	glTranslatef(_position.x, _position.y, _position.z);
 	glRotatef(_rotation.x, 1, 0, 0);
@@ -12,24 +12,20 @@ void IObject::ApplyTransformations() const
 
 void IObject::ApplyDeltas()
 {
-	addWithBound(_position, _deltaPosition, _minPosition, _maxPosition, _positionWrappingBehaviour);
-	addWithBound(_rotation, _deltaRotation, _minRotation, _maxRotation, _rotationWrappingBehaviour);
+	Add(_position, _deltaPosition, _minPosition, _maxPosition);
+	Add(_rotation, _deltaRotation, _minRotation, _maxRotation);
 }
 
-void IObject::addWithBound(Vector3<float>& target, Vector3<float>& increment, Vector3<float> min, Vector3<float> max,
-                           WrappingBehaviour behaviour)
+void IObject::Add(Vector3<float>& target, Vector3<float>& increment, Vector3<float> min, Vector3<float> max)
 {
 	target.x += increment.x * _elapsed;
-	wrap(target.x, increment.x, min.x, max.x, behaviour);
 	target.y += increment.y * _elapsed;
-	wrap(target.y, increment.y, min.y, max.y, behaviour);
 	target.z += increment.z * _elapsed;
-	wrap(target.z, increment.z, min.z, max.z, behaviour);
 }
 
-void IObject::wrap(float& target, float& delta, float min, float max, WrappingBehaviour behaviour)
+void IObject::Wrap(float& target, float& delta, float min, float max, WrappingBehaviour behaviour)
 {
-	// will modify delta if wrapping behavior wrap
+	// will modify delta if wrapping behavior Wrap
 	if (target < min)
 	{
 		switch (behaviour)

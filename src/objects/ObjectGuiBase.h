@@ -2,7 +2,6 @@
 #include "gui/IGui.h"
 #include "IObject.h"
 #include "utilities/nameof.h"
-#include <iostream>
 
 template <class TObject, class = IsBaseOf<TObject, IObject>>
 class ObjectGuiBase : public IGui
@@ -20,7 +19,14 @@ public:
 		_castedObject = std::static_pointer_cast<IObject>(_object);
 	}
 
-	void RenderDefault()
+	void Render() override
+	{
+		ImGui::BeginDefault(GetName());
+		RenderDefaultControls();
+		ImGui::End();
+	}
+
+	void RenderDefaultControls()
 	{
 		ImGui::Text("Scale");
 		ImGui::DragFloat("x##Scale", &_castedObject->Scale().x, 0.05, 0, 100);
@@ -62,7 +68,6 @@ public:
 		_castedObject->RotationWrappingBehaviour(rotation);
 		ImGui::PopID();
 	}
-
 
 	WrappingBehaviour DrawWrappingBehaviourRadios(int index)
 	{
