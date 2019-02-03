@@ -114,6 +114,30 @@
     <ClCompile Include="objects\Cube.cpp">
       <Filter>Source Files\objects</Filter>
     </ClCompile>
+    <ClCompile Include="mutators\PlayerKeyboardMutator.cpp">
+      <Filter>Source Files\mutators</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\Player.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\Player1.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\Player1Gui.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\Player2.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\Player2Gui.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="mutators\KeyboardMutator.cpp">
+      <Filter>Source Files\mutators</Filter>
+    </ClCompile>
+    <ClCompile Include="mutators\FreezedMutator.cpp">
+      <Filter>Source Files\mutators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\imgui\imconfig.h">
@@ -247,6 +271,30 @@
     </ClInclude>
     <ClInclude Include="Vectors.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mutators\PlayerKeyboardMutator.h">
+      <Filter>Source Files\mutators</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\Player.h">
+      <Filter>Source Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\Player1.h">
+      <Filter>Source Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\Player1Gui.h">
+      <Filter>Source Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\Player2.h">
+      <Filter>Source Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\Player2Gui.h">
+      <Filter>Source Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="mutators\KeyboardMutator.h">
+      <Filter>Source Files\mutators</Filter>
+    </ClInclude>
+    <ClInclude Include="mutators\FreezedMutator.h">
+      <Filter>Source Files\mutators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -52,14 +52,22 @@
     <ClCompile Include="gui\GuiRenderer.cpp" />
     <ClCompile Include="gui\ImGuiDemoGui.cpp" />
     <ClCompile Include="gui\ObjectsDebugGui.cpp" />
+    <ClCompile Include="gui\Player1Gui.cpp" />
+    <ClCompile Include="gui\Player2Gui.cpp" />
     <ClCompile Include="logger\CompositeLogger.cpp" />
     <ClCompile Include="logger\ConsoleLogger.cpp" />
     <ClCompile Include="logger\GuiLogger.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="mutators\FreezedMutator.cpp" />
+    <ClCompile Include="mutators\KeyboardMutator.cpp" />
     <ClCompile Include="mutators\NullMutator.cpp" />
+    <ClCompile Include="mutators\PlayerKeyboardMutator.cpp" />
     <ClCompile Include="objects\Cube.cpp" />
     <ClCompile Include="objects\IObject.cpp" />
     <ClCompile Include="objects\ObjectFactory.cpp" />
+    <ClCompile Include="objects\Player.cpp" />
+    <ClCompile Include="objects\Player1.cpp" />
+    <ClCompile Include="objects\Player2.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -88,6 +96,8 @@
     <ClInclude Include="gui\IGui.h" />
     <ClInclude Include="gui\ImGuiDemoGui.h" />
     <ClInclude Include="gui\ObjectsDebugGui.h" />
+    <ClInclude Include="gui\Player1Gui.h" />
+    <ClInclude Include="gui\Player2Gui.h" />
     <ClInclude Include="gui\TriangleGui.h" />
     <ClInclude Include="IdGenerator.h" />
     <ClInclude Include="imgui_custom.h" />
@@ -96,15 +106,21 @@
     <ClInclude Include="logger\GuiLogger.h" />
     <ClInclude Include="logger\IChildLogger.h" />
     <ClInclude Include="logger\ILogger.h" />
+    <ClInclude Include="mutators\FreezedMutator.h" />
     <ClInclude Include="mutators\IMutable.h" />
     <ClInclude Include="mutators\IMutator.h" />
+    <ClInclude Include="mutators\KeyboardMutator.h" />
     <ClInclude Include="mutators\MutatorFactory.h" />
     <ClInclude Include="mutators\NullMutator.h" />
+    <ClInclude Include="mutators\PlayerKeyboardMutator.h" />
     <ClInclude Include="objects\Cube.h" />
     <ClInclude Include="objects\IObject.h" />
     <ClInclude Include="objects\ObjectContainer.h" />
     <ClInclude Include="objects\ObjectFactory.h" />
     <ClInclude Include="objects\ObjectGuiBase.h" />
+    <ClInclude Include="objects\Player.h" />
+    <ClInclude Include="objects\Player1.h" />
+    <ClInclude Include="objects\Player2.h" />
     <ClInclude Include="objects\Triangle.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="utilities\nameof.h" />

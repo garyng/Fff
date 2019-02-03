@@ -1,5 +1,4 @@
 #include "pch.h"
-#include "Vectors.h"
 #include "imgui_custom.h"
 #include "gui/IGui.h"
 #include "gui/GuiContainer.h"
@@ -8,7 +7,6 @@
 #include "logger/ConsoleLogger.h"
 #include "logger/GuiLogger.h"
 #include "logger/CompositeLogger.h"
-#include "utilities/nameof.h"
 #include "gui/GuiRenderer.h"
 #include "game/GameRenderer.h"
 #include "objects/ObjectGuiBase.h"
@@ -24,6 +22,11 @@
 #include "gui/TriangleGui.h"
 #include "gui/CubeGui.h"
 #include "Config.h"
+#include "gui/Player1Gui.h"
+#include "gui/Player2Gui.h"
+#include "mutators/KeyboardMutator.h"
+#include "mutators/PlayerKeyboardMutator.h"
+#include "mutators/FreezedMutator.h"
 
 using namespace Hypodermic;
 using namespace std;
@@ -35,85 +38,6 @@ class IOnInit
 public:
 	virtual ~IOnInit() = default;
 	virtual void OnInit() = 0;
-};
-
-class KeyboardMutator : public IMutator
-{
-private:
-	std::shared_ptr<ILogger> _logger;
-public:
-
-	KeyboardMutator(const std::shared_ptr<ILogger>& logger)
-		: _logger(logger)
-	{
-	}
-
-	void Apply() override
-	{
-		auto&& io = ImGui::GetIO();
-		if (io.WantCaptureKeyboard) return;
-
-		// todo: extract these into configuration
-		if (io.KeysDown['w'])
-		{
-			_target->Position().z -= 0.01;
-		}
-		if (io.KeysDown['s'])
-		{
-			_target->Position().z += 0.01;
-		}
-		if (io.KeysDown['a'])
-		{
-			_target->Position().x -= 0.01;
-		}
-		if (io.KeysDown['d'])
-		{
-			_target->Position().x += 0.01;
-		}
-	}
-
-	bool CanDetach() override
-	{
-		return false;
-	}
-};
-
-// todo: example of skill
-class FreezedMutator : public IMutator
-{
-private:
-	std::shared_ptr<GameService> _gameService;
-	std::shared_ptr<ILogger> _logger;
-
-	Vector3<float> _initialPosition;
-
-public:
-	FreezedMutator(const std::shared_ptr<GameService>& gameService, const std::shared_ptr<ILogger>& logger)
-		: _gameService(gameService), _logger(logger)
-	{
-	}
-
-
-	void Apply() override
-	{
-		_target->Position().x = _initialPosition.x;
-	}
-
-	bool CanDetach() override
-	{
-		return _gameService->TotalTime() > 10;
-	}
-
-	void OnInit() override
-	{
-		_initialPosition = _target->Position();
-		_logger->Debug("Saved initial position of %1%", {nameof(*_target)});
-	}
-
-	void OnDetach() override
-	{
-		_logger->Debug("Detach %1% from %2% [#%3%]", {nameof(*this), nameof(*_target), std::to_string(_target->Id())});
-	}
 };
 
 void Loop()
@@ -183,9 +107,8 @@ void registerObject(ContainerBuilder& builder)
 {
 	builder.registerType<TObject>();
 	builder.registerType<TGui>()
-	       .template as<ObjectGuiBase<TObject>>();
+		.template as<ObjectGuiBase<TObject>>();
 }
-
 
 int main(int argc, char** argv)
 {
@@ -194,56 +117,56 @@ int main(int argc, char** argv)
 
 	ContainerBuilder builder;
 	builder.registerType<GuiRenderer>()
-	       .singleInstance();
+		.singleInstance();
 
 	builder.registerType<GameRenderer>()
-	       // .as<IOnInit>()
-	       // .asSelf()
-	       .singleInstance();
+		// .as<IOnInit>()
+		// .asSelf()
+		.singleInstance();
 
 	builder.registerType<ObjectContainer>()
-	       .singleInstance();
+		.singleInstance();
 	builder.registerType<GuiContainer>()
-	       .singleInstance();
+		.singleInstance();
 	builder.registerType<ObjectFactory>()
-	       .singleInstance();
+		.singleInstance();
 	builder.registerType<GameService>()
-	       .singleInstance();
+		.singleInstance();
 
 	builder.registerType<IdGenerator>()
-	       .singleInstance();
+		.singleInstance();
 
 	builder.registerType<Config>()
-	       .singleInstance();
+		.singleInstance();
 
 	// DockSpace Gui must be the first
 	builder.registerType<DockSpaceGui>()
-	       .singleInstance()
-	       .as<IGui>();
+		.singleInstance()
+		.as<IGui>();
 
 	builder.registerType<DebugGui>()
-	       .singleInstance()
-	       .as<IGui>();
+		.singleInstance()
+		.as<IGui>();
 	builder.registerType<ImGuiDemoGui>()
-	       .singleInstance()
-	       .as<IGui>();
-
-
+		.singleInstance()
+		.as<IGui>();
 	builder.registerType<ObjectsDebugGui>()
-	       .singleInstance()
-	       .as<IGui>();
+		.singleInstance()
+		.as<IGui>();
 
 	builder.registerType<ConsoleLogger>()
-	       .as<IChildLogger>();
+		.as<IChildLogger>();
 	builder.registerType<GuiLogger>()
-	       .as<IGui>()
-	       .as<IChildLogger>()
-	       .singleInstance();
+		.as<IGui>()
+		.as<IChildLogger>()
+		.singleInstance();
 	builder.registerType<CompositeLogger>()
-	       .as<ILogger>();
+		.as<ILogger>();
 
 	registerObject<Triangle, TriangleGui>(builder);
 	registerObject<Cube, CubeGui>(builder);
+	registerObject<Player1, Player1Gui>(builder);
+	registerObject<Player2, Player2Gui>(builder);
 
 
 	builder.registerInstanceFactory([&](ComponentContext& context)
@@ -265,9 +188,14 @@ int main(int argc, char** argv)
 
 	_container->resolve<ObjectFactory>()->Make<Triangle>();
 	_container->resolve<ObjectFactory>()->Make<Cube>();
+	_container->resolve<ObjectFactory>()->Make<Player1>();
+	_container->resolve<ObjectFactory>()->Make<Player2>();
 
+	// todo: attach all
 	_container->resolve<MutatorFactory>()->Attach<KeyboardMutator, Cube>();
 	_container->resolve<MutatorFactory>()->Attach<FreezedMutator, Cube>();
+	_container->resolve<MutatorFactory>()->Attach<PlayerKeyboardMutator, Player1>();
+	_container->resolve<MutatorFactory>()->Attach<PlayerKeyboardMutator, Player2>();
 
 
 	glutMainLoop();

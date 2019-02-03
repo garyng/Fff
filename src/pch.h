@@ -24,4 +24,8 @@ struct unary_function
 #include <coveo/linq.h>
 using namespace coveo::linq;
 
+#include "imgui_custom.h"
 #include "utilities/constraints.h"
+#include "utilities/nameof.h"
+#include "logger/ILogger.h"
+#include "Vectors.h"
