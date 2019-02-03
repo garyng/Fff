@@ -8,6 +8,7 @@ void IObject::Transform() const
 	glRotatef(_rotation.y, 0, 1, 0);
 	glRotatef(_rotation.z, 0, 0, 1);
 	glScalef(_scale.x, _scale.y, _scale.z);
+	glScalef(_normalizationScale.x, _normalizationScale.y, _normalizationScale.z);
 }
 
 void IObject::Wrap(Vector3<float>& target, Vector3<float>& delta, Vector3<float> min, Vector3<float> max,
@@ -51,7 +52,13 @@ void IObject::Wrap(float& target, float& delta, float min, float max, WrappingBe
 				target = min;
 				break;
 			case WrappingBehaviour::Bounce:
-				delta = -delta;
+				// only bounce when delta is != 0 since keyboard input wont be able to do bouncing
+				// this also implies that bouncing can be done only when using delta to control the axis
+				if (delta != 0)
+				{
+					target = min;
+					delta = -delta;
+				}
 				break;
 		}
 	}
@@ -66,7 +73,11 @@ void IObject::Wrap(float& target, float& delta, float min, float max, WrappingBe
 				target = max;
 				break;
 			case WrappingBehaviour::Bounce:
-				delta = -delta;
+				if (delta != 0)
+				{
+					target = max;
+					delta = -delta;
+				}
 				break;
 		}
 	}
@@ -77,4 +88,16 @@ void IObject::Center()
 	_position.x = -_dimension.x / 2;
 	_position.y = 0;
 	_position.z = -_dimension.z / 2;
+}
+
+void IObject::Normalize(Vector3<float> originalDimension)
+{
+	float max = std::max({originalDimension.x, originalDimension.y, originalDimension.z});
+	_dimension.x = originalDimension.x / max;
+	_dimension.y = originalDimension.y / max;
+	_dimension.z = originalDimension.z / max;
+
+	_normalizationScale.x = _dimension.x / originalDimension.x;
+	_normalizationScale.y = _dimension.y / originalDimension.y;
+	_normalizationScale.z = _dimension.z / originalDimension.z;
 }

@@ -14,6 +14,8 @@ class IObject : public IMutable, public IRemovable
 {
 protected:
 	Vector3<float> _scale{1, 1, 1};
+	// used to fit the entire model into a 1x1x1 cube
+	Vector3<float> _normalizationScale{1, 1, 1};
 	Vector3<float> _dimension{0, 0, 0};
 	Vector3<float> _position{0, 0, 0};
 	Vector3<float> _rotation{0, 0, 0};
@@ -50,6 +52,9 @@ protected:
 
 	// move the object so that the center of the base (XZ plane) is at the center
 	void Center();
+
+	// normalize the original dimension to fit into 1x1x1 cube
+	void Normalize(Vector3<float> originalDimension);
 
 	// apply delta with wrapping and transform the model
 	void Apply()
