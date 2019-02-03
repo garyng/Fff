@@ -1,13 +1,11 @@
 ﻿#include "pch.h"
 #include "GuiRenderer.h"
+#include <imgui.h>
 
 void GuiRenderer::Render()
 {
-
-	auto && io = ImGui::GetIO();
-	if (io.KeysDown[_config->ToggleTerminalKey] && io.KeysDownDuration[_config->ToggleTerminalKey] >= _config->KeyDownDuration)
+	if (ImGui::IsKeyPressed(_config->ToggleTerminalKey, false))
 	{
-		io.KeysDownDuration[_config->ToggleTerminalKey] = 0;
 		_showGui = !_showGui;
 	}
 	if (!_showGui) return;

@@ -22,8 +22,6 @@ public:
 	const PlayerKeysBinding Player1Keys{'w', 's', 'a', 'd'};
 	const PlayerKeysBinding Player2Keys{357, 359, 356, 358}; // arrow keys
 	const int ToggleTerminalKey = 96; // `
-	// duration in seconds before a key is registered as key press
-	const float KeyDownDuration = 0.2f;
 
 	// game duration
 	// disable mouse input on game
