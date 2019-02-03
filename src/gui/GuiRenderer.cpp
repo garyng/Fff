@@ -17,6 +17,7 @@ void GuiRenderer::Render()
 		// render gui that has object
 		gui->Render();
 	}
+	_guiContainer->Purge();
 }
 
 void GuiRenderer::OnKeyboard()

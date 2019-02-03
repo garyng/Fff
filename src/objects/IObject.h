@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Vectors.h"
 #include "mutators/IMutable.h"
+#include "IRemovable.h"
 
 enum class WrappingBehaviour
 {
@@ -9,7 +10,7 @@ enum class WrappingBehaviour
 	Bounce
 };
 
-class IObject : public IMutable
+class IObject : public IMutable, public IRemovable
 {
 protected:
 	Vector3<float> _scale{1, 1, 1};

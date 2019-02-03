@@ -347,6 +347,9 @@
     <ClInclude Include="gui\SceneSpotLightGui.h">
       <Filter>Source Files\gui</Filter>
     </ClInclude>
+    <ClInclude Include="IRemovable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="..\lib\imgui\misc\natvis\imgui.natvis">

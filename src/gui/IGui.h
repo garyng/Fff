@@ -1,6 +1,7 @@
 ﻿#pragma once
+#include "IRemovable.h"
 
-class IGui
+class IGui : public IRemovable
 {
 public:
 	virtual ~IGui() = default;

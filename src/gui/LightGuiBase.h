@@ -20,6 +20,8 @@ public:
 	{
 		ImGui::BeginDefault(ObjectGuiBase<TObject>::GetName());
 
+		ObjectGuiBase<TObject>::RenderDefaultControls();
+
 		ImGui::Text("Direction");
 		ImGui::DragFloat("x##Direction", &_light->Direction().x, 0.05f, -1, 1);
 		ImGui::DragFloat("y##Direction", &_light->Direction().y, 0.05f, -1, 1);
@@ -34,8 +36,6 @@ public:
 		ImGui::DragFloat("Constant attenuation", &_light->ConstantAttenuation(), 0.05f, 0, 100);
 		ImGui::DragFloat("Linear attenuation", &_light->LinearAttenuation(), 0.05f, 0, 100);
 		ImGui::DragFloat("Quadratic attenuation", &_light->QuadraticAttenuation(), 0.05f, 0, 100);
-
-		ObjectGuiBase<TObject>::RenderDefaultControls();
 
 		ImGui::End();
 	}

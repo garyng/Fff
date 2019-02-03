@@ -20,6 +20,11 @@ public:
 		_castedObject = std::static_pointer_cast<IObject>(_object);
 	}
 
+	bool CanRemove() const override
+	{
+		return _castedObject->CanRemove();
+	}
+
 	void Render() override
 	{
 		ImGui::BeginDefault(GetName());
@@ -70,6 +75,11 @@ public:
 			static_cast<int>(_castedObject->RotationWrappingBehaviour()));
 		_castedObject->RotationWrappingBehaviour(rotation);
 		ImGui::PopID();
+
+		if (ImGui::Button("Remove"))
+		{
+			_castedObject->CanRemove(true);
+		}
 	}
 
 	WrappingBehaviour DrawWrappingBehaviourRadios(int index)

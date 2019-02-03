@@ -112,6 +112,7 @@
     <ClInclude Include="IdGenerator.h" />
     <ClInclude Include="imgui_custom.h" />
     <ClInclude Include="init\IOnInit.h" />
+    <ClInclude Include="IRemovable.h" />
     <ClInclude Include="lights\AmbientLight.h" />
     <ClInclude Include="lights\ILight.h" />
     <ClInclude Include="lights\SceneSpotLight.h" />

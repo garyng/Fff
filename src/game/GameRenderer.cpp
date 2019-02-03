@@ -102,6 +102,7 @@ void GameRenderer::Render()
 					object->TryDetach();
 					glPopMatrix();
 				}
+				_objectContainer->Purge();
 			}
 			glPopMatrix();
 		}
