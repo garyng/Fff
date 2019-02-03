@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "IObject.h"
-#include "Config.h"
+#include "config/Config.h"
 #include "game/TextureService.h"
 
 class Floor : public IObject

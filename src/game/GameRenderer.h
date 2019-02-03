@@ -2,7 +2,7 @@
 #include "Vectors.h"
 #include "GameService.h"
 #include "objects/ObjectContainer.h"
-#include "Config.h"
+#include "config/Config.h"
 
 class GameRenderer // : public IOnInit
 {

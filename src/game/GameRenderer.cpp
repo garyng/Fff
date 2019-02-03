@@ -74,6 +74,22 @@ void GameRenderer::Render()
 
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
+
+
+		//// light
+		//float diffuse[]{ 1, 0, 0 };
+		//float specular[]{ 1, 0, 0 };
+		//float direction[]{ 0, 0, -1 };
+		//glLightfv(GL_LIGHT3, GL_DIFFUSE, diffuse);
+		//glLightfv(GL_LIGHT3, GL_SPECULAR, specular);
+		//glLightf(GL_LIGHT3, GL_SPOT_CUTOFF, 45);
+		//glLightf(GL_LIGHT3, GL_SPOT_EXPONENT, 10);
+		//glLightf(GL_LIGHT3, GL_CONSTANT_ATTENUATION, 1);
+		//glLightf(GL_LIGHT3, GL_LINEAR_ATTENUATION, 0.05f);
+		//float p[]{0, 0, 0, 1};
+		//glLightfv(GL_LIGHT3, GL_POSITION, p);
+		//glLightfv(GL_LIGHT3, GL_SPOT_DIRECTION, direction);
+
 		gluLookAt(_eye.x, _eye.y, _eye.z,
 		          _center.x, _center.y, _center.z,
 		          _up.x, _up.y, _up.z);
@@ -90,6 +106,7 @@ void GameRenderer::Render()
 			glRotatef(_rotation.y, 0, 1, 0);
 			glRotatef(_rotation.z, 0, 0, 1);
 			glScalef(_scale.x, _scale.y, _scale.z);
+
 
 			glPushMatrix();
 			{

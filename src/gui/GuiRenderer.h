@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "GuiContainer.h"
-#include "Config.h"
+#include "config/Config.h"
 
 class GuiRenderer
 {

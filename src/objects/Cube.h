@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "IObject.h"
-#include "Config.h"
+#include "config/Config.h"
 
 class Cube : public IObject
 {

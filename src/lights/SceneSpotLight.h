@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "ILight.h"
-#include "Config.h"
+#include "config/Config.h"
 
 class SceneSpotLight : public ILight
 {

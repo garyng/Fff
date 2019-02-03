@@ -29,3 +29,5 @@ using namespace coveo::linq;
 #include "utilities/nameof.h"
 #include "logger/ILogger.h"
 #include "Vectors.h"
+
+# define PI 3.141592653589793238462643383279502884L /* pi */

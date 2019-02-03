@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "Config.h"
+#include "config/Config.h"
 #include "ILight.h"
 
 class AmbientLight : public ILight

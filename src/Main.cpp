@@ -21,7 +21,7 @@
 #include "gui/ImGuiDemoGui.h"
 #include "gui/TriangleGui.h"
 #include "gui/CubeGui.h"
-#include "Config.h"
+#include "config/Config.h"
 #include "gui/Player1Gui.h"
 #include "gui/Player2Gui.h"
 #include "mutators/PlayerKeyboardMutator.h"
@@ -210,7 +210,7 @@ int main(int argc, char** argv)
 	_container->resolve<ObjectFactory>()->Make<Floor>();
 	_container->resolve<ObjectFactory>()->Make<Player1>();
 	_container->resolve<ObjectFactory>()->Make<Player2>();
-	_container->resolve<ObjectFactory>()->Make<AmbientLight>();
+	//_container->resolve<ObjectFactory>()->Make<AmbientLight>();	// seems better without ambient light
 	_container->resolve<ObjectFactory>()->Make<SceneSpotLight>();
 
 	// todo: attach all
