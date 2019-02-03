@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Vector3.h"
+#include "Vectors.h"
 #include "imgui_custom.h"
 #include "gui/IGui.h"
 #include "gui/GuiContainer.h"
@@ -137,15 +137,12 @@ void Loop()
 
 void Init(int& argc, char** argv)
 {
-	// Create GLUT window
 	glutInit(&argc, argv);
 	glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_MULTISAMPLE | GLUT_DEPTH);
 
-	// todo: move this into config?
 	const int height = 720;
 	const int width = 1280;
-
 
 	glutInitWindowSize(width, height);
 	glutCreateWindow("Fff: Fight For Food");
@@ -205,8 +202,6 @@ int main(int argc, char** argv)
 
 	builder.registerType<ObjectContainer>()
 	       .singleInstance();
-	/*builder.registerType<MutatorContainer>()
-	       .singleInstance();*/
 	builder.registerType<GuiContainer>()
 	       .singleInstance();
 	builder.registerType<ObjectFactory>()

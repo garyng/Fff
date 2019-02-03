@@ -108,7 +108,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="utilities\nameof.h" />
     <ClInclude Include="utilities\constraints.h" />
-    <ClInclude Include="Vector3.h" />
+    <ClInclude Include="Vectors.h" />
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="..\lib\imgui\misc\natvis\imgui.natvis" />

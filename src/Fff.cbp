@@ -64,7 +64,7 @@
 		<Unit filename="ContainerBase.h" />
 		<Unit filename="IdGenerator.h" />
 		<Unit filename="Main.cpp" />
-		<Unit filename="Vector3.h" />
+		<Unit filename="Vectors.h" />
 		<Unit filename="colors/Colors.cpp" />
 		<Unit filename="colors/Colors.h" />
 		<Unit filename="game/GameGui.cpp" />
