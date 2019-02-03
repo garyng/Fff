@@ -209,7 +209,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\freeglut\msvc\include;$(SolutionDir)..\lib\imgui;$(SolutionDir)..\lib\boost;$(SolutionDir)..\lib\Hypodermic;$(SolutionDir)..\lib\linq;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\freeglut\msvc\include;$(SolutionDir)..\lib\imgui;$(SolutionDir)..\lib\boost;$(SolutionDir)..\lib\Hypodermic;$(SolutionDir)..\lib\linq;$(ProjectDir);$(SolutionDir)..\lib\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -240,7 +240,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\freeglut\msvc\include;$(SolutionDir)..\lib\imgui;$(SolutionDir)..\lib\boost;$(SolutionDir)..\lib\Hypodermic;$(SolutionDir)..\lib\linq;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\freeglut\msvc\include;$(SolutionDir)..\lib\imgui;$(SolutionDir)..\lib\boost;$(SolutionDir)..\lib\Hypodermic;$(SolutionDir)..\lib\linq;$(ProjectDir);$(SolutionDir)..\lib\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
