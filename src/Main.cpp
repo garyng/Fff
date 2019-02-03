@@ -23,6 +23,7 @@
 #include "gui/ImGuiDemoGui.h"
 #include "gui/TriangleGui.h"
 #include "gui/CubeGui.h"
+#include "Config.h"
 
 using namespace Hypodermic;
 using namespace std;
@@ -212,8 +213,10 @@ int main(int argc, char** argv)
 	builder.registerType<IdGenerator>()
 	       .singleInstance();
 
-	// DockSpace Gui must be the first
+	builder.registerType<Config>()
+	       .singleInstance();
 
+	// DockSpace Gui must be the first
 	builder.registerType<DockSpaceGui>()
 	       .singleInstance()
 	       .as<IGui>();

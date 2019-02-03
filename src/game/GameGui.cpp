@@ -6,6 +6,10 @@ void GameGui::Render()
 {
 	ImGui::BeginDefault("Game");
 
+	ImGui::DragFloat("z Near", &_game->ZNear(), 0.05, 0.1, 100);
+	ImGui::DragFloat("z Far", &_game->ZFar(), 0.05, 100, 1000);
+	ImGui::DragFloat("Field of View", &_game->FieldOfView(), 0.1, 0, 360);
+
 	ImGui::Text("Eye");
 	ImGui::DragFloat("x##Eye", &_game->Eye().x, 0.05, 0, 100);
 	ImGui::DragFloat("y##Eye", &_game->Eye().y, 0.05, 0, 100);

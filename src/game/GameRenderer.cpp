@@ -29,10 +29,10 @@ void GameRenderer::Render()
 	{
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
-		gluPerspective(fieldOfView,
-					   aspectRatio,
-					   zNear,
-					   zFar);
+		gluPerspective(_fieldOfView,
+					   _aspectRatio,
+					   _zNear,
+					   _zFar);
 
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();

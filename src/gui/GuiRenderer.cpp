@@ -1,20 +1,13 @@
 ﻿#include "pch.h"
 #include "GuiRenderer.h"
 
-GuiRenderer::GuiRenderer(const std::vector<std::shared_ptr<IGui>>& globalGuis,
-						 const std::shared_ptr<GuiContainer>& guiContainer): _globalGuis(globalGuis),
-																			 _guiContainer(guiContainer)
-{
-}
-
 void GuiRenderer::Render()
 {
 
 	auto && io = ImGui::GetIO();
-	// todo: extract keybindings to configuration
-	if (io.KeysDown[96] && io.KeysDownDuration[96] > 0.2) // `
+	if (io.KeysDown[_config->ToggleTerminalKey] && io.KeysDownDuration[_config->ToggleTerminalKey] >= _config->KeyDownDuration)
 	{
-		io.KeysDownDuration[96] = 0;
+		io.KeysDownDuration[_config->ToggleTerminalKey] = 0;
 		_showGui = !_showGui;
 	}
 	if (!_showGui) return;

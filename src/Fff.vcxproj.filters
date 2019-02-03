@@ -37,6 +37,9 @@
     <Filter Include="Source Files\objects">
       <UniqueIdentifier>{0ba8214e-755e-44f5-ad96-78911b1e5d46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\config">
+      <UniqueIdentifier>{36c1561d-feb6-47bc-b8a6-1045cb5b9add}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -238,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="utilities\constraints.h">
       <Filter>Source Files\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Source Files\config</Filter>
     </ClInclude>
     <ClInclude Include="Vectors.h">
       <Filter>Source Files</Filter>

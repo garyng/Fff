@@ -75,6 +75,7 @@
     <ClInclude Include="..\lib\imgui\imstb_textedit.h" />
     <ClInclude Include="..\lib\imgui\imstb_truetype.h" />
     <ClInclude Include="colors\Colors.h" />
+    <ClInclude Include="Config.h" />
     <ClInclude Include="ContainerBase.h" />
     <ClInclude Include="game\GameGui.h" />
     <ClInclude Include="game\GameRenderer.h" />
