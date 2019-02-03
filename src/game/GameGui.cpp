@@ -21,9 +21,9 @@ void GameGui::Render()
 	ImGui::DragFloat("z##Center", &_game->Center().z, 0.05, 0, 100);
 
 	ImGui::Text("Scale");
-	ImGui::DragFloat("x##Scale", &_game->Scale().x, 0.05, 1, 10);
-	ImGui::DragFloat("y##Scale", &_game->Scale().y, 0.05, 1, 10);
-	ImGui::DragFloat("z##Scale", &_game->Scale().z, 0.05, 1, 10);
+	ImGui::DragFloat("x##Scale", &_game->Scale().x, 0.05, 0.1, 10);
+	ImGui::DragFloat("y##Scale", &_game->Scale().y, 0.05, 0.1, 10);
+	ImGui::DragFloat("z##Scale", &_game->Scale().z, 0.05, 0.1, 10);
 
 	ImGui::Text("Rotation");
 	ImGui::DragFloat("x##Rotation", &_game->Rotation().x, 0.05, 0, 100);
