@@ -29,24 +29,24 @@ public:
 	void RenderDefaultControls()
 	{
 		ImGui::Text("Scale");
-		ImGui::DragFloat("x##Scale", &_castedObject->Scale().x, 0.05, 0, 100);
-		ImGui::DragFloat("y##Scale", &_castedObject->Scale().y, 0.05, 0, 100);
-		ImGui::DragFloat("z##Scale", &_castedObject->Scale().z, 0.05, 0, 100);
+		ImGui::DragFloat("x##Scale", &_castedObject->Scale().x, 0.05f, 0, 100);
+		ImGui::DragFloat("y##Scale", &_castedObject->Scale().y, 0.05f, 0, 100);
+		ImGui::DragFloat("z##Scale", &_castedObject->Scale().z, 0.05f, 0, 100);
 
 		ImGui::Text("Rotation");
-		ImGui::DragFloat("x##Rotation", &_castedObject->Rotation().x, 0.05, 0, 360);
-		ImGui::DragFloat("y##Rotation", &_castedObject->Rotation().y, 0.05, 0, 360);
-		ImGui::DragFloat("z##Rotation", &_castedObject->Rotation().z, 0.05, 0, 360);
+		ImGui::DragFloat("x##Rotation", &_castedObject->Rotation().x, 0.05f, 0, 360);
+		ImGui::DragFloat("y##Rotation", &_castedObject->Rotation().y, 0.05f, 0, 360);
+		ImGui::DragFloat("z##Rotation", &_castedObject->Rotation().z, 0.05f, 0, 360);
 
 		ImGui::Text("Position");
-		ImGui::DragFloat("x##Position", &_castedObject->Position().x, 0.05, -100, 100);
-		ImGui::DragFloat("y##Position", &_castedObject->Position().y, 0.05, -100, 100);
-		ImGui::DragFloat("z##Position", &_castedObject->Position().z, 0.05, -100, 100);
+		ImGui::DragFloat("x##Position", &_castedObject->Position().x, 0.05f, -100, 100);
+		ImGui::DragFloat("y##Position", &_castedObject->Position().y, 0.05f, -100, 100);
+		ImGui::DragFloat("z##Position", &_castedObject->Position().z, 0.05f, -100, 100);
 
 		ImGui::Text("Delta position per second");
-		ImGui::DragFloat("x##Delta position", &_castedObject->DeltaPosition().x, 0.05, -100, 100);
-		ImGui::DragFloat("y##Delta position", &_castedObject->DeltaPosition().y, 0.05, -100, 100);
-		ImGui::DragFloat("z##Delta position", &_castedObject->DeltaPosition().z, 0.05, -100, 100);
+		ImGui::DragFloat("x##Delta position", &_castedObject->DeltaPosition().x, 0.05f, -100, 100);
+		ImGui::DragFloat("y##Delta position", &_castedObject->DeltaPosition().y, 0.05f, -100, 100);
+		ImGui::DragFloat("z##Delta position", &_castedObject->DeltaPosition().z, 0.05f, -100, 100);
 
 		ImGui::Text("Position wrapping behaviour");
 
@@ -57,9 +57,9 @@ public:
 
 
 		ImGui::Text("Delta rotation per second");
-		ImGui::DragFloat("x##Delta rotation", &_castedObject->DeltaRotation().x, 0.05, -360, 360);
-		ImGui::DragFloat("y##Delta rotation", &_castedObject->DeltaRotation().y, 0.05, -360, 360);
-		ImGui::DragFloat("z##Delta rotation", &_castedObject->DeltaRotation().z, 0.05, -360, 360);
+		ImGui::DragFloat("x##Delta rotation", &_castedObject->DeltaRotation().x, 0.05f, -360, 360);
+		ImGui::DragFloat("y##Delta rotation", &_castedObject->DeltaRotation().y, 0.05f, -360, 360);
+		ImGui::DragFloat("z##Delta rotation", &_castedObject->DeltaRotation().z, 0.05f, -360, 360);
 
 		ImGui::Text("Rotation wrapping behaviour");
 

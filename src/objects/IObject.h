@@ -35,25 +35,24 @@ protected:
 	// perform the transformation
 	void Transform() const;
 
-
 	void Add(Vector3<float>& target, Vector3<float>& increment, Vector3<float> min, Vector3<float> max);
 
 	// wrap an axis
 	void Wrap(float& target, float& delta, float min, float max, WrappingBehaviour behaviour);
 
 	// wrap a vector
-	void Wrap(Vector3<float>& target, Vector3<float>& delta, Vector3<float> min, Vector3<float> max, WrappingBehaviour behaviour)
-	{
-		Wrap(target.x, delta.x, min.x, max.x, behaviour);
-		Wrap(target.y, delta.y, min.y, max.y, behaviour);
-		Wrap(target.z, delta.z, min.z, max.z, behaviour);
-	}
+	void Wrap(Vector3<float>& target, Vector3<float>& delta, Vector3<float> min, Vector3<float> max,
+	          WrappingBehaviour behaviour);
 
 	// wrap position and rotation
-	void Wrap()
+	void Wrap();
+
+	// apply delta with wrapping and transform the model
+	void Apply()
 	{
-		Wrap(_position, _deltaPosition, _minPosition, _maxPosition, _positionWrappingBehaviour);
-		Wrap(_rotation, _deltaRotation, _minRotation, _maxRotation, _rotationWrappingBehaviour);
+		ApplyDeltas();
+		Wrap();
+		Transform();
 	}
 
 public:

@@ -49,6 +49,7 @@
     <ClCompile Include="game\GameService.cpp" />
     <ClCompile Include="gui\DebugGui.cpp" />
     <ClCompile Include="gui\DockSpaceGui.cpp" />
+    <ClCompile Include="gui\FloorGui.cpp" />
     <ClCompile Include="gui\GuiRenderer.cpp" />
     <ClCompile Include="gui\ImGuiDemoGui.cpp" />
     <ClCompile Include="gui\ObjectsDebugGui.cpp" />
@@ -63,6 +64,7 @@
     <ClCompile Include="mutators\NullMutator.cpp" />
     <ClCompile Include="mutators\PlayerKeyboardMutator.cpp" />
     <ClCompile Include="objects\Cube.cpp" />
+    <ClCompile Include="objects\Floor.cpp" />
     <ClCompile Include="objects\IObject.cpp" />
     <ClCompile Include="objects\ObjectFactory.cpp" />
     <ClCompile Include="objects\Player.cpp" />
@@ -91,6 +93,7 @@
     <ClInclude Include="gui\CubeGui.h" />
     <ClInclude Include="gui\DebugGui.h" />
     <ClInclude Include="gui\DockSpaceGui.h" />
+    <ClInclude Include="gui\FloorGui.h" />
     <ClInclude Include="gui\GuiContainer.h" />
     <ClInclude Include="gui\GuiRenderer.h" />
     <ClInclude Include="gui\IGui.h" />
@@ -114,6 +117,7 @@
     <ClInclude Include="mutators\NullMutator.h" />
     <ClInclude Include="mutators\PlayerKeyboardMutator.h" />
     <ClInclude Include="objects\Cube.h" />
+    <ClInclude Include="objects\Floor.h" />
     <ClInclude Include="objects\IObject.h" />
     <ClInclude Include="objects\ObjectContainer.h" />
     <ClInclude Include="objects\ObjectFactory.h" />
@@ -198,6 +202,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)..\lib\freeglut\msvc\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -228,6 +233,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

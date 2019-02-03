@@ -4,6 +4,7 @@
 #include "game/GameService.h"
 #include "Vectors.h"
 #include "IMutator.h"
+#include "objects/IObject.h"
 
 class FreezedMutator : public IMutator
 {
@@ -20,25 +21,11 @@ public:
 	}
 
 
-	void Apply() override
-	{
-		_target->Position().x = _initialPosition.x;
-		_target->Position().y = _initialPosition.y;
-		_target->Position().z = _initialPosition.z;
-	}
+	void Apply() override;
 
-	bool CanDetach() override
-	{
-		return _gameService->TotalTime() > 10;
-	}
+	bool CanDetach() override;
 
-	void OnInit() override
-	{
-		_initialPosition = _target->Position();
-	}
+	void OnInit() override;
 
-	void OnDetach() override
-	{
-		_logger->Debug("Detach %1% from %2% [#%3%]", { nameof(*this), nameof(*_target), std::to_string(_target->Id()) });
-	}
+	void OnDetach() override;
 };

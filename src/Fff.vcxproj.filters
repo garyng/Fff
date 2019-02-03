@@ -138,6 +138,12 @@
     <ClCompile Include="mutators\FreezedMutator.cpp">
       <Filter>Source Files\mutators</Filter>
     </ClCompile>
+    <ClCompile Include="objects\Floor.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\FloorGui.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\imgui\imconfig.h">
@@ -295,6 +301,12 @@
     </ClInclude>
     <ClInclude Include="mutators\FreezedMutator.h">
       <Filter>Source Files\mutators</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\Floor.h">
+      <Filter>Source Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\FloorGui.h">
+      <Filter>Source Files\gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

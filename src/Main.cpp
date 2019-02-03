@@ -27,6 +27,8 @@
 #include "mutators/KeyboardMutator.h"
 #include "mutators/PlayerKeyboardMutator.h"
 #include "mutators/FreezedMutator.h"
+#include "objects/Floor.h"
+#include "gui/FloorGui.h"
 
 using namespace Hypodermic;
 using namespace std;
@@ -167,6 +169,7 @@ int main(int argc, char** argv)
 	registerObject<Cube, CubeGui>(builder);
 	registerObject<Player1, Player1Gui>(builder);
 	registerObject<Player2, Player2Gui>(builder);
+	registerObject<Floor, FloorGui>(builder);
 
 
 	builder.registerInstanceFactory([&](ComponentContext& context)
@@ -186,14 +189,15 @@ int main(int argc, char** argv)
 	// todo: start only when user pressed key?
 	_container->resolve<GameService>()->Start();
 
-	_container->resolve<ObjectFactory>()->Make<Triangle>();
-	_container->resolve<ObjectFactory>()->Make<Cube>();
+	// _container->resolve<ObjectFactory>()->Make<Triangle>();
+	// _container->resolve<ObjectFactory>()->Make<Cube>();
+	_container->resolve<ObjectFactory>()->Make<Floor>();
 	_container->resolve<ObjectFactory>()->Make<Player1>();
 	_container->resolve<ObjectFactory>()->Make<Player2>();
 
 	// todo: attach all
-	_container->resolve<MutatorFactory>()->Attach<KeyboardMutator, Cube>();
-	_container->resolve<MutatorFactory>()->Attach<FreezedMutator, Cube>();
+	// _container->resolve<MutatorFactory>()->Attach<KeyboardMutator, Cube>();
+	// _container->resolve<MutatorFactory>()->Attach<FreezedMutator, Cube>();
 	_container->resolve<MutatorFactory>()->Attach<PlayerKeyboardMutator, Player1>();
 	_container->resolve<MutatorFactory>()->Attach<PlayerKeyboardMutator, Player2>();
 

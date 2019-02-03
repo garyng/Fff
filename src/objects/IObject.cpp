@@ -10,6 +10,20 @@ void IObject::Transform() const
 	glScalef(_scale.x, _scale.y, _scale.z);
 }
 
+void IObject::Wrap(Vector3<float>& target, Vector3<float>& delta, Vector3<float> min, Vector3<float> max,
+                   WrappingBehaviour behaviour)
+{
+	Wrap(target.x, delta.x, min.x, max.x, behaviour);
+	Wrap(target.y, delta.y, min.y, max.y, behaviour);
+	Wrap(target.z, delta.z, min.z, max.z, behaviour);
+}
+
+void IObject::Wrap()
+{
+	Wrap(_position, _deltaPosition, _minPosition, _maxPosition, _positionWrappingBehaviour);
+	Wrap(_rotation, _deltaRotation, _minRotation, _maxRotation, _rotationWrappingBehaviour);
+}
+
 void IObject::ApplyDeltas()
 {
 	Add(_position, _deltaPosition, _minPosition, _maxPosition);

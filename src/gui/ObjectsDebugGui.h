@@ -3,10 +3,6 @@
 #include "logger/ILogger.h"
 #include "objects/IObject.h"
 #include "objects/ObjectFactory.h"
-#include "utilities/nameof.h"
-#include "imgui_custom.h"
-#include "objects/Cube.h"
-#include "objects/Triangle.h"
 
 
 class ObjectsDebugGui : public IGui
@@ -24,13 +20,7 @@ public:
 	}
 
 
-	void Render() override
-	{
-		ImGui::BeginDefault("Objects");
-		RenderButton<Cube>();
-		RenderButton<Triangle>();
-		ImGui::End();
-	}
+	void Render() override;
 
 	template <class TObject, class = IsBaseOf<TObject, IObject>>
 	void RenderButton()

@@ -14,13 +14,15 @@ private:
 	Vector3<float> _position{0.0, 0.0, 0.0};
 	Vector3<float> _up{0.0, 1.0, 0.0};
 
-	float _zNear = 0.1;
-	float _zFar = 500.0;
-	float _fieldOfView = 60.0;
+	float _zNear = 0.1f;
+	float _zFar = 500.0f;
+	float _fieldOfView = 60.0f;
 	float _aspectRatio = 1;
 
 	std::shared_ptr<ObjectContainer> _objectContainer;
 	std::shared_ptr<GameService> _gameService;
+	std::shared_ptr<Config> _config;
+	bool _isWireFrameMode = false;
 
 public:
 
@@ -38,7 +40,7 @@ public:
 	GameRenderer(const std::shared_ptr<ObjectContainer>& objectContainer,
 	             const std::shared_ptr<Config>& config,
 	             const std::shared_ptr<GameService>& gameService) : _objectContainer(objectContainer),
-	                                                                _gameService(gameService)
+	                                                                _gameService(gameService), _config(config)
 	{
 		_aspectRatio = float(config->ViewportDimension.x) / float(config->ViewportDimension.y);
 	}
