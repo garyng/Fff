@@ -28,7 +28,7 @@ void Player1::Animate()
 void Player1::Render()
 {
 	Apply();
-	Animate();
+	if (HasPositionChanged()) Animate();
 	OrientDirection();
 
 	glPushMatrix();
