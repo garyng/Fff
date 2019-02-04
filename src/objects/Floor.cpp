@@ -7,9 +7,15 @@ void Floor::Render()
 	glColor3f(1, 1, 1);
 	int xCount = _dimension.x / _quadDimension.x;
 	int zCount = _dimension.z / _quadDimension.z;
-
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, _texture->Brick());
+	if (_texture->Enabled())
+	{
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, _texture->Asphalt());
+	}
+	else
+	{
+		glDisable(GL_TEXTURE_2D);
+	}
 
 	for (size_t z = 0; z < zCount; z++)
 	{

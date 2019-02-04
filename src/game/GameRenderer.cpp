@@ -37,6 +37,7 @@ void GameRenderer::OnKeyboard()
 	if (ImGui::IsKeyPressed(_config->ToggleWireFrameModeKey, false))
 	{
 		_isWireFrameMode = !_isWireFrameMode;
+		_logger->Debug("Shading mode: %1%", { _isWireFrameMode ? "Wireframe" : "Fill" });
 		if (_isWireFrameMode)
 		{
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -50,6 +51,7 @@ void GameRenderer::OnKeyboard()
 	if (ImGui::IsKeyPressed(_config->ToggleLightingKey, false))
 	{
 		_isLightingOn = !_isLightingOn;
+		_logger->Debug("Lighting: %1%", { _isLightingOn ? "enabled" : "disabled" });
 		if (_isLightingOn)
 		{
 			glEnable(GL_LIGHTING);
@@ -58,6 +60,12 @@ void GameRenderer::OnKeyboard()
 		{
 			glDisable(GL_LIGHTING);
 		}
+	}
+
+	if (ImGui::IsKeyPressed(_config->ToggleTextureKey, false))
+	{
+		_textureService->Enabled(!_textureService->Enabled());
+		_logger->Debug("Texture: %1%", {_textureService->Enabled() ? "enabled" : "disabled"});
 	}
 }
 
@@ -100,7 +108,6 @@ void GameRenderer::Render()
 		{
 			Mutate();
 			_gameService->IncrementTime();
-
 			glTranslatef(_position.x, _position.y, _position.z);
 			glRotatef(_rotation.x, 1, 0, 0);
 			glRotatef(_rotation.y, 0, 1, 0);
@@ -113,10 +120,12 @@ void GameRenderer::Render()
 				for (auto&& object : _objectContainer->All())
 				{
 					glPushMatrix();
+					glPushAttrib(GL_CURRENT_BIT);
 					object->Elapsed(_gameService->DeltaTime());
 					object->Mutate();
 					object->Render();
 					object->TryDetach();
+					glPopAttrib();
 					glPopMatrix();
 				}
 				_objectContainer->Purge();

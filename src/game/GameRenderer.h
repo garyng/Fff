@@ -3,16 +3,17 @@
 #include "GameService.h"
 #include "objects/ObjectContainer.h"
 #include "config/Config.h"
+#include "TextureService.h"
 
 class GameRenderer // : public IOnInit
 {
 private:
-	Vector3<float> _eye{ 0.0f, 1.0f, 40.0f };
-	Vector3<float> _center{ 0.0f, 0.0f, 0.0f };
-	Vector3<float> _scale{ 1.0f, 1.0f, 1.0f };
-	Vector3<float> _rotation{ 35.0f, 0.0f, 0.0f };
-	Vector3<float> _position{ 0.0f, 0.0f, 0.0f };
-	Vector3<float> _up{ 0.0f, 1.0f, 0.0f };
+	Vector3<float> _eye{0.0f, 1.0f, 40.0f};
+	Vector3<float> _center{0.0f, 0.0f, 0.0f};
+	Vector3<float> _scale{1.0f, 1.0f, 1.0f};
+	Vector3<float> _rotation{35.0f, 0.0f, 0.0f};
+	Vector3<float> _position{0.0f, 0.0f, 0.0f};
+	Vector3<float> _up{0.0f, 1.0f, 0.0f};
 
 	float _zNear = 0.1f;
 	float _zFar = 500.0f;
@@ -24,6 +25,8 @@ private:
 	std::shared_ptr<Config> _config;
 	bool _isWireFrameMode = false;
 	bool _isLightingOn = true;
+	std::shared_ptr<TextureService> _textureService;
+	std::shared_ptr<ILogger> _logger;
 
 public:
 
@@ -40,8 +43,13 @@ public:
 
 	GameRenderer(const std::shared_ptr<ObjectContainer>& objectContainer,
 	             const std::shared_ptr<Config>& config,
-	             const std::shared_ptr<GameService>& gameService) : _objectContainer(objectContainer),
-	                                                                _gameService(gameService), _config(config)
+	             const std::shared_ptr<TextureService>& textureService,
+	             const std::shared_ptr<ILogger>& logger,
+	             const std::shared_ptr<GameService>& gameService) :
+		_objectContainer(objectContainer),
+		_gameService(gameService), _config(config),
+		_textureService(textureService),
+		_logger(logger)
 	{
 		_aspectRatio = float(config->ViewportDimension.x) / float(config->ViewportDimension.y);
 	}

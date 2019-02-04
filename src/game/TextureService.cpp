@@ -11,6 +11,7 @@ void TextureService::LoadAll()
 	_brick = Load(_config->BrickTexturePath);
 	_sand = Load(_config->SandTexturePath);
 	_marble = Load(_config->MarbleTexturePath);
+	_asphalt = Load(_config->AsphaltTexturePath);
 }
 
 unsigned TextureService::Load(std::string filepath)

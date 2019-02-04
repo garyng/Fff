@@ -24,10 +24,12 @@ public:
 	const int ToggleTerminalKey = 96; // `
 	const int ToggleWireFrameModeKey = 257; // F1
 	const int ToggleLightingKey = 258; // F2
+	const int ToggleTextureKey = 259; // F3
 
 	const std::string BrickTexturePath = "textures/brick.jpg";
 	const std::string SandTexturePath = "textures/sand.jpg";
 	const std::string MarbleTexturePath = "textures/marble.png";
+	const std::string AsphaltTexturePath = "textures/asphalt.jpg";
 
 	// game duration
 	// disable mouse input on game
