@@ -31,16 +31,7 @@ public:
 	Vector3<float>& DeltaMovement() { return _deltaMovement; }
 
 	void OrientDirection();
-
-	bool HasPositionChanged()
-	{
-		bool changed = (_lastPosition.x - _position.x != 0) ||
-			(_lastPosition.y - _position.y != 0) ||
-			(_lastPosition.z - _position.z != 0);
-
-		_lastPosition = _position;
-		return changed;
-	}
+	bool HasPositionChanged();
 
 	void Render() override;
 };

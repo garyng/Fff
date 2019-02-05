@@ -10,6 +10,16 @@ void Player::OrientDirection()
 	// _logger->Debug("%1% direction: %2% degree", {nameof(*this), std::to_string(angle)});
 }
 
+bool Player::HasPositionChanged()
+{
+	bool changed = (_lastPosition.x - _position.x != 0) ||
+		(_lastPosition.y - _position.y != 0) ||
+		(_lastPosition.z - _position.z != 0);
+
+	_lastPosition = _position;
+	return changed;
+}
+
 void Player::Render()
 {
 	// todo: only self animations use delta, in this case if the player has it own animation, it should store them in other places
