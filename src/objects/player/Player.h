@@ -1,6 +1,6 @@
 ﻿#pragma once
-#include "IObject.h"
 #include "config/Config.h"
+#include "objects/IObject.h"
 
 
 class Player : public IObject

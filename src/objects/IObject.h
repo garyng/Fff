@@ -50,9 +50,6 @@ protected:
 	// wrap position and rotation
 	void Wrap();
 
-	// move the object so that the center of the base (XZ plane) is at the center
-	void Center();
-
 	// normalize the original dimension to fit into 1x1x1 cube
 	void Normalize(Vector3<float> originalDimension);
 

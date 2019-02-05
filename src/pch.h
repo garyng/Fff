@@ -31,3 +31,6 @@ using namespace coveo::linq;
 #include "Vectors.h"
 
 # define PI 3.141592653589793238462643383279502884L /* pi */
+
+#include <boost/format.hpp>
+#include <boost/core/demangle.hpp>

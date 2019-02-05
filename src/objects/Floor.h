@@ -18,7 +18,7 @@ public:
 		  _texture(textureService)
 	{
 		_dimension = _config->WorldDimension;
-		Center();
+		_position = Vector3<float>{-_dimension.x / 2, 0, -_dimension.z / 2};
 	}
 
 	void Render() override;

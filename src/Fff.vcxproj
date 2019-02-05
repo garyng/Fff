@@ -55,8 +55,8 @@
     <ClCompile Include="gui\GuiRenderer.cpp" />
     <ClCompile Include="gui\ImGuiDemoGui.cpp" />
     <ClCompile Include="gui\ObjectsDebugGui.cpp" />
-    <ClCompile Include="gui\Player1Gui.cpp" />
-    <ClCompile Include="gui\Player2Gui.cpp" />
+    <ClCompile Include="gui\player\Player1Gui.cpp" />
+    <ClCompile Include="gui\player\Player2Gui.cpp" />
     <ClCompile Include="gui\SceneSpotLightGui.cpp" />
     <ClCompile Include="lights\AmbientLight.cpp" />
     <ClCompile Include="lights\SceneSpotLight.cpp" />
@@ -70,11 +70,12 @@
     <ClCompile Include="mutators\PlayerKeyboardMutator.cpp" />
     <ClCompile Include="objects\Cube.cpp" />
     <ClCompile Include="objects\Floor.cpp" />
+    <ClCompile Include="objects\food\IceCream.cpp" />
     <ClCompile Include="objects\IObject.cpp" />
     <ClCompile Include="objects\ObjectFactory.cpp" />
-    <ClCompile Include="objects\Player.cpp" />
-    <ClCompile Include="objects\Player1.cpp" />
-    <ClCompile Include="objects\Player2.cpp" />
+    <ClCompile Include="objects\player\Player.cpp" />
+    <ClCompile Include="objects\player\Player1.cpp" />
+    <ClCompile Include="objects\player\Player2.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -107,8 +108,8 @@
     <ClInclude Include="gui\ImGuiDemoGui.h" />
     <ClInclude Include="gui\LightGuiBase.h" />
     <ClInclude Include="gui\ObjectsDebugGui.h" />
-    <ClInclude Include="gui\Player1Gui.h" />
-    <ClInclude Include="gui\Player2Gui.h" />
+    <ClInclude Include="gui\player\Player1Gui.h" />
+    <ClInclude Include="gui\player\Player2Gui.h" />
     <ClInclude Include="gui\SceneSpotLightGui.h" />
     <ClInclude Include="gui\TriangleGui.h" />
     <ClInclude Include="IdGenerator.h" />
@@ -132,13 +133,15 @@
     <ClInclude Include="mutators\PlayerKeyboardMutator.h" />
     <ClInclude Include="objects\Cube.h" />
     <ClInclude Include="objects\Floor.h" />
+    <ClInclude Include="objects\food\IceCream.h" />
+    <ClInclude Include="objects\food\IFood.h" />
     <ClInclude Include="objects\IObject.h" />
     <ClInclude Include="objects\ObjectContainer.h" />
     <ClInclude Include="objects\ObjectFactory.h" />
     <ClInclude Include="objects\ObjectGuiBase.h" />
-    <ClInclude Include="objects\Player.h" />
-    <ClInclude Include="objects\Player1.h" />
-    <ClInclude Include="objects\Player2.h" />
+    <ClInclude Include="objects\player\Player.h" />
+    <ClInclude Include="objects\player\Player1.h" />
+    <ClInclude Include="objects\player\Player2.h" />
     <ClInclude Include="objects\Triangle.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="utilities\nameof.h" />
@@ -217,6 +220,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)..\lib\freeglut\msvc\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -249,6 +253,7 @@ xcopy "$(SolutionDir)textures" "$(TargetDir)textures" /s /i /y /d</Command>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

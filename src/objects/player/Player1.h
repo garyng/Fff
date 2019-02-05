@@ -16,7 +16,6 @@ public:
 		Normalize({14, 25, 8});
 		_scale = Vector3<float>{3, 3, 3};
 		_direction = Vector3<float>{0, 0, 1};
-		Center();
 	}
 
 	void Animate();

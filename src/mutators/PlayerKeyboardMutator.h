@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "IMutator.h"
-#include "objects/Player.h"
+#include "objects/player/Player.h"
 
 class PlayerKeyboardMutator : public IMutator
 {

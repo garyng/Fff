@@ -17,7 +17,6 @@ public:
 		// todo: move this scaling into normalize?
 		_scale = Vector3<float>{ 3, 3, 3 };
 		_direction = Vector3<float>{ 0,0,1 };
-		Center();
 	}
 
 	void Animate();

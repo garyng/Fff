@@ -46,6 +46,24 @@
     <Filter Include="Source Files\lights">
       <UniqueIdentifier>{81a0b735-d4c7-48a2-9e90-94eb63c1baf6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\objects\player">
+      <UniqueIdentifier>{cfd35674-3c0f-4c49-84d4-f742681b3a66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\objects\food">
+      <UniqueIdentifier>{06eb7cf9-f0ca-4f56-ad7c-12ff622bb468}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\objects\skill">
+      <UniqueIdentifier>{c3926f52-41f6-4aa7-9256-9ec265a26a22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\food">
+      <UniqueIdentifier>{afa14550-31d5-43d6-84cd-ee214428742f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\skill">
+      <UniqueIdentifier>{0f9980f9-6e83-4b47-a2d0-efb886c57e9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\player">
+      <UniqueIdentifier>{a2ed35f7-ff21-4002-a2c1-056ec557076f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -123,21 +141,6 @@
     <ClCompile Include="mutators\PlayerKeyboardMutator.cpp">
       <Filter>Source Files\mutators</Filter>
     </ClCompile>
-    <ClCompile Include="objects\Player.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\Player1.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="gui\Player1Gui.cpp">
-      <Filter>Source Files\gui</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\Player2.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="gui\Player2Gui.cpp">
-      <Filter>Source Files\gui</Filter>
-    </ClCompile>
     <ClCompile Include="mutators\KeyboardMutator.cpp">
       <Filter>Source Files\mutators</Filter>
     </ClCompile>
@@ -164,6 +167,24 @@
     </ClCompile>
     <ClCompile Include="game\TextureService.cpp">
       <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\player\Player.cpp">
+      <Filter>Source Files\objects\player</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\player\Player1.cpp">
+      <Filter>Source Files\objects\player</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\player\Player2.cpp">
+      <Filter>Source Files\objects\player</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\player\Player1Gui.cpp">
+      <Filter>Source Files\gui\player</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\player\Player2Gui.cpp">
+      <Filter>Source Files\gui\player</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\food\IceCream.cpp">
+      <Filter>Source Files\objects\food</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -299,21 +320,6 @@
     <ClInclude Include="mutators\PlayerKeyboardMutator.h">
       <Filter>Source Files\mutators</Filter>
     </ClInclude>
-    <ClInclude Include="objects\Player.h">
-      <Filter>Source Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="objects\Player1.h">
-      <Filter>Source Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="gui\Player1Gui.h">
-      <Filter>Source Files\gui</Filter>
-    </ClInclude>
-    <ClInclude Include="objects\Player2.h">
-      <Filter>Source Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="gui\Player2Gui.h">
-      <Filter>Source Files\gui</Filter>
-    </ClInclude>
     <ClInclude Include="mutators\KeyboardMutator.h">
       <Filter>Source Files\mutators</Filter>
     </ClInclude>
@@ -355,6 +361,27 @@
     </ClInclude>
     <ClInclude Include="config\Config.h">
       <Filter>Source Files\config</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\player\Player.h">
+      <Filter>Source Files\objects\player</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\player\Player1.h">
+      <Filter>Source Files\objects\player</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\player\Player2.h">
+      <Filter>Source Files\objects\player</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\player\Player1Gui.h">
+      <Filter>Source Files\gui\player</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\player\Player2Gui.h">
+      <Filter>Source Files\gui\player</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\food\IceCream.h">
+      <Filter>Source Files\objects\food</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\food\IFood.h">
+      <Filter>Source Files\objects\food</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

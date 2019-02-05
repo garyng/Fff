@@ -24,6 +24,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-Wa,-mbig-obj" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -67,7 +68,6 @@
 		<Unit filename="../lib/imgui/imgui_widgets.cpp">
 			<Option virtualFolder="imgui/" />
 		</Unit>
-		<Unit filename="Config.h" />
 		<Unit filename="ContainerBase.h" />
 		<Unit filename="IRemovable.h" />
 		<Unit filename="IdGenerator.h" />
@@ -75,12 +75,15 @@
 		<Unit filename="Vectors.h" />
 		<Unit filename="colors/Colors.cpp" />
 		<Unit filename="colors/Colors.h" />
+		<Unit filename="config/Config.h" />
 		<Unit filename="game/GameGui.cpp" />
 		<Unit filename="game/GameGui.h" />
 		<Unit filename="game/GameRenderer.cpp" />
 		<Unit filename="game/GameRenderer.h" />
 		<Unit filename="game/GameService.cpp" />
 		<Unit filename="game/GameService.h" />
+		<Unit filename="game/TextureService.cpp" />
+		<Unit filename="game/TextureService.h" />
 		<Unit filename="gui/AmbientLightGui.cpp" />
 		<Unit filename="gui/AmbientLightGui.h" />
 		<Unit filename="gui/CubeGui.h" />
@@ -99,13 +102,13 @@
 		<Unit filename="gui/LightGuiBase.h" />
 		<Unit filename="gui/ObjectsDebugGui.cpp" />
 		<Unit filename="gui/ObjectsDebugGui.h" />
-		<Unit filename="gui/Player1Gui.cpp" />
-		<Unit filename="gui/Player1Gui.h" />
-		<Unit filename="gui/Player2Gui.cpp" />
-		<Unit filename="gui/Player2Gui.h" />
 		<Unit filename="gui/SceneSpotLightGui.cpp" />
 		<Unit filename="gui/SceneSpotLightGui.h" />
 		<Unit filename="gui/TriangleGui.h" />
+		<Unit filename="gui/player/Player1Gui.cpp" />
+		<Unit filename="gui/player/Player1Gui.h" />
+		<Unit filename="gui/player/Player2Gui.cpp" />
+		<Unit filename="gui/player/Player2Gui.h" />
 		<Unit filename="imgui_custom.h" />
 		<Unit filename="init/IOnInit.h" />
 		<Unit filename="lights/AmbientLight.cpp" />
@@ -142,13 +145,16 @@
 		<Unit filename="objects/ObjectFactory.cpp" />
 		<Unit filename="objects/ObjectFactory.h" />
 		<Unit filename="objects/ObjectGuiBase.h" />
-		<Unit filename="objects/Player.cpp" />
-		<Unit filename="objects/Player.h" />
-		<Unit filename="objects/Player1.cpp" />
-		<Unit filename="objects/Player1.h" />
-		<Unit filename="objects/Player2.cpp" />
-		<Unit filename="objects/Player2.h" />
 		<Unit filename="objects/Triangle.h" />
+		<Unit filename="objects/food/IFood.h" />
+		<Unit filename="objects/food/IceCream.cpp" />
+		<Unit filename="objects/food/IceCream.h" />
+		<Unit filename="objects/player/Player.cpp" />
+		<Unit filename="objects/player/Player.h" />
+		<Unit filename="objects/player/Player1.cpp" />
+		<Unit filename="objects/player/Player1.h" />
+		<Unit filename="objects/player/Player2.cpp" />
+		<Unit filename="objects/player/Player2.h" />
 		<Unit filename="pch.cpp" />
 		<Unit filename="pch.h" />
 		<Unit filename="utilities/constraints.h" />

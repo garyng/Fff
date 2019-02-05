@@ -83,13 +83,6 @@ void IObject::Wrap(float& target, float& delta, float min, float max, WrappingBe
 	}
 }
 
-void IObject::Center()
-{
-	_position.x = -_dimension.x / 2;
-	_position.y = 0;
-	_position.z = -_dimension.z / 2;
-}
-
 void IObject::Normalize(Vector3<float> originalDimension)
 {
 	float max = std::max({originalDimension.x, originalDimension.y, originalDimension.z});
