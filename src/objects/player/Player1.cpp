@@ -32,6 +32,8 @@ void Player1::Render()
 	if (HasPositionChanged()) Animate();
 	OrientDirection();
 
+	RenderStats(35);
+
 	glPushMatrix();
 	glTranslatef(0.0f, 21.0f, 0.0f);
 	Head();

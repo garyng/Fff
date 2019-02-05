@@ -15,6 +15,8 @@ void Player2::Render()
 	if (HasPositionChanged()) Animate();
 	OrientDirection();
 
+	RenderStats(35);
+
 	GLUquadricObj* pObj = gluNewQuadric();
 
 	// left foot

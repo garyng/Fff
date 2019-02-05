@@ -143,6 +143,7 @@
     <ClInclude Include="objects\player\Player2.h" />
     <ClInclude Include="objects\Triangle.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="utilities\gl.h" />
     <ClInclude Include="utilities\nameof.h" />
     <ClInclude Include="utilities\constraints.h" />
     <ClInclude Include="Vectors.h" />

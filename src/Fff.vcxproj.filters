@@ -380,6 +380,9 @@
     <ClInclude Include="gui\player\PlayerGuiBase.h">
       <Filter>Source Files\gui\player</Filter>
     </ClInclude>
+    <ClInclude Include="utilities\gl.h">
+      <Filter>Source Files\utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="..\lib\imgui\misc\natvis\imgui.natvis">

@@ -20,6 +20,22 @@ bool Player::HasPositionChanged()
 	return changed;
 }
 
+void Player::RenderStats(float height)
+{
+	glPushAttrib(GL_LINE_BIT);
+	glPushMatrix();
+	{
+		
+		glLineWidth(5);
+		glColor3f(1, 1, 1);
+		glTranslatef(0, height, 0);
+		glScalef(0.05f, 0.05f, 0.05f);
+		glutStrokeString(nameof(*this) + "\nScore: " + std::to_string(_score));
+	}
+	glPopMatrix();
+	glPopAttrib();
+}
+
 void Player::Render()
 {
 	// todo: only self animations use delta, in this case if the player has it own animation, it should store them in other places
