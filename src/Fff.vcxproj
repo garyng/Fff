@@ -55,8 +55,6 @@
     <ClCompile Include="gui\GuiRenderer.cpp" />
     <ClCompile Include="gui\ImGuiDemoGui.cpp" />
     <ClCompile Include="gui\ObjectsDebugGui.cpp" />
-    <ClCompile Include="gui\player\Player1Gui.cpp" />
-    <ClCompile Include="gui\player\Player2Gui.cpp" />
     <ClCompile Include="gui\SceneSpotLightGui.cpp" />
     <ClCompile Include="lights\AmbientLight.cpp" />
     <ClCompile Include="lights\SceneSpotLight.cpp" />
@@ -109,8 +107,7 @@
     <ClInclude Include="gui\ImGuiDemoGui.h" />
     <ClInclude Include="gui\LightGuiBase.h" />
     <ClInclude Include="gui\ObjectsDebugGui.h" />
-    <ClInclude Include="gui\player\Player1Gui.h" />
-    <ClInclude Include="gui\player\Player2Gui.h" />
+    <ClInclude Include="gui\player\PlayerGuiBase.h" />
     <ClInclude Include="gui\SceneSpotLightGui.h" />
     <ClInclude Include="gui\TriangleGui.h" />
     <ClInclude Include="IdGenerator.h" />

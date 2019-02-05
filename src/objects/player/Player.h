@@ -19,6 +19,7 @@ protected:
 public:
 	PlayerKeysBinding KeyBindings() const { return _keyBindings; }
 	Vector3<float>& Direction() { return _direction; }
+	Vector3<float>& DeltaMovement() { return _deltaMovement; }
 
 	Player(const std::shared_ptr<Config>& config,
 	       const std::shared_ptr<ILogger>& logger) : _config(config),
@@ -27,8 +28,6 @@ public:
 		_minPosition = _config->WorldMin;
 		_maxPosition = _config->WorldMax;
 	}
-
-	Vector3<float>& DeltaMovement() { return _deltaMovement; }
 
 	void OrientDirection();
 	bool HasPositionChanged();

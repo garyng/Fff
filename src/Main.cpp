@@ -22,8 +22,6 @@
 #include "gui/TriangleGui.h"
 #include "gui/CubeGui.h"
 #include "config/Config.h"
-#include "gui/player/Player1Gui.h"
-#include "gui/player/Player2Gui.h"
 #include "mutators/PlayerKeyboardMutator.h"
 #include "mutators/FreezedMutator.h"
 #include "objects/Floor.h"
@@ -35,6 +33,9 @@
 #include "game/TextureService.h"
 #include "objects/food/IceCream.h"
 #include "objects/Grid.h"
+#include "gui/player/PlayerGuiBase.h"
+#include "objects/player/Player2.h"
+#include "objects/player/Player1.h"
 
 using namespace Hypodermic;
 using namespace std;
@@ -133,6 +134,15 @@ void registerObject(ContainerBuilder& builder)
 }
 
 
+template <class TObject, class = IsBaseOf<TObject, Player>>
+void registerPlayer(ContainerBuilder& builder)
+{
+	builder.registerType<TObject>();
+	builder.registerType<PlayerGuiBase<TObject>>()
+	       .template as<ObjectGuiBase<TObject>>();
+}
+
+
 int main(int argc, char** argv)
 {
 	Init(argc, argv);
@@ -190,13 +200,13 @@ int main(int argc, char** argv)
 
 	registerObjectWithCustomGui<Triangle, TriangleGui>(builder);
 	registerObjectWithCustomGui<Cube, CubeGui>(builder);
-	registerObjectWithCustomGui<Player1, Player1Gui>(builder);
-	registerObjectWithCustomGui<Player2, Player2Gui>(builder);
 	registerObjectWithCustomGui<Floor, FloorGui>(builder);
 	registerObjectWithCustomGui<AmbientLight, AmbientLightGui>(builder);
 	registerObjectWithCustomGui<SceneSpotLight, SceneSpotLightGui>(builder);
 	registerObject<IceCream>(builder);
 	registerObject<Grid>(builder);
+	registerPlayer<Player1>(builder);
+	registerPlayer<Player2>(builder);
 
 
 	builder.registerInstanceFactory([&](ComponentContext& context)
