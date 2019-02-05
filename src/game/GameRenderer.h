@@ -59,6 +59,7 @@ public:
 
 	void OnMouse();
 	void OnKeyboard();
+	void BoundingBox(Vector3<float> min, Vector3<float> max);
 
 	/*void OnInit() override
 	{

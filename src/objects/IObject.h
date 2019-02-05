@@ -86,12 +86,12 @@ public:
 
 	Vector3<float> BoundingBoxMin() const
 	{
-		return {_position.x - _dimension.x, _position.y - _dimension.y, _position.z - _dimension.z};
+		return { _position.x - _dimension.x / 2, _position.y, _position.z - _dimension.z / 2 };
 	}
 
 	Vector3<float> BoundingBoxMax() const
 	{
-		return {_position.x + _dimension.x, _position.y + _dimension.y, _position.z + _dimension.z};
+		return { _position.x + _dimension.x / 2, _position.y + _dimension.y, _position.z + _dimension.z / 2 };
 	}
 
 	WrappingBehaviour PositionWrappingBehaviour() const { return _positionWrappingBehaviour; }

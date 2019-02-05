@@ -17,6 +17,7 @@ private:
 	bool _isLightingEnabled = true;
 	bool _isTextureEnabled = true;
 	bool _isGridEnabled = false;
+	bool _isBoundingBoxEnabled = true;
 	std::shared_ptr<ILogger> _logger;
 
 
@@ -40,6 +41,7 @@ public:
 	const int ToggleLightingKey = 258; // F2
 	const int ToggleTextureKey = 259; // F3
 	const int ToggleGridKey = 260; // F4
+	const int ToggleBoundingBoxKey = 261; // F5
 
 	const std::string BrickTexturePath = "textures/brick.jpg";
 	const std::string SandTexturePath = "textures/sand.jpg";
@@ -87,6 +89,14 @@ public:
 		: _logger(logger)
 	{
 	}
+
+	bool IsBoundingBoxEnabled() const { return _isBoundingBoxEnabled; }
+	void IsBoundingBoxEnabled(bool value)
+	{
+		_isBoundingBoxEnabled = value;
+		LogBoolean("Bounding box", value);
+	}
+	
 
 
 	// game duration

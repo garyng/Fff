@@ -53,6 +53,10 @@ void GameRenderer::OnKeyboard()
 	{
 		_config->IsTextureEnabled(!_config->IsTextureEnabled());
 	}
+	if (ImGui::IsKeyPressed(_config->ToggleBoundingBoxKey, false))
+	{
+		_config->IsBoundingBoxEnabled(!_config->IsBoundingBoxEnabled());
+	}
 
 
 	if (_config->IsWireframeEnabled())
@@ -72,6 +76,74 @@ void GameRenderer::OnKeyboard()
 	{
 		glDisable(GL_LIGHTING);
 	}
+}
+
+
+void GameRenderer::BoundingBox(Vector3<float> min, Vector3<float> max)
+{
+	glPushAttrib(GL_POLYGON_BIT);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	auto quad = [&](float xmin, float ymin, float xmax, float ymax, float z)
+	{
+		glBegin(GL_TRIANGLE_STRIP);
+		glVertex3f(xmin, ymin, z);
+		glVertex3f(xmax, ymin, z);
+		glVertex3f(xmin, ymax, z);
+		glVertex3f(xmax, ymax, z);
+		glVertex3f(xmin, ymin, z);
+		glEnd();
+	};
+
+	glBegin(GL_TRIANGLE_STRIP);
+	glVertex3f(min.x, min.y, min.z);
+	glVertex3f(max.x, min.y, min.z);
+	glVertex3f(min.x, max.y, min.z);
+	glVertex3f(max.x, max.y, min.z);
+	glVertex3f(min.x, min.y, min.z);
+	glEnd();
+
+
+	glBegin(GL_TRIANGLE_STRIP);
+	glVertex3f(min.x, min.y, max.z);
+	glVertex3f(max.x, min.y, max.z);
+	glVertex3f(min.x, max.y, max.z);
+	glVertex3f(max.x, max.y, max.z);
+	glVertex3f(min.x, min.y, max.z);
+	glEnd();
+
+
+	glBegin(GL_TRIANGLE_STRIP);
+	glVertex3f(min.x, max.y, min.z);
+	glVertex3f(max.x, max.y, min.z);
+	glVertex3f(min.x, max.y, max.z);
+	glVertex3f(max.x, max.y, max.z);
+	glVertex3f(min.x, max.y, min.z);
+	glEnd();
+
+	glBegin(GL_TRIANGLE_STRIP);
+	glVertex3f(min.x, min.y, min.z);
+	glVertex3f(max.x, min.y, min.z);
+	glVertex3f(min.x, min.y, max.z);
+	glVertex3f(max.x, min.y, max.z);
+	glVertex3f(min.x, min.y, min.z);
+	glEnd();
+
+	glBegin(GL_TRIANGLE_STRIP);
+	glVertex3f(min.x, min.y, min.z);
+	glVertex3f(min.x, max.y, min.z);
+	glVertex3f(min.x, min.y, max.z);
+	glVertex3f(min.x, max.y, max.z);
+	glVertex3f(min.x, min.y, min.z);
+	glEnd();
+
+	glBegin(GL_TRIANGLE_STRIP);
+	glVertex3f(max.x, min.y, min.z);
+	glVertex3f(max.x, max.y, min.z);
+	glVertex3f(max.x, min.y, max.z);
+	glVertex3f(max.x, max.y, max.z);
+	glVertex3f(max.x, min.y, min.z);
+	glEnd();
+	glPopAttrib();
 }
 
 void GameRenderer::Render()
@@ -124,12 +196,26 @@ void GameRenderer::Render()
 			{
 				for (auto&& object : _objectContainer->All())
 				{
+					if (_config->IsBoundingBoxEnabled())
+					{
+						glPushMatrix();
+						glPushAttrib(GL_CURRENT_BIT);
+						{
+							glColor3f(1, 0, 0);
+							BoundingBox(object->BoundingBoxMin(), object->BoundingBoxMax());
+						}
+						glPopAttrib();
+						glPopMatrix();
+					}
+
 					glPushMatrix();
 					glPushAttrib(GL_CURRENT_BIT);
-					object->Elapsed(_gameService->DeltaTime());
-					object->Mutate();
-					object->Render();
-					object->TryDetach();
+					{
+						object->Elapsed(_gameService->DeltaTime());
+						object->Mutate();
+						object->Render();
+						object->TryDetach();
+					}
 					glPopAttrib();
 					glPopMatrix();
 				}
