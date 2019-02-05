@@ -10,7 +10,6 @@ private:
 	unsigned int _sand;
 	unsigned int _marble;
 	unsigned int _asphalt;
-	bool _enabled = true;
 
 public:
 	unsigned int Brick() const { return _brick; }
@@ -18,8 +17,6 @@ public:
 	unsigned int Marble() const { return _marble; }
 	unsigned int Asphalt() const { return _asphalt; }
 
-	bool Enabled() const { return _enabled; }
-	void Enabled(bool value) { _enabled = value; }	
 
 	TextureService(const std::shared_ptr<Config>& config, const std::shared_ptr<ILogger>& logger)
 		: _config(config),

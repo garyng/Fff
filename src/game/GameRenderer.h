@@ -23,8 +23,6 @@ private:
 	std::shared_ptr<ObjectContainer> _objectContainer;
 	std::shared_ptr<GameService> _gameService;
 	std::shared_ptr<Config> _config;
-	bool _isWireFrameMode = false;
-	bool _isLightingOn = true;
 	std::shared_ptr<TextureService> _textureService;
 	std::shared_ptr<ILogger> _logger;
 
@@ -47,7 +45,8 @@ public:
 	             const std::shared_ptr<ILogger>& logger,
 	             const std::shared_ptr<GameService>& gameService) :
 		_objectContainer(objectContainer),
-		_gameService(gameService), _config(config),
+		_gameService(gameService),
+		_config(config),
 		_textureService(textureService),
 		_logger(logger)
 	{

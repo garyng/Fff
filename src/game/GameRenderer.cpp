@@ -34,38 +34,43 @@ void GameRenderer::OnKeyboard()
 	auto&& io = ImGui::GetIO();
 	if (io.WantCaptureKeyboard) return;
 
+	if (ImGui::IsKeyPressed(_config->ToggleGridKey, false))
+	{
+		_config->IsGridEnabled(!_config->IsGridEnabled());
+		_config->IsWireframeEnabled(_config->IsGridEnabled());
+		_config->IsLightingEnabled(!_config->IsGridEnabled());
+		_config->IsTextureEnabled(!_config->IsGridEnabled());
+	}
 	if (ImGui::IsKeyPressed(_config->ToggleWireFrameModeKey, false))
 	{
-		_isWireFrameMode = !_isWireFrameMode;
-		_logger->Debug("Shading mode: %1%", { _isWireFrameMode ? "Wireframe" : "Fill" });
-		if (_isWireFrameMode)
-		{
-			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-		}
-		else
-		{
-			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-		}
+		_config->IsWireframeEnabled(!_config->IsWireframeEnabled());
 	}
-
 	if (ImGui::IsKeyPressed(_config->ToggleLightingKey, false))
 	{
-		_isLightingOn = !_isLightingOn;
-		_logger->Debug("Lighting: %1%", { _isLightingOn ? "enabled" : "disabled" });
-		if (_isLightingOn)
-		{
-			glEnable(GL_LIGHTING);
-		}
-		else
-		{
-			glDisable(GL_LIGHTING);
-		}
+		_config->IsLightingEnabled(!_config->IsLightingEnabled());
 	}
-
 	if (ImGui::IsKeyPressed(_config->ToggleTextureKey, false))
 	{
-		_textureService->Enabled(!_textureService->Enabled());
-		_logger->Debug("Texture: %1%", {_textureService->Enabled() ? "enabled" : "disabled"});
+		_config->IsTextureEnabled(!_config->IsTextureEnabled());
+	}
+
+
+	if (_config->IsWireframeEnabled())
+	{
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	}
+	else
+	{
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	}
+
+	if (_config->IsLightingEnabled())
+	{
+		glEnable(GL_LIGHTING);
+	}
+	else
+	{
+		glDisable(GL_LIGHTING);
 	}
 }
 
