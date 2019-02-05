@@ -26,7 +26,7 @@ public:
 	template <class TMutator, class TObject, class = IsBaseOf<TMutator, IMutator>, class = IsBaseOf<TObject, IObject>>
 	void Attach()
 	{
-		std::shared_ptr<IObject> object = std::static_pointer_cast<IObject>(_objectContainer->First<TObject>());
+		std::shared_ptr<IObject> object = std::static_pointer_cast<IObject>(_objectContainer->FirstOf<TObject>());
 		if (object == nullptr)
 		{
 			// todo: create a new object or do nothing?

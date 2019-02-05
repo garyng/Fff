@@ -6,6 +6,7 @@
 #include "objects/Cube.h"
 #include "objects/Floor.h"
 #include "lights/SceneSpotLight.h"
+#include "objects/food/IceCream.h"
 
 
 void ObjectsDebugGui::Render()
@@ -17,5 +18,6 @@ void ObjectsDebugGui::Render()
 	RenderButton<Player1>();
 	RenderButton<Player2>();
 	RenderButton<SceneSpotLight>();
+	RenderButton<IceCream>();
 	ImGui::End();
 }

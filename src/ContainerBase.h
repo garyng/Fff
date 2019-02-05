@@ -37,13 +37,26 @@ public:
 	}
 
 	template <class TObject>
-	std::shared_ptr<T> First()
+	std::shared_ptr<T> FirstOf()
 	{
 		return _items | first_or_default([&](std::shared_ptr<T> item)
 		{
 			return typeid(*item) == typeid(TObject);
 		});
 	}
+
+	template <class TBase>
+	std::vector<std::shared_ptr<TBase>> AllOfBase()
+	{
+		return _items | select([&](std::shared_ptr<T> item)
+		{
+			return std::dynamic_pointer_cast<TBase>(item);
+		}) | where([&](std::shared_ptr<T> item)
+		{
+			return item != nullptr;
+		}) | to_vector();
+	}
+
 
 	// remove all objects from the container that satisfy certain criteria
 	void Purge()

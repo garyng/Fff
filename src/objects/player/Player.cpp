@@ -27,7 +27,7 @@ void Player::RenderStats(float height)
 	{
 		
 		glLineWidth(5);
-		glColor3f(1, 1, 1);
+		glColor3f(1, 1, 0);
 		glTranslatef(0, height, 0);
 		glScalef(0.05f, 0.05f, 0.05f);
 		glutStrokeString(nameof(*this) + "\nScore: " + std::to_string(_score));
@@ -38,8 +38,6 @@ void Player::RenderStats(float height)
 
 void Player::Render()
 {
-	// todo: only self animations use delta, in this case if the player has it own animation, it should store them in other places
-	// todo: aggregate all transformtion into one?
 	ApplyDeltas();
 	Wrap();
 	Transform();

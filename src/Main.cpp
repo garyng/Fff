@@ -36,6 +36,7 @@
 #include "objects/player/Player1.h"
 #include "objects/player/Player2.h"
 #include "objects/Triangle.h"
+#include "FoodService.h"
 
 using namespace Hypodermic;
 using namespace std;
@@ -165,6 +166,10 @@ int main(int argc, char** argv)
 	       .singleInstance();
 	builder.registerType<GameService>()
 	       .singleInstance();
+	builder.registerType<FoodService>()
+	       .singleInstance();
+	builder.registerType<CollisionService>()
+	       .singleInstance();
 	builder.registerType<TextureService>()
 	       .singleInstance();
 
@@ -224,7 +229,6 @@ int main(int argc, char** argv)
 	}
 
 	// todo: start only when user pressed key?
-	_container->resolve<GameService>()->Start();
 	_container->resolve<TextureService>()->LoadAll();
 
 	// _container->resolve<ObjectFactory>()->Make<Triangle>();
@@ -233,7 +237,7 @@ int main(int argc, char** argv)
 	_container->resolve<ObjectFactory>()->Make<Grid>();
 	_container->resolve<ObjectFactory>()->Make<Player1>();
 	_container->resolve<ObjectFactory>()->Make<Player2>();
-	_container->resolve<ObjectFactory>()->Make<IceCream>();
+	//_container->resolve<ObjectFactory>()->Make<IceCream>();
 	//_container->resolve<ObjectFactory>()->Make<AmbientLight>();	// seems better without ambient light
 	_container->resolve<ObjectFactory>()->Make<SceneSpotLight>();
 
@@ -243,6 +247,7 @@ int main(int argc, char** argv)
 	_container->resolve<MutatorFactory>()->Attach<PlayerKeyboardMutator, Player1>();
 	_container->resolve<MutatorFactory>()->Attach<PlayerKeyboardMutator, Player2>();
 
+	_container->resolve<GameService>()->Start();
 
 	glutMainLoop();
 	Cleanup();

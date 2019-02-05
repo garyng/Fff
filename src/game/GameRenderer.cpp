@@ -218,6 +218,8 @@ void GameRenderer::Render()
 					}
 					glPopAttrib();
 					glPopMatrix();
+
+					_collisionService->TestWithPlayers(object);
 				}
 				_objectContainer->Purge();
 			}

@@ -1,7 +1,8 @@
 ﻿#pragma once
 #include "IFood.h"
+#include "collision/ITestCollision.h"
 
-class IceCream : public IFood
+class IceCream : public IFood, public ITestCollision
 {
 public:
 	IceCream()

@@ -4,6 +4,7 @@
 #include "objects/ObjectContainer.h"
 #include "config/Config.h"
 #include "TextureService.h"
+#include "collision/CollisionService.h"
 
 class GameRenderer // : public IOnInit
 {
@@ -25,6 +26,7 @@ private:
 	std::shared_ptr<Config> _config;
 	std::shared_ptr<TextureService> _textureService;
 	std::shared_ptr<ILogger> _logger;
+	std::shared_ptr<CollisionService> _collisionService;
 
 public:
 
@@ -42,12 +44,14 @@ public:
 	GameRenderer(const std::shared_ptr<ObjectContainer>& objectContainer,
 	             const std::shared_ptr<Config>& config,
 	             const std::shared_ptr<TextureService>& textureService,
+	             const std::shared_ptr<CollisionService>& collisionService,
 	             const std::shared_ptr<ILogger>& logger,
 	             const std::shared_ptr<GameService>& gameService) :
 		_objectContainer(objectContainer),
 		_gameService(gameService),
 		_config(config),
 		_textureService(textureService),
+		_collisionService(collisionService),
 		_logger(logger)
 	{
 		_aspectRatio = float(config->ViewportDimension.x) / float(config->ViewportDimension.y);
