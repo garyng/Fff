@@ -25,6 +25,7 @@ public:
 	       const std::shared_ptr<ILogger>& logger) : _config(config),
 	                                                 _logger(logger)
 	{
+		_positionWrappingBehaviour = WrappingBehaviour::Wrap;
 		_minPosition = _config->WorldMin;
 		_maxPosition = _config->WorldMax;
 	}
