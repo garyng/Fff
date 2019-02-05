@@ -10,7 +10,7 @@ void FreezedMutator::Apply()
 
 bool FreezedMutator::CanDetach()
 {
-	return _gameService->TotalTime() > 10;
+	return _gameService->TotalTimeElapsed() > 10;
 }
 
 void FreezedMutator::OnInit()

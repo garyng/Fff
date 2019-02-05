@@ -42,6 +42,7 @@ public:
 	const int ToggleTextureKey = 259; // F3
 	const int ToggleGridKey = 260; // F4
 	const int ToggleBoundingBoxKey = 261; // F5
+	const int StartRestartGameKey = ' '; // Space
 
 	const std::string BrickTexturePath = "textures/brick.jpg";
 	const std::string SandTexturePath = "textures/sand.jpg";

@@ -25,7 +25,6 @@ void Player::RenderStats(float height)
 	glPushAttrib(GL_LINE_BIT);
 	glPushMatrix();
 	{
-		
 		glLineWidth(5);
 		glColor3f(1, 1, 0);
 		glTranslatef(0, height, 0);

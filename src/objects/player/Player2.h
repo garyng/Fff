@@ -13,7 +13,7 @@ public:
 		: Player(config, logger)
 	{
 		_keyBindings = _config->Player2Keys;
-		Normalize({ 12, 23, 12 }, 3);
+		Normalize({ 12, 23, 12 }, 15);
 		_direction = Vector3<float>{ 0,0,1 };
 	}
 

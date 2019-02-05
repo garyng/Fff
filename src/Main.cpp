@@ -37,6 +37,9 @@
 #include "objects/player/Player2.h"
 #include "objects/Triangle.h"
 #include "FoodService.h"
+#include "objects/StartScreen.h"
+#include "objects/Countdown.h"
+#include "objects/EndScreen.h"
 
 using namespace Hypodermic;
 using namespace std;
@@ -193,6 +196,10 @@ int main(int argc, char** argv)
 	builder.registerType<ObjectsDebugGui>()
 	       .singleInstance()
 	       .as<IGui>();
+	builder.registerType<GameGui>()
+	       .singleInstance()
+	       .as<IGui>();
+
 
 	builder.registerType<ConsoleLogger>()
 	       .as<IChildLogger>();
@@ -209,15 +216,12 @@ int main(int argc, char** argv)
 	registerObjectWithCustomGui<AmbientLight, AmbientLightGui>(builder);
 	registerObjectWithCustomGui<SceneSpotLight, SceneSpotLightGui>(builder);
 	registerObject<IceCream>(builder);
+	registerObject<StartScreen>(builder);
+	registerObject<EndScreen>(builder);
+	registerObject<Countdown>(builder);
 	registerObject<Grid>(builder);
 	registerPlayer<Player1>(builder);
 	registerPlayer<Player2>(builder);
-
-
-	builder.registerInstanceFactory([&](ComponentContext& context)
-	{
-		return make_shared<GameGui>(context.resolve<GameRenderer>());
-	}).as<IGui>();
 
 	_container = builder.build();
 
@@ -233,21 +237,17 @@ int main(int argc, char** argv)
 
 	// _container->resolve<ObjectFactory>()->Make<Triangle>();
 	// _container->resolve<ObjectFactory>()->Make<Cube>();
-	_container->resolve<ObjectFactory>()->Make<Floor>();
-	_container->resolve<ObjectFactory>()->Make<Grid>();
-	_container->resolve<ObjectFactory>()->Make<Player1>();
-	_container->resolve<ObjectFactory>()->Make<Player2>();
+
 	//_container->resolve<ObjectFactory>()->Make<IceCream>();
 	//_container->resolve<ObjectFactory>()->Make<AmbientLight>();	// seems better without ambient light
-	_container->resolve<ObjectFactory>()->Make<SceneSpotLight>();
 
 	// todo: attach all
 	// _container->resolve<MutatorFactory>()->Attach<KeyboardMutator, Cube>();
 	// _container->resolve<MutatorFactory>()->Attach<FreezedMutator, Cube>();
-	_container->resolve<MutatorFactory>()->Attach<PlayerKeyboardMutator, Player1>();
-	_container->resolve<MutatorFactory>()->Attach<PlayerKeyboardMutator, Player2>();
 
-	_container->resolve<GameService>()->Start();
+	_container->resolve<ObjectFactory>()->Make<StartScreen>();
+
+	// _container->resolve<GameService>()->Start();
 
 	glutMainLoop();
 	Cleanup();

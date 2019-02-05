@@ -12,8 +12,8 @@ private:
 	Vector3<float> _eye{0.0f, 1.0f, 40.0f};
 	Vector3<float> _center{0.0f, 0.0f, 0.0f};
 	Vector3<float> _scale{1.0f, 1.0f, 1.0f};
-	Vector3<float> _rotation{35.0f, 0.0f, 0.0f};
-	Vector3<float> _position{0.0f, 0.0f, 0.0f};
+	Vector3<float> _rotation{30.0f, 4.0f, 0.0f};
+	Vector3<float> _position{2.0f, 5.0f, -45.0f};
 	Vector3<float> _up{0.0f, 1.0f, 0.0f};
 
 	float _zNear = 0.1f;

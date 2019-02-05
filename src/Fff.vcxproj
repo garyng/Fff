@@ -68,7 +68,9 @@
     <ClCompile Include="mutators\KeyboardMutator.cpp" />
     <ClCompile Include="mutators\NullMutator.cpp" />
     <ClCompile Include="mutators\PlayerKeyboardMutator.cpp" />
+    <ClCompile Include="objects\Countdown.cpp" />
     <ClCompile Include="objects\Cube.cpp" />
+    <ClCompile Include="objects\EndScreen.cpp" />
     <ClCompile Include="objects\Floor.cpp" />
     <ClCompile Include="objects\food\IceCream.cpp" />
     <ClCompile Include="objects\Grid.cpp" />
@@ -77,6 +79,7 @@
     <ClCompile Include="objects\player\Player.cpp" />
     <ClCompile Include="objects\player\Player1.cpp" />
     <ClCompile Include="objects\player\Player2.cpp" />
+    <ClCompile Include="objects\StartScreen.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -134,7 +137,9 @@
     <ClInclude Include="mutators\MutatorFactory.h" />
     <ClInclude Include="mutators\NullMutator.h" />
     <ClInclude Include="mutators\PlayerKeyboardMutator.h" />
+    <ClInclude Include="objects\Countdown.h" />
     <ClInclude Include="objects\Cube.h" />
+    <ClInclude Include="objects\EndScreen.h" />
     <ClInclude Include="objects\Floor.h" />
     <ClInclude Include="objects\food\IceCream.h" />
     <ClInclude Include="objects\food\IFood.h" />
@@ -146,6 +151,7 @@
     <ClInclude Include="objects\player\Player.h" />
     <ClInclude Include="objects\player\Player1.h" />
     <ClInclude Include="objects\player\Player2.h" />
+    <ClInclude Include="objects\StartScreen.h" />
     <ClInclude Include="objects\Triangle.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="utilities\gl.h" />

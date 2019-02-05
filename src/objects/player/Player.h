@@ -13,7 +13,7 @@ protected:
 
 	PlayerKeysBinding _keyBindings{};
 	// movement speed, different from _deltaPosition, this is used during key presses only
-	Vector3<float> _deltaMovement{0.01f, 0, 0.01f};
+	Vector3<float> _deltaMovement{0.05f, 0, 0.05f};
 
 	// +x (going right), -x (going left), +z (going down), -z (going up)
 	Vector3<float> _direction{0, 0, 0};

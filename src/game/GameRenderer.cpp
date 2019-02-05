@@ -57,6 +57,19 @@ void GameRenderer::OnKeyboard()
 	{
 		_config->IsBoundingBoxEnabled(!_config->IsBoundingBoxEnabled());
 	}
+	if (ImGui::IsKeyPressed(_config->StartRestartGameKey, false))
+	{
+		switch (_gameService->GameState())
+		{
+			case GameStates::Pending:
+				_gameService->Start();
+				break;
+			case GameStates::Ended: 
+				_gameService->Restart(); 
+			break;
+			default: ;
+		}
+	}
 
 
 	if (_config->IsWireframeEnabled())
@@ -191,7 +204,6 @@ void GameRenderer::Render()
 			glRotatef(_rotation.z, 0, 0, 1);
 			glScalef(_scale.x, _scale.y, _scale.z);
 
-
 			glPushMatrix();
 			{
 				for (auto&& object : _objectContainer->All())
@@ -291,7 +303,6 @@ void GameRenderer::Render()
 
 		glEnd();
 
-		glPopAttrib();
 		glPopAttrib();
 	}
 	glPopMatrix();

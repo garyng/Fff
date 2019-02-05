@@ -74,6 +74,11 @@ public:
 		);
 	}
 
+	void Clear()
+	{
+		_items.clear();
+	}
+
 	// find by type
 	// find by id
 	// find by canDelete

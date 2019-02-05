@@ -6,6 +6,16 @@ void GameGui::Render()
 {
 	ImGui::BeginDefault("Game");
 
+	if (ImGui::Button("Start"))
+	{
+		_gameService->Start();
+	}
+	if (ImGui::Button("End"))
+	{
+		_gameService->End();
+	}
+
+
 	ImGui::DragFloat("z Near", &_game->ZNear(), 0.05f, 0.1f, 100);
 	ImGui::DragFloat("z Far", &_game->ZFar(), 0.05f, 100, 1000);
 	ImGui::DragFloat("Field of View", &_game->FieldOfView(), 0.1f, 0, 360);
