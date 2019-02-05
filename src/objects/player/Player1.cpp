@@ -27,6 +27,7 @@ void Player1::Animate()
 
 void Player1::Render()
 {
+
 	Apply();
 	if (HasPositionChanged()) Animate();
 	OrientDirection();

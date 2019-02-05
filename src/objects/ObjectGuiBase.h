@@ -34,13 +34,19 @@ public:
 
 	void RenderDefaultControls()
 	{
+		ImGui::Text("Bounding Box");
+		ImGui::DragFloat("x##Bounding Box", &_castedObject->BoundingBox().x, 0.05f, 1, 100);
+		ImGui::SameLine();
+		ImGui::DragFloat("y##Bounding Box", &_castedObject->BoundingBox().y, 0.05f, 1, 100);
+		ImGui::SameLine();
+		ImGui::DragFloat("z##Bounding Box", &_castedObject->BoundingBox().z, 0.05f, 1, 100);
+
 		ImGui::Text("Dimension");
 		ImGui::DragFloat("x##Dimension", &_castedObject->Dimension().x, 0.01f, 0.01f, 50);
 		ImGui::SameLine();
 		ImGui::DragFloat("y##Dimension", &_castedObject->Dimension().y, 0.01f, 0.01f, 50);
 		ImGui::SameLine();
 		ImGui::DragFloat("z##Dimension", &_castedObject->Dimension().z, 0.01f, 0.01f, 50);
-
 
 		ImGui::Text("Scale");
 		ImGui::DragFloat("x##Scale", &_castedObject->Scale().x, 0.05f, 0, 100);

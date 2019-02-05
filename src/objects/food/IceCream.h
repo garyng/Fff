@@ -6,8 +6,7 @@ class IceCream : public IFood
 public:
 	IceCream()
 	{
-		Normalize({23, 40, 20});
-		_scale = Vector3<float>{1.5, 1.5, 1.5};
+		Normalize({20, 40, 20}, 1);
 		_deltaRotation = Vector3<float>{0, 1, 0};
 		_deltaPosition = Vector3<float>{0, 1, 0};
 

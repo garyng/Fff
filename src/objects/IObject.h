@@ -20,6 +20,10 @@ protected:
 	Vector3<float> _position{0, 0, 0};
 	Vector3<float> _rotation{0, 0, 0};
 
+
+	// temporary for fixing the bounding boxes
+	Vector3<float> _boundingBox{0, 0, 0};
+
 	Vector3<float> _deltaPosition{0, 0, 0};
 	Vector3<float> _minPosition{0, 0, 0};
 	Vector3<float> _maxPosition{0, 0, 0};
@@ -51,7 +55,9 @@ protected:
 	void Wrap();
 
 	// normalize the original dimension to fit into 1x1x1 cube
-	void Normalize(Vector3<float> originalDimension);
+	void Normalize(Vector3<float> originalDimension, float scalingFactor);
+
+	void DrawBoundingBox() const;
 
 	// apply delta with wrapping and transform the model
 	void Apply()
@@ -71,11 +77,22 @@ public:
 	void Elapsed(float value) { _elapsed = value; }
 
 	Vector3<float>& Dimension() { return _dimension; }
+	Vector3<float>& BoundingBox() { return _boundingBox; }
 	Vector3<float>& Scale() { return _scale; }
 	Vector3<float>& Position() { return _position; }
 	Vector3<float>& Rotation() { return _rotation; }
 	Vector3<float>& DeltaPosition() { return _deltaPosition; }
 	Vector3<float>& DeltaRotation() { return _deltaRotation; }
+
+	Vector3<float> BoundingBoxMin() const
+	{
+		return {_position.x - _dimension.x, _position.y - _dimension.y, _position.z - _dimension.z};
+	}
+
+	Vector3<float> BoundingBoxMax() const
+	{
+		return {_position.x + _dimension.x, _position.y + _dimension.y, _position.z + _dimension.z};
+	}
 
 	WrappingBehaviour PositionWrappingBehaviour() const { return _positionWrappingBehaviour; }
 	void PositionWrappingBehaviour(WrappingBehaviour value) { _positionWrappingBehaviour = value; }

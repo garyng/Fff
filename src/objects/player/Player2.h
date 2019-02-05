@@ -13,9 +13,7 @@ public:
 		: Player(config, logger)
 	{
 		_keyBindings = _config->Player2Keys;
-		Normalize({17, 23, 9});
-		// todo: move this scaling into normalize?
-		_scale = Vector3<float>{ 3, 3, 3 };
+		Normalize({ 12, 23, 12 }, 3);
 		_direction = Vector3<float>{ 0,0,1 };
 	}
 

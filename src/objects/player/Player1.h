@@ -13,8 +13,7 @@ public:
 		: Player(config, logger)
 	{
 		_keyBindings = _config->Player1Keys;
-		Normalize({14, 25, 8});
-		_scale = Vector3<float>{3, 3, 3};
+		Normalize({14, 25, 8}, 3);
 		_direction = Vector3<float>{0, 0, 1};
 	}
 

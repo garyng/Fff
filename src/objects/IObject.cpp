@@ -4,6 +4,7 @@
 void IObject::Transform() const
 {
 	glTranslatef(_position.x, _position.y, _position.z);
+	DrawBoundingBox(); // draw bounding box before any scaling and rotation
 	glRotatef(_rotation.x, 1, 0, 0);
 	glRotatef(_rotation.y, 0, 1, 0);
 	glRotatef(_rotation.z, 0, 0, 1);
@@ -83,14 +84,27 @@ void IObject::Wrap(float& target, float& delta, float min, float max, WrappingBe
 	}
 }
 
-void IObject::Normalize(Vector3<float> originalDimension)
+void IObject::Normalize(Vector3<float> originalDimension, float scalingFactor)
 {
+	// here the dimension is the bounding box
 	float max = std::max({originalDimension.x, originalDimension.y, originalDimension.z});
-	_dimension.x = originalDimension.x / max;
-	_dimension.y = originalDimension.y / max;
-	_dimension.z = originalDimension.z / max;
+	_dimension.x = originalDimension.x / max * scalingFactor;
+	_dimension.y = originalDimension.y / max * scalingFactor;
+	_dimension.z = originalDimension.z / max * scalingFactor;
 
 	_normalizationScale.x = _dimension.x / originalDimension.x;
 	_normalizationScale.y = _dimension.y / originalDimension.y;
 	_normalizationScale.z = _dimension.z / originalDimension.z;
+}
+
+
+void IObject::DrawBoundingBox() const
+{
+	glPushMatrix();
+	{
+		glTranslatef(0, _boundingBox.y / 2.0f, 0);
+		glScalef(_boundingBox.x, _boundingBox.y, _boundingBox.z);
+		glutSolidCube(1);
+	}
+	glPopMatrix();
 }
