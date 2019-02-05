@@ -24,7 +24,9 @@ public:
 
 		ImGui::Text("Direction");
 		ImGui::DragFloat("x##Direction", &_light->Direction().x, 0.05f, -1, 1);
+		ImGui::SameLine();
 		ImGui::DragFloat("y##Direction", &_light->Direction().y, 0.05f, -1, 1);
+		ImGui::SameLine();
 		ImGui::DragFloat("z##Direction", &_light->Direction().z, 0.05f, -1, 1);
 
 		RenderColorControl("Ambient", _light->Ambient());
@@ -32,7 +34,9 @@ public:
 		RenderColorControl("Specular", _light->Specular());
 
 		ImGui::DragFloat("Spot cutoff", &_light->SpotCutoff(), 0.05f, 0, 90);
+		ImGui::SameLine();
 		ImGui::DragFloat("Spot exponent", &_light->SpotExponent(), 0.05f, 0, 128);
+
 		ImGui::DragFloat("Constant attenuation", &_light->ConstantAttenuation(), 0.05f, 0, 100);
 		ImGui::DragFloat("Linear attenuation", &_light->LinearAttenuation(), 0.05f, 0, 100);
 		ImGui::DragFloat("Quadratic attenuation", &_light->QuadraticAttenuation(), 0.05f, 0, 100);
