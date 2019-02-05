@@ -33,6 +33,7 @@
 #include "lights/SceneSpotLight.h"
 #include "gui/SceneSpotLightGui.h"
 #include "game/TextureService.h"
+#include "objects/food/IceCream.h"
 
 using namespace Hypodermic;
 using namespace std;
@@ -116,12 +117,20 @@ void Cleanup()
 }
 
 template <class TObject, class TGui, class = IsBaseOf<TObject, IObject>, class = IsBaseOf<TGui, ObjectGuiBase<TObject>>>
-void registerObject(ContainerBuilder& builder)
+void registerObjectWithCustomGui(ContainerBuilder& builder)
 {
 	builder.registerType<TObject>();
 	builder.registerType<TGui>()
 	       .template as<ObjectGuiBase<TObject>>();
 }
+
+template <class TObject, class = IsBaseOf<TObject, IObject>>
+void registerObject(ContainerBuilder& builder)
+{
+	builder.registerType<TObject>();
+	builder.registerType<ObjectGuiBase<TObject>>();
+}
+
 
 int main(int argc, char** argv)
 {
@@ -178,13 +187,15 @@ int main(int argc, char** argv)
 	builder.registerType<CompositeLogger>()
 	       .as<ILogger>();
 
-	registerObject<Triangle, TriangleGui>(builder);
-	registerObject<Cube, CubeGui>(builder);
-	registerObject<Player1, Player1Gui>(builder);
-	registerObject<Player2, Player2Gui>(builder);
-	registerObject<Floor, FloorGui>(builder);
-	registerObject<AmbientLight, AmbientLightGui>(builder);
-	registerObject<SceneSpotLight, SceneSpotLightGui>(builder);
+	registerObjectWithCustomGui<Triangle, TriangleGui>(builder);
+	registerObjectWithCustomGui<Cube, CubeGui>(builder);
+	registerObjectWithCustomGui<Player1, Player1Gui>(builder);
+	registerObjectWithCustomGui<Player2, Player2Gui>(builder);
+	registerObjectWithCustomGui<Floor, FloorGui>(builder);
+	registerObjectWithCustomGui<AmbientLight, AmbientLightGui>(builder);
+	registerObjectWithCustomGui<SceneSpotLight, SceneSpotLightGui>(builder);
+	registerObject<IceCream>(builder);
+
 
 
 	builder.registerInstanceFactory([&](ComponentContext& context)
@@ -210,6 +221,7 @@ int main(int argc, char** argv)
 	_container->resolve<ObjectFactory>()->Make<Floor>();
 	_container->resolve<ObjectFactory>()->Make<Player1>();
 	_container->resolve<ObjectFactory>()->Make<Player2>();
+	_container->resolve<ObjectFactory>()->Make<IceCream>();
 	//_container->resolve<ObjectFactory>()->Make<AmbientLight>();	// seems better without ambient light
 	_container->resolve<ObjectFactory>()->Make<SceneSpotLight>();
 
