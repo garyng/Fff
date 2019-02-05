@@ -71,6 +71,7 @@
     <ClCompile Include="objects\Cube.cpp" />
     <ClCompile Include="objects\Floor.cpp" />
     <ClCompile Include="objects\food\IceCream.cpp" />
+    <ClCompile Include="objects\Grid.cpp" />
     <ClCompile Include="objects\IObject.cpp" />
     <ClCompile Include="objects\ObjectFactory.cpp" />
     <ClCompile Include="objects\player\Player.cpp" />
@@ -135,6 +136,7 @@
     <ClInclude Include="objects\Floor.h" />
     <ClInclude Include="objects\food\IceCream.h" />
     <ClInclude Include="objects\food\IFood.h" />
+    <ClInclude Include="objects\Grid.h" />
     <ClInclude Include="objects\IObject.h" />
     <ClInclude Include="objects\ObjectContainer.h" />
     <ClInclude Include="objects\ObjectFactory.h" />

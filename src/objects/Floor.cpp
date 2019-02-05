@@ -3,11 +3,13 @@
 
 void Floor::Render()
 {
+	if (_config->IsGridEnabled()) return;
+
 	Apply();
 	glColor3f(1, 1, 1);
 	int xCount = _dimension.x / _quadDimension.x;
 	int zCount = _dimension.z / _quadDimension.z;
-	if (_texture->Enabled())
+	if (_config->IsTextureEnabled())
 	{
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, _texture->Asphalt());
@@ -16,7 +18,8 @@ void Floor::Render()
 	{
 		glDisable(GL_TEXTURE_2D);
 	}
-
+	// move the floor to the center
+	glTranslatef(-_dimension.x / 2, 0, -_dimension.z / 2);
 	for (size_t z = 0; z < zCount; z++)
 	{
 		for (size_t x = 0; x < xCount; x++)

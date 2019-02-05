@@ -186,6 +186,9 @@
     <ClCompile Include="objects\food\IceCream.cpp">
       <Filter>Source Files\objects\food</Filter>
     </ClCompile>
+    <ClCompile Include="objects\Grid.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\imgui\imconfig.h">
@@ -382,6 +385,9 @@
     </ClInclude>
     <ClInclude Include="objects\food\IFood.h">
       <Filter>Source Files\objects\food</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\Grid.h">
+      <Filter>Source Files\objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

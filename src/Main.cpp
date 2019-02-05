@@ -34,6 +34,7 @@
 #include "gui/SceneSpotLightGui.h"
 #include "game/TextureService.h"
 #include "objects/food/IceCream.h"
+#include "objects/Grid.h"
 
 using namespace Hypodermic;
 using namespace std;
@@ -195,7 +196,7 @@ int main(int argc, char** argv)
 	registerObjectWithCustomGui<AmbientLight, AmbientLightGui>(builder);
 	registerObjectWithCustomGui<SceneSpotLight, SceneSpotLightGui>(builder);
 	registerObject<IceCream>(builder);
-
+	registerObject<Grid>(builder);
 
 
 	builder.registerInstanceFactory([&](ComponentContext& context)
@@ -219,6 +220,7 @@ int main(int argc, char** argv)
 	// _container->resolve<ObjectFactory>()->Make<Triangle>();
 	// _container->resolve<ObjectFactory>()->Make<Cube>();
 	_container->resolve<ObjectFactory>()->Make<Floor>();
+	_container->resolve<ObjectFactory>()->Make<Grid>();
 	_container->resolve<ObjectFactory>()->Make<Player1>();
 	_container->resolve<ObjectFactory>()->Make<Player2>();
 	_container->resolve<ObjectFactory>()->Make<IceCream>();
