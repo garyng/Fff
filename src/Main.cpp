@@ -24,9 +24,6 @@
 #include "logger/ConsoleLogger.h"
 #include "logger/GuiLogger.h"
 #include "logger/ILogger.h"
-#include "mutators/FreezedMutator.h"
-#include "mutators/MutatorFactory.h"
-#include "mutators/PlayerKeyboardMutator.h"
 #include "objects/Cube.h"
 #include "objects/Floor.h"
 #include "objects/food/IceCream.h"
@@ -46,14 +43,8 @@
 #include "objects/food/Pizza.h"
 #include "objects/food/Apple.h"
 #include "objects/food/Dango.h"
-#include "mutators/OnFoodEffect.h"
 #include "gui/MutatorsDebugGui.h"
-#include "objects/powerup/Thunder.h"
-#include "objects/powerup/Star.h"
-#include "objects/powerup/Magnet.h"
-#include "objects/powerup/Dash.h"
-#include "objects/Cylinder.h"
-#include "objects/Chevron.h"
+#include "gui/HelpGui.h"
 
 using namespace Hypodermic;
 using namespace std;
@@ -204,6 +195,9 @@ int main(int argc, char** argv)
 	builder.registerType<DebugGui>()
 	       .singleInstance()
 	       .as<IGui>();
+	builder.registerType<HelpGui>()
+	       .singleInstance();
+
 	builder.registerType<ImGuiDemoGui>()
 	       .singleInstance()
 	       .as<IGui>();
@@ -227,7 +221,6 @@ int main(int argc, char** argv)
 	builder.registerType<CompositeLogger>()
 	       .as<ILogger>();
 
-	// builder.registerType<OnMagnetEffect>();
 
 	registerObjectWithCustomGui<Triangle, TriangleGui>(builder);
 	registerObjectWithCustomGui<Cube, CubeGui>(builder);
@@ -250,7 +243,6 @@ int main(int argc, char** argv)
 
 	_container = builder.build();
 
-	// todo: try this initialization
 	auto&& initializables = _container->resolveAll<IOnInit>();
 	for (auto&& init : initializables)
 	{
@@ -258,32 +250,11 @@ int main(int argc, char** argv)
 	}
 
 	_container->resolve<TextureService>()->LoadAll();
-
-	// _container->resolve<ObjectFactory>()->Make<Triangle>();
-	// _container->resolve<ObjectFactory>()->Make<Cube>();
-
-	//_container->resolve<ObjectFactory>()->Make<IceCream>();
-	//_container->resolve<ObjectFactory>()->Make<AmbientLight>();	// seems better without ambient light
-
-	// todo: attach all
-	// _container->resolve<MutatorFactory>()->Attach<KeyboardMutator, Cube>();
-	// _container->resolve<MutatorFactory>()->Attach<FreezedMutator, Cube>();
-
-	// _container->resolve<ObjectFactory>()->Make<StartScreen>();
+	_container->resolve<Config>()->IsGridEnabled(false);
+	_container->resolve<Config>()->IsTerminalEnabled(false);
+	_container->resolve<Config>()->IsBoundingBoxEnabled(false);
 	_container->resolve<GameService>()->Prepare();
-	// _container->resolve<Config>()->IsTextureEnabled(false);
 
-	// _container->resolve<ObjectFactory>()->Make<Sandwich>();
-	// _container->resolve<ObjectFactory>()->Make<Chocolate>();
-	/*_container->resolve<ObjectFactory>()->Make<Soda>();
-	_container->resolve<ObjectFactory>()->Make<Pizza>();
-	_container->resolve<ObjectFactory>()->Make<Apple>();
-	_container->resolve<ObjectFactory>()->Make<Grid>();*/
-	// _container->resolve<ObjectFactory>()->Make<Dango>();
-	// _container->resolve<ObjectFactory>()->Make<Magnet>();
-	// _container->resolve<ObjectFactory>()->Make<Dash>();
-	// _container->resolve<ObjectFactory>()->Make<AmbientLight>();
-	// _container->resolve<ObjectFactory>()->Make<Chevron>();
 	glutMainLoop();
 	Cleanup();
 	return 0;

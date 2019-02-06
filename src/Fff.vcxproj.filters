@@ -261,6 +261,9 @@
     <ClCompile Include="mutators\OnMagnetEffect.cpp">
       <Filter>Source Files\mutators</Filter>
     </ClCompile>
+    <ClCompile Include="gui\HelpGui.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\imgui\imconfig.h">
@@ -544,6 +547,9 @@
     </ClInclude>
     <ClInclude Include="mutators\OnMagnetEffect.h">
       <Filter>Source Files\mutators</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\HelpGui.h">
+      <Filter>Source Files\gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -19,6 +19,7 @@ private:
 	bool _isGridEnabled = false;
 	bool _isBoundingBoxEnabled = true;
 	bool _showObjectsGui = true;
+	bool _showHelp = false;
 	std::shared_ptr<ILogger> _logger;
 
 
@@ -38,13 +39,14 @@ public:
 	const PlayerKeysBinding Player1Keys{'w', 's', 'a', 'd'};
 	const PlayerKeysBinding Player2Keys{357, 359, 356, 358}; // arrow keys
 	const int ToggleTerminalKey = 96; // `
-	const int ToggleObjectsGui = '1'; // 1
+	const int ToggleObjectsGui = '1'; 
 	const int ToggleWireFrameModeKey = 257; // F1
 	const int ToggleLightingKey = 258; // F2
 	const int ToggleTextureKey = 259; // F3
 	const int ToggleGridKey = 260; // F4
 	const int ToggleBoundingBoxKey = 261; // F5
 	const int StartRestartGameKey = ' '; // Space
+	const int ToggleHelpKey = 'h';
 
 	const std::string BrickTexturePath = "textures/brick.jpg";
 	const std::string SandTexturePath = "textures/sand.jpg";
@@ -102,10 +104,8 @@ public:
 
 	bool ShowObjectsGui() const { return _showObjectsGui; }
 	void ShowObjectsGui(bool value) { _showObjectsGui = value; }
-	
-	
 
+	bool ShowHelp() const { return _showHelp; }
+	void ShowHelp(bool value) { _showHelp = value; }
 
-	// game duration
-	// disable mouse input on game
 };

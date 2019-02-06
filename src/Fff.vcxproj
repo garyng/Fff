@@ -55,6 +55,7 @@
     <ClCompile Include="gui\DockSpaceGui.cpp" />
     <ClCompile Include="gui\FloorGui.cpp" />
     <ClCompile Include="gui\GuiRenderer.cpp" />
+    <ClCompile Include="gui\HelpGui.cpp" />
     <ClCompile Include="gui\ImGuiDemoGui.cpp" />
     <ClCompile Include="gui\MutatorsDebugGui.cpp" />
     <ClCompile Include="gui\ObjectsDebugGui.cpp" />
@@ -132,6 +133,7 @@
     <ClInclude Include="gui\FloorGui.h" />
     <ClInclude Include="gui\GuiContainer.h" />
     <ClInclude Include="gui\GuiRenderer.h" />
+    <ClInclude Include="gui\HelpGui.h" />
     <ClInclude Include="gui\IGui.h" />
     <ClInclude Include="gui\ImGuiDemoGui.h" />
     <ClInclude Include="gui\LightGuiBase.h" />

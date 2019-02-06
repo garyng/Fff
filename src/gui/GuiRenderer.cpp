@@ -2,12 +2,18 @@
 #include "GuiRenderer.h"
 #include <imgui.h>
 
+void GuiRenderer::ShowHelpGui()
+{
+	if (!_config->ShowHelp()) return;
+	_help->Render();
+}
+
 void GuiRenderer::Render()
 {
 	OnKeyboard();
 	ShowGlobalGui();
 	ShowObjectsGui();
-
+	ShowHelpGui();
 	_guiContainer->Purge();
 }
 
@@ -44,5 +50,8 @@ void GuiRenderer::OnKeyboard()
 	if (ImGui::IsKeyPressed(_config->ToggleObjectsGui, false))
 	{
 		_config->ShowObjectsGui(!_config->ShowObjectsGui());
+	}if (ImGui::IsKeyPressed(_config->ToggleHelpKey, false))
+	{
+		_config->ShowHelp(!_config->ShowHelp());
 	}
 }
