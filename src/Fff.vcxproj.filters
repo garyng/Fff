@@ -207,6 +207,24 @@
     <ClCompile Include="mutators\WinningMutator.cpp">
       <Filter>Source Files\mutators</Filter>
     </ClCompile>
+    <ClCompile Include="objects\food\Sandwich.cpp">
+      <Filter>Source Files\objects\food</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\food\Chocolate.cpp">
+      <Filter>Source Files\objects\food</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\food\Pizza.cpp">
+      <Filter>Source Files\objects\food</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\food\Apple.cpp">
+      <Filter>Source Files\objects\food</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\food\Dango.cpp">
+      <Filter>Source Files\objects\food</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\food\Soda.cpp">
+      <Filter>Source Files\objects\food</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\imgui\imconfig.h">
@@ -430,6 +448,24 @@
     </ClInclude>
     <ClInclude Include="mutators\WinningMutator.h">
       <Filter>Source Files\mutators</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\food\Sandwich.h">
+      <Filter>Source Files\objects\food</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\food\Chocolate.h">
+      <Filter>Source Files\objects\food</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\food\Pizza.h">
+      <Filter>Source Files\objects\food</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\food\Apple.h">
+      <Filter>Source Files\objects\food</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\food\Dango.h">
+      <Filter>Source Files\objects\food</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\food\Soda.h">
+      <Filter>Source Files\objects\food</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

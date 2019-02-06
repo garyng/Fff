@@ -40,6 +40,12 @@
 #include "objects/StartScreen.h"
 #include "objects/Countdown.h"
 #include "objects/EndScreen.h"
+#include "objects/food/Sandwich.h"
+#include "objects/food/Chocolate.h"
+#include "objects/food/Soda.h"
+#include "objects/food/Pizza.h"
+#include "objects/food/Apple.h"
+#include "objects/food/Dango.h"
 
 using namespace Hypodermic;
 using namespace std;
@@ -216,6 +222,12 @@ int main(int argc, char** argv)
 	registerObjectWithCustomGui<AmbientLight, AmbientLightGui>(builder);
 	registerObjectWithCustomGui<SceneSpotLight, SceneSpotLightGui>(builder);
 	registerObject<IceCream>(builder);
+	registerObject<Sandwich>(builder);
+	registerObject<Chocolate>(builder);
+	registerObject<Soda>(builder);
+	registerObject<Pizza>(builder);
+	registerObject<Apple>(builder);
+	registerObject<Dango>(builder);
 	registerObject<StartScreen>(builder);
 	registerObject<EndScreen>(builder);
 	registerObject<Countdown>(builder);
@@ -244,11 +256,17 @@ int main(int argc, char** argv)
 	// _container->resolve<MutatorFactory>()->Attach<KeyboardMutator, Cube>();
 	// _container->resolve<MutatorFactory>()->Attach<FreezedMutator, Cube>();
 
-	_container->resolve<ObjectFactory>()->Make<StartScreen>();
-	_container->resolve<GameService>()->Start();
+	// _container->resolve<ObjectFactory>()->Make<StartScreen>();
+	_container->resolve<GameService>()->Prepare();
 	_container->resolve<Config>()->IsTextureEnabled(false);
 
-	// _container->resolve<GameService>()->Start();
+	// _container->resolve<ObjectFactory>()->Make<Sandwich>();
+	// _container->resolve<ObjectFactory>()->Make<Chocolate>();
+	/*_container->resolve<ObjectFactory>()->Make<Soda>();
+	_container->resolve<ObjectFactory>()->Make<Pizza>();
+	_container->resolve<ObjectFactory>()->Make<Apple>();
+	_container->resolve<ObjectFactory>()->Make<Grid>();*/
+	// _container->resolve<ObjectFactory>()->Make<Dango>();
 
 	glutMainLoop();
 	Cleanup();

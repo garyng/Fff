@@ -3,6 +3,12 @@
 #include "config/Config.h"
 #include <random>
 #include "objects/food/IceCream.h"
+#include "objects/food/Sandwich.h"
+#include "objects/food/Chocolate.h"
+#include "objects/food/Soda.h"
+#include "objects/food/Pizza.h"
+#include "objects/food/Apple.h"
+#include "objects/food/Dango.h"
 
 class FoodService
 {
@@ -32,6 +38,36 @@ public:
 			[&](Vector3<float> position)
 			{
 				auto&& object = _objectFactory->Make<IceCream>();
+				object->Position() = position;
+			},
+			[&](Vector3<float> position)
+			{
+				auto&& object = _objectFactory->Make<Sandwich>();
+				object->Position() = position;
+			},
+			[&](Vector3<float> position)
+			{
+				auto&& object = _objectFactory->Make<Chocolate>();
+				object->Position() = position;
+			},
+			[&](Vector3<float> position)
+			{
+				auto&& object = _objectFactory->Make<Soda>();
+				object->Position() = position;
+			},
+			[&](Vector3<float> position)
+			{
+				auto&& object = _objectFactory->Make<Pizza>();
+				object->Position() = position;
+			},
+			[&](Vector3<float> position)
+			{
+				auto&& object = _objectFactory->Make<Apple>();
+				object->Position() = position;
+			},
+			[&](Vector3<float> position)
+			{
+				auto&& object = _objectFactory->Make<Dango>();
 				object->Position() = position;
 			}
 		};

@@ -45,7 +45,7 @@ public:
 	void Start();
 	// Game is over
 	void End();
-	void Restart();
+	void Prepare();
 
 	int TimeLeft();
 };

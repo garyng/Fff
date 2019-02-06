@@ -1,14 +1,18 @@
 ﻿#pragma once
 #include "IFood.h"
 #include "collision/ITestCollision.h"
-#include "lights/ILight.h"
 
-class IceCream : public IFood, public ITestCollision
+class Dango : public IFood, public ITestCollision
 {
+private:
+	float _stickLength = 30.0f;
+	float _ballRadius = 4.0f;
+	float _angle = 60.0f;
+	float _height = _stickLength * sin(_angle / 180 * PI);
 public:
-	IceCream()
+	Dango()
 	{
-		Normalize({20, 40, 20}, 5);
+		Normalize({16, 32, 9}, 5);
 		_deltaRotation = Vector3<float>{ 0, 90, 0 };
 		_deltaPosition = Vector3<float>{0, 1, 0};
 

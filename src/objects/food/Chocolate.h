@@ -1,14 +1,13 @@
 ﻿#pragma once
 #include "IFood.h"
 #include "collision/ITestCollision.h"
-#include "lights/ILight.h"
 
-class IceCream : public IFood, public ITestCollision
+class Chocolate : public IFood, public ITestCollision
 {
 public:
-	IceCream()
+	Chocolate()
 	{
-		Normalize({20, 40, 20}, 5);
+		Normalize({9, 14, 2}, 5);
 		_deltaRotation = Vector3<float>{ 0, 90, 0 };
 		_deltaPosition = Vector3<float>{0, 1, 0};
 
@@ -20,4 +19,10 @@ public:
 	}
 
 	void Render() override;
+
+	void Base();
+
+	void SmallCube();
+
+	void Draw();
 };

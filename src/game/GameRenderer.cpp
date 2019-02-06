@@ -65,7 +65,7 @@ void GameRenderer::OnKeyboard()
 				_gameService->Start();
 				break;
 			case GameStates::Ended: 
-				_gameService->Restart(); 
+				_gameService->Prepare(); 
 			break;
 			default: ;
 		}
@@ -222,12 +222,14 @@ void GameRenderer::Render()
 
 					glPushMatrix();
 					glPushAttrib(GL_CURRENT_BIT);
+					glPushAttrib(GL_LINE_BIT);
 					{
 						object->Elapsed(_gameService->DeltaTime());
 						object->Mutate();
 						object->Render();
 						object->TryDetach();
 					}
+					glPopAttrib();
 					glPopAttrib();
 					glPopMatrix();
 

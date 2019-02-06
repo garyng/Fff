@@ -8,18 +8,35 @@
 #include "lights/SceneSpotLight.h"
 #include "objects/food/IceCream.h"
 #include "objects/Grid.h"
+#include "objects/food/Apple.h"
+#include "objects/food/Pizza.h"
+#include "objects/food/Soda.h"
+#include "objects/food/Chocolate.h"
+#include "objects/food/Sandwich.h"
+#include "objects/food/Dango.h"
 
 
 void ObjectsDebugGui::Render()
 {
 	ImGui::BeginDefault("Objects");
+	ImGui::Text("Food");
+	RenderButton<Sandwich>();
+	RenderButton<Chocolate>();
+	RenderButton<Soda>();
+	RenderButton<Pizza>();
+	RenderButton<Apple>();
+	RenderButton<IceCream>();
+	RenderButton<Dango>();
+	ImGui::Separator();
+
+	ImGui::Text("Others");
 	RenderButton<Cube>();
 	RenderButton<Triangle>();
 	RenderButton<Floor>();
 	RenderButton<Player1>();
 	RenderButton<Player2>();
 	RenderButton<SceneSpotLight>();
-	RenderButton<IceCream>();
 	RenderButton<Grid>();
+
 	ImGui::End();
 }

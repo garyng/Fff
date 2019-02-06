@@ -61,7 +61,7 @@ void GameService::End()
 	_objectFactory->Make<EndScreen>();
 }
 
-void GameService::Restart()
+void GameService::Prepare()
 {
 	_totalTimeElapsed = 0;
 	_objectContainer->Clear();

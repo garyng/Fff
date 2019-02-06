@@ -5,12 +5,6 @@ void IceCream::Render()
 {
 	Apply();
 
-	float position[]{_position.x, _position.y, _position.z, 1};
-	glLightfv(GL_LIGHT2, GL_POSITION, position);
-
-	float direction[]{0, -1, 0, 1};
-	glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, direction);
-
 	GLUquadricObj* pObj = gluNewQuadric();
 
 	glPushMatrix();
