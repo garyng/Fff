@@ -24,7 +24,6 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
-					<Add option="-Wa,-mbig-obj" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -69,10 +68,15 @@
 			<Option virtualFolder="imgui/" />
 		</Unit>
 		<Unit filename="ContainerBase.h" />
+		<Unit filename="FoodService.cpp" />
+		<Unit filename="FoodService.h" />
 		<Unit filename="IRemovable.h" />
 		<Unit filename="IdGenerator.h" />
 		<Unit filename="Main.cpp" />
 		<Unit filename="Vectors.h" />
+		<Unit filename="collision/CollisionService.cpp" />
+		<Unit filename="collision/CollisionService.h" />
+		<Unit filename="collision/ITestCollision.h" />
 		<Unit filename="colors/Colors.cpp" />
 		<Unit filename="colors/Colors.h" />
 		<Unit filename="config/Config.h" />
@@ -105,10 +109,7 @@
 		<Unit filename="gui/SceneSpotLightGui.cpp" />
 		<Unit filename="gui/SceneSpotLightGui.h" />
 		<Unit filename="gui/TriangleGui.h" />
-		<Unit filename="gui/player/Player1Gui.cpp" />
-		<Unit filename="gui/player/Player1Gui.h" />
-		<Unit filename="gui/player/Player2Gui.cpp" />
-		<Unit filename="gui/player/Player2Gui.h" />
+		<Unit filename="gui/player/PlayerGuiBase.h" />
 		<Unit filename="imgui_custom.h" />
 		<Unit filename="init/IOnInit.h" />
 		<Unit filename="lights/AmbientLight.cpp" />
@@ -128,6 +129,8 @@
 		<Unit filename="mutators/FreezedMutator.h" />
 		<Unit filename="mutators/IMutable.h" />
 		<Unit filename="mutators/IMutator.h" />
+		<Unit filename="mutators/JumpMutator.cpp" />
+		<Unit filename="mutators/JumpMutator.h" />
 		<Unit filename="mutators/KeyboardMutator.cpp" />
 		<Unit filename="mutators/KeyboardMutator.h" />
 		<Unit filename="mutators/MutatorFactory.h" />
@@ -135,16 +138,26 @@
 		<Unit filename="mutators/NullMutator.h" />
 		<Unit filename="mutators/PlayerKeyboardMutator.cpp" />
 		<Unit filename="mutators/PlayerKeyboardMutator.h" />
+		<Unit filename="mutators/WinningMutator.cpp" />
+		<Unit filename="mutators/WinningMutator.h" />
+		<Unit filename="objects/Countdown.cpp" />
+		<Unit filename="objects/Countdown.h" />
 		<Unit filename="objects/Cube.cpp" />
 		<Unit filename="objects/Cube.h" />
+		<Unit filename="objects/EndScreen.cpp" />
+		<Unit filename="objects/EndScreen.h" />
 		<Unit filename="objects/Floor.cpp" />
 		<Unit filename="objects/Floor.h" />
+		<Unit filename="objects/Grid.cpp" />
+		<Unit filename="objects/Grid.h" />
 		<Unit filename="objects/IObject.cpp" />
 		<Unit filename="objects/IObject.h" />
 		<Unit filename="objects/ObjectContainer.h" />
 		<Unit filename="objects/ObjectFactory.cpp" />
 		<Unit filename="objects/ObjectFactory.h" />
 		<Unit filename="objects/ObjectGuiBase.h" />
+		<Unit filename="objects/StartScreen.cpp" />
+		<Unit filename="objects/StartScreen.h" />
 		<Unit filename="objects/Triangle.h" />
 		<Unit filename="objects/food/IFood.h" />
 		<Unit filename="objects/food/IceCream.cpp" />
@@ -158,6 +171,7 @@
 		<Unit filename="pch.cpp" />
 		<Unit filename="pch.h" />
 		<Unit filename="utilities/constraints.h" />
+		<Unit filename="utilities/gl.h" />
 		<Unit filename="utilities/nameof.h" />
 		<Extensions>
 			<code_completion />

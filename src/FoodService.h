@@ -42,8 +42,14 @@ public:
 	void New()
 	{
 		std::vector<std::function<void(Vector3<float>)>> food;
+#ifdef __GNUC__
+		std::experimental::sample(_foodFactory.begin(), _foodFactory.end(), std::back_inserter(food),
+			1, std::mt19937{ std::random_device{}() });
+#else
 		std::sample(_foodFactory.begin(), _foodFactory.end(), std::back_inserter(food),
 		            1, std::mt19937{std::random_device{}()});
+#endif
+
 		food[0](RandomVector());
 	}
 };
