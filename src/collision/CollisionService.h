@@ -13,6 +13,7 @@
 #include "mutators/OnLightningStrikeEffect.h"
 #include "mutators/OnFreezedEffect.h"
 #include "mutators/OnDashingEffect.h"
+#include "mutators/OnMagnetEffect.h"
 
 class CollisionService
 {
@@ -112,6 +113,10 @@ public:
 		if (typeid(*powerup) == typeid(Dash))
 		{
 			_mutatorFactory->Attach<OnDashingEffect>(player);
+		}
+		if (typeid(*powerup) == typeid(Magnet))
+		{
+			_mutatorFactory->Attach<OnMagnetEffect>(player);
 		}
 
 		powerup->CanRemove(true);

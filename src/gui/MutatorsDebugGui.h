@@ -7,6 +7,7 @@
 #include "mutators/OnLightningStrikeEffect.h"
 #include "mutators/OnFreezedEffect.h"
 #include "mutators/OnDashingEffect.h"
+#include "mutators/OnMagnetEffect.h"
 
 class MutatorsDebugGui : public IGui
 {
@@ -29,6 +30,7 @@ public:
 		RenderButton<OnLightningStrikeEffect, Player1>();
 		RenderButton<OnFreezedEffect, Player1>();
 		RenderButton<OnDashingEffect, Player1>();
+		RenderButton<OnMagnetEffect, Player1>();
 		ImGui::End();
 	}
 

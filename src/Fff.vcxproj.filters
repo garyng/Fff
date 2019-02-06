@@ -258,6 +258,9 @@
     <ClCompile Include="mutators\OnDashingEffect.cpp">
       <Filter>Source Files\mutators</Filter>
     </ClCompile>
+    <ClCompile Include="mutators\OnMagnetEffect.cpp">
+      <Filter>Source Files\mutators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\imgui\imconfig.h">
@@ -537,6 +540,9 @@
       <Filter>Source Files\objects</Filter>
     </ClInclude>
     <ClInclude Include="mutators\OnDashingEffect.h">
+      <Filter>Source Files\mutators</Filter>
+    </ClInclude>
+    <ClInclude Include="mutators\OnMagnetEffect.h">
       <Filter>Source Files\mutators</Filter>
     </ClInclude>
   </ItemGroup>

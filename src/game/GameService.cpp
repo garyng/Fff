@@ -51,6 +51,10 @@ void GameService::End()
 	{
 		food->CanRemove(true);
 	}
+	for (auto&& powerUp : _objectContainer->AllOfBase<IPowerUp>())
+	{
+		powerUp->CanRemove(true);
+	}
 	_objectContainer->FirstOf<Countdown>()->CanRemove(true);
 	bool isTie = false;
 	std::shared_ptr<Player> winner = Winner(isTie);

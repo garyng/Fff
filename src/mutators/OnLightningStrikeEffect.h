@@ -18,7 +18,8 @@ public:
 
 
 	OnLightningStrikeEffect(const std::shared_ptr<GameService>& gameService,
-		const std::shared_ptr<ObjectFactory>& objectFactory, const std::shared_ptr<Config>& config)
+	                        const std::shared_ptr<ObjectFactory>& objectFactory,
+	                        const std::shared_ptr<Config>& config)
 		: _gameService(gameService),
 		  _objectFactory(objectFactory),
 		  _config(config)

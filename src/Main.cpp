@@ -227,6 +227,8 @@ int main(int argc, char** argv)
 	builder.registerType<CompositeLogger>()
 	       .as<ILogger>();
 
+	// builder.registerType<OnMagnetEffect>();
+
 	registerObjectWithCustomGui<Triangle, TriangleGui>(builder);
 	registerObjectWithCustomGui<Cube, CubeGui>(builder);
 	registerObjectWithCustomGui<Floor, FloorGui>(builder);
@@ -268,7 +270,7 @@ int main(int argc, char** argv)
 	// _container->resolve<MutatorFactory>()->Attach<FreezedMutator, Cube>();
 
 	// _container->resolve<ObjectFactory>()->Make<StartScreen>();
-	// _container->resolve<GameService>()->Prepare();
+	_container->resolve<GameService>()->Prepare();
 	// _container->resolve<Config>()->IsTextureEnabled(false);
 
 	// _container->resolve<ObjectFactory>()->Make<Sandwich>();
@@ -281,7 +283,7 @@ int main(int argc, char** argv)
 	// _container->resolve<ObjectFactory>()->Make<Magnet>();
 	// _container->resolve<ObjectFactory>()->Make<Dash>();
 	// _container->resolve<ObjectFactory>()->Make<AmbientLight>();
-	_container->resolve<ObjectFactory>()->Make<Chevron>();
+	// _container->resolve<ObjectFactory>()->Make<Chevron>();
 	glutMainLoop();
 	Cleanup();
 	return 0;

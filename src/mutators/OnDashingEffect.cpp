@@ -7,7 +7,7 @@ void OnDashingEffect::OnInit()
 	_player = std::static_pointer_cast<Player>(_target);
 
 	_initialDeltaMovement = _player->DeltaMovement();
-	_player->DeltaMovement() = { 1, 1, 1 };
+	_player->DeltaMovement() = { 0.5, 0.5, 0.5 };
 	_chevron = _objectFactory->Make<Chevron>();
 
 	_chevron->Position().y += _player->BoundingBoxMax().y;

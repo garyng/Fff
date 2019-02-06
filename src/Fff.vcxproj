@@ -73,6 +73,7 @@
     <ClCompile Include="mutators\NullMutator.cpp" />
     <ClCompile Include="mutators\OnFoodEffect.cpp" />
     <ClCompile Include="mutators\OnLightningStrikeEffect.cpp" />
+    <ClCompile Include="mutators\OnMagnetEffect.cpp" />
     <ClCompile Include="mutators\PlayerKeyboardMutator.cpp" />
     <ClCompile Include="mutators\WinningMutator.cpp" />
     <ClCompile Include="objects\Chevron.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="mutators\NullMutator.h" />
     <ClInclude Include="mutators\OnFoodEffect.h" />
     <ClInclude Include="mutators\OnLightningStrikeEffect.h" />
+    <ClInclude Include="mutators\OnMagnetEffect.h" />
     <ClInclude Include="mutators\PlayerKeyboardMutator.h" />
     <ClInclude Include="mutators\WinningMutator.h" />
     <ClInclude Include="objects\Chevron.h" />

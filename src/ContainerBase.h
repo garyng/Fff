@@ -31,7 +31,7 @@ public:
 		_items.push_back(item);
 	}
 
-	std::vector<std::shared_ptr<T>>& All()
+	std::vector<std::shared_ptr<T>> All()
 	{
 		return _items;
 	}

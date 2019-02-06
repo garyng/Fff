@@ -206,7 +206,7 @@ void GameRenderer::Render()
 
 			glPushMatrix();
 			{
-				for (auto&& object : _objectContainer->All())
+				for (std::shared_ptr<IObject> object : _objectContainer->All())
 				{
 					if (_config->IsBoundingBoxEnabled())
 					{
