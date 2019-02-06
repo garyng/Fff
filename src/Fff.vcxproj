@@ -69,6 +69,7 @@
     <ClCompile Include="mutators\KeyboardMutator.cpp" />
     <ClCompile Include="mutators\NullMutator.cpp" />
     <ClCompile Include="mutators\PlayerKeyboardMutator.cpp" />
+    <ClCompile Include="mutators\WinningMutator.cpp" />
     <ClCompile Include="objects\Countdown.cpp" />
     <ClCompile Include="objects\Cube.cpp" />
     <ClCompile Include="objects\EndScreen.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="mutators\MutatorFactory.h" />
     <ClInclude Include="mutators\NullMutator.h" />
     <ClInclude Include="mutators\PlayerKeyboardMutator.h" />
+    <ClInclude Include="mutators\WinningMutator.h" />
     <ClInclude Include="objects\Countdown.h" />
     <ClInclude Include="objects\Cube.h" />
     <ClInclude Include="objects\EndScreen.h" />

@@ -204,6 +204,9 @@
     <ClCompile Include="mutators\JumpMutator.cpp">
       <Filter>Source Files\mutators</Filter>
     </ClCompile>
+    <ClCompile Include="mutators\WinningMutator.cpp">
+      <Filter>Source Files\mutators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\imgui\imconfig.h">
@@ -423,6 +426,9 @@
       <Filter>Source Files\objects</Filter>
     </ClInclude>
     <ClInclude Include="mutators\JumpMutator.h">
+      <Filter>Source Files\mutators</Filter>
+    </ClInclude>
+    <ClInclude Include="mutators\WinningMutator.h">
       <Filter>Source Files\mutators</Filter>
     </ClInclude>
   </ItemGroup>

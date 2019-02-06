@@ -9,6 +9,7 @@
 #include "objects/StartScreen.h"
 #include "objects/Countdown.h"
 #include "objects/EndScreen.h"
+#include "mutators/WinningMutator.h"
 
 float GameService::DeltaTime()
 {
@@ -51,6 +52,12 @@ void GameService::End()
 		food->CanRemove(true);
 	}
 	_objectContainer->FirstOf<Countdown>()->CanRemove(true);
+	bool isTie = false;
+	std::shared_ptr<Player> winner = Winner(isTie);
+	if (!isTie)
+	{
+		_mutatorFactory->Attach<WinningMutator>(winner);
+	}
 	_objectFactory->Make<EndScreen>();
 }
 

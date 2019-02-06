@@ -83,6 +83,8 @@ public:
 	Vector3<float>& MinPosition() { return _minPosition; }
 	Vector3<float>& MaxPosition() { return _maxPosition; }
 	Vector3<float>& Rotation() { return _rotation; }
+	Vector3<float>& MinRotation() { return _minRotation; }
+	Vector3<float>& MaxRotation() { return _maxRotation; }
 	Vector3<float>& DeltaPosition() { return _deltaPosition; }
 	Vector3<float>& DeltaRotation() { return _deltaRotation; }
 

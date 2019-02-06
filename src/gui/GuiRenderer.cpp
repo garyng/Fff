@@ -24,7 +24,7 @@ void GuiRenderer::ShowGlobalGui()
 
 void GuiRenderer::ShowObjectsGui()
 {
-	if (!_config->ShowObjectsGui()) return;
+	if (!_config->ShowObjectsGui() || !_config->IsTerminalEnabled()) return;
 	for (auto&& gui : _guiContainer->All())
 	{
 		// render gui that has object
