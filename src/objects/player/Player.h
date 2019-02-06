@@ -13,7 +13,7 @@ protected:
 
 	PlayerKeysBinding _keyBindings{};
 	// movement speed, different from _deltaPosition, this is used during key presses only
-	Vector3<float> _deltaMovement{0.05f, 0, 0.05f};
+	Vector3<float> _deltaMovement{0.1f, 0, 0.1f};
 
 	// +x (going right), -x (going left), +z (going down), -z (going up)
 	Vector3<float> _direction{0, 0, 0};
@@ -23,7 +23,7 @@ public:
 	Vector3<float>& DeltaMovement() { return _deltaMovement; }
 
 	int Score() const { return _score; }
-	void Score(int value) { _score = value; }	
+	void Score(int value) { _score = value; }
 
 	Player(const std::shared_ptr<Config>& config,
 	       const std::shared_ptr<ILogger>& logger) : _config(config),

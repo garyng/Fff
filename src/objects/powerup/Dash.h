@@ -7,7 +7,7 @@ class Dash : public IPowerUp, public ITestCollision
 public:
 	Dash()
 	{
-		Normalize({ 8, 28, 8 }, 7);
+		Normalize({ 8, 28, 8 }, 8);
 		_deltaRotation = Vector3<float>{ 0, 90, 0 };
 		_deltaPosition = Vector3<float>{ 0, 1, 0 };
 

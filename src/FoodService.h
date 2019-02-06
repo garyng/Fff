@@ -12,6 +12,10 @@
 
 #include <random>
 #include <iterator>
+#include "objects/powerup/Thunder.h"
+#include "objects/powerup/Star.h"
+#include "objects/powerup/Magnet.h"
+#include "objects/powerup/Dash.h"
 
 template <typename RandomGenerator = std::default_random_engine>
 struct random_selector
@@ -57,9 +61,11 @@ private:
 	std::shared_ptr<Config> _config;
 	std::random_device _device{};
 	std::vector<std::function<void(Vector3<float>)>> _foodFactory{};
+	std::vector<std::function<void(Vector3<float>)>> _powerupFactory{};
 	std::mt19937 _generator{_device()};
 	std::uniform_real_distribution<float> _x;
 	std::uniform_real_distribution<float> _z;
+	std::bernoulli_distribution _powerUp{ 0.5 };
 
 
 	Vector3<float> RandomVector()
@@ -68,6 +74,7 @@ private:
 	}
 
 public:
+
 
 
 	FoodService(const std::shared_ptr<ObjectFactory>& objectFactory, const std::shared_ptr<Config>& config)
@@ -111,23 +118,58 @@ public:
 				object->Position() = position;
 			}
 		};
+
+		_powerupFactory = std::vector<std::function<void(Vector3<float>)>>{
+			[&](Vector3<float> position)
+			{
+				auto&& object = _objectFactory->Make<Thunder>();
+				object->Position() = position;
+			},
+			[&](Vector3<float> position)
+			{
+				auto&& object = _objectFactory->Make<Star>();
+				object->Position() = position;
+			},
+			[&](Vector3<float> position)
+			{
+				auto&& object = _objectFactory->Make<Magnet>();
+				object->Position() = position;
+			},
+			[&](Vector3<float> position)
+			{
+				auto&& object = _objectFactory->Make<Dash>();
+				object->Position() = position;
+			}
+		};
 		_x = std::uniform_real_distribution<float>{_config->WorldMin.x, _config->WorldMax.x};
 		_z = std::uniform_real_distribution<float>{_config->WorldMin.z, _config->WorldMax.z};
 	}
 
 	void New()
 	{
+		RandomOf(_foodFactory);
+		RandomPowerUp();
+	}
+
+	void RandomPowerUp()
+	{
+		if (!_powerUp(_generator)) return;
+		RandomOf(_powerupFactory);
+	}
+
+	template <class T>
+	void RandomOf(std::vector<T> elements)
+	{
 #ifdef __GNUC__
 		// std::sample under gcc is very weird..
 		srand(time(nullptr));
-		int index = rand() % _foodFactory.size();
-		_foodFactory[index](RandomVector());
+		int index = rand() % elements.size();
+		elements[index](RandomVector());
 #else
-		std::vector<std::function<void(Vector3<float>)>> food;
-		std::sample(_foodFactory.begin(), _foodFactory.end(), std::back_inserter(food),
-		            1, std::mt19937{std::random_device{}()});
-		food[0](RandomVector());
-
+		std::vector<std::function<void(Vector3<float>)>> items;
+		std::sample(elements.begin(), elements.end(), std::back_inserter(items),
+			1, std::mt19937{ std::random_device{}() });
+		items[0](RandomVector());
 #endif
 	}
 };

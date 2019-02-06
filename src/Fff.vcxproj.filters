@@ -246,6 +246,12 @@
     <ClCompile Include="objects\powerup\Dash.cpp">
       <Filter>Source Files\objects\powerup</Filter>
     </ClCompile>
+    <ClCompile Include="objects\Cylinder.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="mutators\OnFreezedEffect.cpp">
+      <Filter>Source Files\mutators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\imgui\imconfig.h">
@@ -514,6 +520,12 @@
     </ClInclude>
     <ClInclude Include="objects\powerup\Dash.h">
       <Filter>Source Files\objects\powerup</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\Cylinder.h">
+      <Filter>Source Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="mutators\OnFreezedEffect.h">
+      <Filter>Source Files\mutators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

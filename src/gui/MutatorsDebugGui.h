@@ -5,6 +5,7 @@
 #include "mutators/OnFoodEffect.h"
 #include "objects/player/Player1.h"
 #include "mutators/OnLightningStrikeEffect.h"
+#include "mutators/OnFreezedEffect.h"
 
 class MutatorsDebugGui : public IGui
 {
@@ -25,6 +26,7 @@ public:
 		ImGui::BeginDefault("Mutators");
 		RenderButton<OnFoodEffect, Player1>();
 		RenderButton<OnLightningStrikeEffect, Player1>();
+		RenderButton<OnFreezedEffect, Player1>();
 		ImGui::End();
 	}
 

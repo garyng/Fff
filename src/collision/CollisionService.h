@@ -8,6 +8,10 @@
 #include "mutators/JumpMutator.h"
 #include "mutators/OnFoodEffect.h"
 #include "objects/powerup/IPowerUp.h"
+#include "objects/powerup/Star.h"
+#include "objects/powerup/Thunder.h"
+#include "mutators/OnLightningStrikeEffect.h"
+#include "mutators/OnFreezedEffect.h"
 
 class CollisionService
 {
@@ -66,7 +70,11 @@ public:
 			return;
 		}
 		std::shared_ptr<IPowerUp> powerup = std::dynamic_pointer_cast<IPowerUp>(item);
-		// todo: fill in powerup
+		if (powerup != nullptr)
+		{
+			OnPowerUp(player, powerup);
+			return;
+		}
 	}
 
 	void OnFood(std::shared_ptr<Player> player, std::shared_ptr<IFood> food)
@@ -75,6 +83,33 @@ public:
 		player->Score(player->Score() + 1);
 		food->CanRemove(true);
 		_foodService->New();
+	}
+
+	void OnPowerUp(std::shared_ptr<Player> player, std::shared_ptr<IPowerUp> powerup)
+	{
+		std::vector<std::shared_ptr<Player>> otherPlayers = _objectContainer->AllOfBase<Player>() | where(
+			[&](std::shared_ptr<Player> item)
+			{
+				return item->Id() != player->Id();
+			}) | to_vector();
+
+		if (typeid(*powerup) == typeid(Thunder))
+		{
+			for (auto && other : otherPlayers)
+			{
+				_mutatorFactory->Attach<OnLightningStrikeEffect>(other);
+				other->Score(0);
+			}
+		}
+		if (typeid(*powerup) == typeid(Star))
+		{
+			for (auto && other : otherPlayers)
+			{
+				_mutatorFactory->Attach<OnFreezedEffect>(other);
+			}
+		}
+
+		powerup->CanRemove(true);
 	}
 
 	// AABB collision test

@@ -65,6 +65,7 @@
     <ClCompile Include="logger\ConsoleLogger.cpp" />
     <ClCompile Include="logger\GuiLogger.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="mutators\OnFreezedEffect.cpp" />
     <ClCompile Include="mutators\FreezedMutator.cpp" />
     <ClCompile Include="mutators\JumpMutator.cpp" />
     <ClCompile Include="mutators\KeyboardMutator.cpp" />
@@ -75,6 +76,7 @@
     <ClCompile Include="mutators\WinningMutator.cpp" />
     <ClCompile Include="objects\Countdown.cpp" />
     <ClCompile Include="objects\Cube.cpp" />
+    <ClCompile Include="objects\Cylinder.cpp" />
     <ClCompile Include="objects\EndScreen.cpp" />
     <ClCompile Include="objects\Floor.cpp" />
     <ClCompile Include="objects\food\Apple.cpp" />
@@ -147,6 +149,7 @@
     <ClInclude Include="logger\GuiLogger.h" />
     <ClInclude Include="logger\IChildLogger.h" />
     <ClInclude Include="logger\ILogger.h" />
+    <ClInclude Include="mutators\OnFreezedEffect.h" />
     <ClInclude Include="mutators\FreezedMutator.h" />
     <ClInclude Include="mutators\IMutable.h" />
     <ClInclude Include="mutators\IMutator.h" />
@@ -160,6 +163,7 @@
     <ClInclude Include="mutators\WinningMutator.h" />
     <ClInclude Include="objects\Countdown.h" />
     <ClInclude Include="objects\Cube.h" />
+    <ClInclude Include="objects\Cylinder.h" />
     <ClInclude Include="objects\EndScreen.h" />
     <ClInclude Include="objects\Floor.h" />
     <ClInclude Include="objects\food\Apple.h" />

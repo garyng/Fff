@@ -62,12 +62,42 @@ public:
 		ImGui::SameLine();
 		ImGui::DragFloat("z##Rotation", &_castedObject->Rotation().z, 0.05f, 0, 360);
 
+
+		ImGui::Text("Max Rotation");
+		ImGui::DragFloat("x##MaxRotation", &_castedObject->MaxRotation().x, 0.05f, -100, 100);
+		ImGui::SameLine();
+		ImGui::DragFloat("y##MaxRotation", &_castedObject->MaxRotation().y, 0.05f, -100, 100);
+		ImGui::SameLine();
+		ImGui::DragFloat("z##MaxRotation", &_castedObject->MaxRotation().z, 0.05f, -100, 100);
+
+		ImGui::Text("Min Rotation");
+		ImGui::DragFloat("x##Min Rotation", &_castedObject->MinRotation().x, 0.05f, -100, 100);
+		ImGui::SameLine();
+		ImGui::DragFloat("y##Min Rotation", &_castedObject->MinRotation().y, 0.05f, -100, 100);
+		ImGui::SameLine();
+		ImGui::DragFloat("z##Min Rotation", &_castedObject->MinRotation().z, 0.05f, -100, 100);
+
 		ImGui::Text("Position");
 		ImGui::DragFloat("x##Position", &_castedObject->Position().x, 0.05f, -100, 100);
 		ImGui::SameLine();
 		ImGui::DragFloat("y##Position", &_castedObject->Position().y, 0.05f, -100, 100);
 		ImGui::SameLine();
 		ImGui::DragFloat("z##Position", &_castedObject->Position().z, 0.05f, -100, 100);
+
+		ImGui::Text("Max Position");
+		ImGui::DragFloat("x##MaxPosition", &_castedObject->MaxPosition().x, 0.05f, -100, 100);
+		ImGui::SameLine();
+		ImGui::DragFloat("y##MaxPosition", &_castedObject->MaxPosition().y, 0.05f, -100, 100);
+		ImGui::SameLine();
+		ImGui::DragFloat("z##MaxPosition", &_castedObject->MaxPosition().z, 0.05f, -100, 100);
+
+
+		ImGui::Text("Min Position");
+		ImGui::DragFloat("x##Min Position", &_castedObject->MinPosition().x, 0.05f, -100, 100);
+		ImGui::SameLine();
+		ImGui::DragFloat("y##Min Position", &_castedObject->MinPosition().y, 0.05f, -100, 100);
+		ImGui::SameLine();
+		ImGui::DragFloat("z##Min Position", &_castedObject->MinPosition().z, 0.05f, -100, 100);
 
 		ImGui::Text("Delta position per second");
 		ImGui::DragFloat("x##Delta position", &_castedObject->DeltaPosition().x, 0.05f, -100, 100);
