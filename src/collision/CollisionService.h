@@ -12,6 +12,7 @@
 #include "objects/powerup/Thunder.h"
 #include "mutators/OnLightningStrikeEffect.h"
 #include "mutators/OnFreezedEffect.h"
+#include "mutators/OnDashingEffect.h"
 
 class CollisionService
 {
@@ -95,7 +96,7 @@ public:
 
 		if (typeid(*powerup) == typeid(Thunder))
 		{
-			for (auto && other : otherPlayers)
+			for (auto&& other : otherPlayers)
 			{
 				_mutatorFactory->Attach<OnLightningStrikeEffect>(other);
 				other->Score(0);
@@ -103,10 +104,14 @@ public:
 		}
 		if (typeid(*powerup) == typeid(Star))
 		{
-			for (auto && other : otherPlayers)
+			for (auto&& other : otherPlayers)
 			{
 				_mutatorFactory->Attach<OnFreezedEffect>(other);
 			}
+		}
+		if (typeid(*powerup) == typeid(Dash))
+		{
+			_mutatorFactory->Attach<OnDashingEffect>(player);
 		}
 
 		powerup->CanRemove(true);

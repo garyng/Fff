@@ -65,6 +65,7 @@
     <ClCompile Include="logger\ConsoleLogger.cpp" />
     <ClCompile Include="logger\GuiLogger.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="mutators\OnDashingEffect.cpp" />
     <ClCompile Include="mutators\OnFreezedEffect.cpp" />
     <ClCompile Include="mutators\FreezedMutator.cpp" />
     <ClCompile Include="mutators\JumpMutator.cpp" />
@@ -74,6 +75,7 @@
     <ClCompile Include="mutators\OnLightningStrikeEffect.cpp" />
     <ClCompile Include="mutators\PlayerKeyboardMutator.cpp" />
     <ClCompile Include="mutators\WinningMutator.cpp" />
+    <ClCompile Include="objects\Chevron.cpp" />
     <ClCompile Include="objects\Countdown.cpp" />
     <ClCompile Include="objects\Cube.cpp" />
     <ClCompile Include="objects\Cylinder.cpp" />
@@ -149,6 +151,7 @@
     <ClInclude Include="logger\GuiLogger.h" />
     <ClInclude Include="logger\IChildLogger.h" />
     <ClInclude Include="logger\ILogger.h" />
+    <ClInclude Include="mutators\OnDashingEffect.h" />
     <ClInclude Include="mutators\OnFreezedEffect.h" />
     <ClInclude Include="mutators\FreezedMutator.h" />
     <ClInclude Include="mutators\IMutable.h" />
@@ -161,6 +164,7 @@
     <ClInclude Include="mutators\OnLightningStrikeEffect.h" />
     <ClInclude Include="mutators\PlayerKeyboardMutator.h" />
     <ClInclude Include="mutators\WinningMutator.h" />
+    <ClInclude Include="objects\Chevron.h" />
     <ClInclude Include="objects\Countdown.h" />
     <ClInclude Include="objects\Cube.h" />
     <ClInclude Include="objects\Cylinder.h" />

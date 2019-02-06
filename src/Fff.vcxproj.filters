@@ -252,6 +252,12 @@
     <ClCompile Include="mutators\OnFreezedEffect.cpp">
       <Filter>Source Files\mutators</Filter>
     </ClCompile>
+    <ClCompile Include="objects\Chevron.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="mutators\OnDashingEffect.cpp">
+      <Filter>Source Files\mutators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\imgui\imconfig.h">
@@ -525,6 +531,12 @@
       <Filter>Source Files\objects</Filter>
     </ClInclude>
     <ClInclude Include="mutators\OnFreezedEffect.h">
+      <Filter>Source Files\mutators</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\Chevron.h">
+      <Filter>Source Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="mutators\OnDashingEffect.h">
       <Filter>Source Files\mutators</Filter>
     </ClInclude>
   </ItemGroup>
