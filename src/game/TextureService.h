@@ -12,10 +12,10 @@ private:
 	unsigned int _asphalt;
 
 public:
-	unsigned int Brick() const { return _brick; }
-	unsigned int Sand() const { return _sand; }
+	// unsigned int Brick() const { return _brick; }
+	// unsigned int Sand() const { return _sand; }
 	unsigned int Marble() const { return _marble; }
-	unsigned int Asphalt() const { return _asphalt; }
+	// unsigned int Asphalt() const { return _asphalt; }
 
 
 	TextureService(const std::shared_ptr<Config>& config, const std::shared_ptr<ILogger>& logger)

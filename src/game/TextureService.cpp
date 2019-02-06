@@ -8,10 +8,10 @@ void TextureService::LoadAll()
 {
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-	_brick = Load(_config->BrickTexturePath);
-	_sand = Load(_config->SandTexturePath);
+	// _brick = Load(_config->BrickTexturePath);
+	// _sand = Load(_config->SandTexturePath);
 	_marble = Load(_config->MarbleTexturePath);
-	_asphalt = Load(_config->AsphaltTexturePath);
+	// _asphalt = Load(_config->MarbleTexturePath);
 }
 
 unsigned TextureService::Load(std::string filepath)

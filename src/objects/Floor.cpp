@@ -7,42 +7,51 @@ void Floor::Render()
 
 	Apply();
 	glColor3f(1, 1, 1);
-	int xCount = _dimension.x / _quadDimension.x;
-	int zCount = _dimension.z / _quadDimension.z;
+
 	if (_config->IsTextureEnabled())
 	{
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, _texture->Asphalt());
+		glBindTexture(GL_TEXTURE_2D, _texture->Marble());
 	}
 	else
 	{
 		glDisable(GL_TEXTURE_2D);
 	}
-	// move the floor to the center
-	glTranslatef(-_dimension.x / 2, 0, -_dimension.z / 2);
-	for (size_t z = 0; z < zCount; z++)
+
+	Vector3<float> scale{_textureDimension.x / _dimension.x, 0, _textureDimension.z / _dimension.z};
+	for (float z1 = BoundingBoxMin().z; z1 < BoundingBoxMax().z; z1 += _quadDimension.z)
 	{
-		for (size_t x = 0; x < xCount; x++)
+		for (float x1 = BoundingBoxMin().x; x1 < BoundingBoxMax().x; x1+= _quadDimension.x)
 		{
-			glPushMatrix();
-			glTranslatef(x * _quadDimension.x, 0, z * _quadDimension.z);
-			DrawQuad();
-			glPopMatrix();
+			Vector3<float> p1{x1, 0, z1};
+			Vector3<float> p2{x1 + _quadDimension.x, 0, z1 + _quadDimension.z};
+
+			Vector3<float> t1{
+				scale.x * (p1.x - BoundingBoxMin().x),
+				0,
+				scale.z * (p1.z - BoundingBoxMin().z)
+			};
+			Vector3<float> t2{
+				scale.x * (p2.x - BoundingBoxMin().x),
+				0,
+				scale.z * (p2.z - BoundingBoxMin().z)
+			};
+
+			glBegin(GL_QUADS);
+			glNormal3f(0.0f, 1.0f, 0.0f); // point upwards
+			glTexCoord2f(t1.x, t1.z);
+			glVertex3f(p1.x, 0, p1.z);
+
+			glTexCoord2f(t1.x, t2.z);
+			glVertex3f(p1.x, 0, p2.z);
+
+			glTexCoord2f(t2.x, t2.z);
+			glVertex3f(p2.x, 0, p2.z);
+
+			glTexCoord2f(t2.x, t1.z);
+			glVertex3f(p2.x, 0, p1.z);
+
+			glEnd();
 		}
 	}
-}
-
-void Floor::DrawQuad()
-{
-	glBegin(GL_QUADS);
-	glNormal3f(0.0f, 1.0f, 0.0f); // point upwards
-	glTexCoord2f(0, 1);
-	glVertex3f(0, 0, _quadDimension.z);
-	glTexCoord2f(1, 1);
-	glVertex3f(_quadDimension.x, 0, _quadDimension.z);
-	glTexCoord2f(1, 0);
-	glVertex3f(_quadDimension.x, 0, 0);
-	glTexCoord2f(0, 0);
-	glVertex3f(0, 0, 0);
-	glEnd();
 }

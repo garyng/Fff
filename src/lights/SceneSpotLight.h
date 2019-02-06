@@ -11,7 +11,7 @@ public:
 	{
 		_position = Vector3<float>{
 			_config->WorldMin.x + _config->WorldDimension.x / 2,
-			_config->WorldMax.y / 2,
+			_config->WorldMax.y / 4,
 			_config->WorldMin.z + _config->WorldDimension.z / 2,
 		};
 		_direction = Vector3<float>{0, -1, 0};

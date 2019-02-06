@@ -15,7 +15,7 @@ public:
 			_config->WorldMin.z + _config->WorldDimension.z / 2,
 
 		};
-		_diffuse = Vector3<float>{ 0.5f, 0.5f, 0.5f };
+		_diffuse = Vector3<float>{ 0.2f, 0.2f, 0.2f };
 	}
 
 	void Render() override;

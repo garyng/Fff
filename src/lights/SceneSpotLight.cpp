@@ -23,5 +23,4 @@ void SceneSpotLight::Render()
 	glMaterialfv(GL_FRONT, GL_EMISSION, (float*)&_diffuse);
 	glutSolidSphere(1, 64, 64);
 	glPopAttrib();
-
 }

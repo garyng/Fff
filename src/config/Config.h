@@ -48,7 +48,7 @@ public:
 
 	const std::string BrickTexturePath = "textures/brick.jpg";
 	const std::string SandTexturePath = "textures/sand.jpg";
-	const std::string MarbleTexturePath = "textures/marble.png";
+	const std::string MarbleTexturePath = "textures/marble.jpg";
 	const std::string AsphaltTexturePath = "textures/asphalt.jpg";
 
 

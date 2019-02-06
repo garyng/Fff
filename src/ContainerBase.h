@@ -57,7 +57,6 @@ public:
 		}) | to_vector();
 	}
 
-
 	// remove all objects from the container that satisfy certain criteria
 	void Purge()
 	{

@@ -13,8 +13,11 @@ public:
 		
 		ImGui::Text("Quad Dimension");
 		ImGui::DragFloat("x##Quads", &_object->QuadDimension().x, 0.05f, 0.05f, 100);
-		ImGui::DragFloat("y##Quads", &_object->QuadDimension().y, 0.05f, 0.05f, 100);
 		ImGui::DragFloat("z##Quads", &_object->QuadDimension().z, 0.05f, 0.05f, 100);
+
+		ImGui::Text("Texture Dimension");
+		ImGui::DragFloat("x##Texture", &_object->TextureDimension().x, 0.05f, 0.05f, 100);
+		ImGui::DragFloat("z##Texture", &_object->TextureDimension().z, 0.05f, 0.05f, 100);
 
 		ImGui::End();
 	}
