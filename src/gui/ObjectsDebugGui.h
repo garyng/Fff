@@ -8,7 +8,6 @@
 class ObjectsDebugGui : public IGui
 {
 private:
-	std::vector<Hypodermic::TypeAliasKey> _objectTypes;
 	std::shared_ptr<ILogger> _logger;
 	std::shared_ptr<ObjectFactory> _objectFactory;
 

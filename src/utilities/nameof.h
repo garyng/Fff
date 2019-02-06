@@ -14,3 +14,12 @@ std::string nameof(const T& t)
 	boost::erase_first(name, "class ");
 	return name;
 }
+
+template <class T>
+std::string nameof()
+{
+	std::string name = boost::core::demangle(typeid(T).name());
+	boost::erase_first(name, "class ");
+	return name;
+}
+

@@ -6,9 +6,9 @@ void GameGui::Render()
 {
 	ImGui::BeginDefault("Game");
 
-	if (ImGui::Button("Start"))
+	if (ImGui::Button("Prepare"))
 	{
-		_gameService->Start();
+		_gameService->Prepare();
 	}
 	if (ImGui::Button("End"))
 	{

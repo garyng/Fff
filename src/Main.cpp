@@ -46,6 +46,12 @@
 #include "objects/food/Pizza.h"
 #include "objects/food/Apple.h"
 #include "objects/food/Dango.h"
+#include "mutators/OnFoodEffect.h"
+#include "gui/MutatorsDebugGui.h"
+#include "objects/powerup/Thunder.h"
+#include "objects/powerup/Star.h"
+#include "objects/powerup/Magnet.h"
+#include "objects/powerup/Dash.h"
 
 using namespace Hypodermic;
 using namespace std;
@@ -205,6 +211,9 @@ int main(int argc, char** argv)
 	builder.registerType<GameGui>()
 	       .singleInstance()
 	       .as<IGui>();
+	builder.registerType<MutatorsDebugGui>()
+	       .singleInstance()
+	       .as<IGui>();
 
 
 	builder.registerType<ConsoleLogger>()
@@ -257,7 +266,7 @@ int main(int argc, char** argv)
 	// _container->resolve<MutatorFactory>()->Attach<FreezedMutator, Cube>();
 
 	// _container->resolve<ObjectFactory>()->Make<StartScreen>();
-	_container->resolve<GameService>()->Prepare();
+	// _container->resolve<GameService>()->Prepare();
 	_container->resolve<Config>()->IsTextureEnabled(false);
 
 	// _container->resolve<ObjectFactory>()->Make<Sandwich>();
@@ -267,7 +276,8 @@ int main(int argc, char** argv)
 	_container->resolve<ObjectFactory>()->Make<Apple>();
 	_container->resolve<ObjectFactory>()->Make<Grid>();*/
 	// _container->resolve<ObjectFactory>()->Make<Dango>();
-
+	_container->resolve<ObjectFactory>()->Make<Magnet>();
+	_container->resolve<ObjectFactory>()->Make<Dash>();
 	glutMainLoop();
 	Cleanup();
 	return 0;

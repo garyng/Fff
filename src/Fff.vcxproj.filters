@@ -52,20 +52,17 @@
     <Filter Include="Source Files\objects\food">
       <UniqueIdentifier>{06eb7cf9-f0ca-4f56-ad7c-12ff622bb468}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\objects\skill">
-      <UniqueIdentifier>{c3926f52-41f6-4aa7-9256-9ec265a26a22}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\gui\food">
       <UniqueIdentifier>{afa14550-31d5-43d6-84cd-ee214428742f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\gui\skill">
-      <UniqueIdentifier>{0f9980f9-6e83-4b47-a2d0-efb886c57e9a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\gui\player">
       <UniqueIdentifier>{a2ed35f7-ff21-4002-a2c1-056ec557076f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\collision">
       <UniqueIdentifier>{01108c92-ae19-406d-b943-d1a3d52253a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\objects\powerup">
+      <UniqueIdentifier>{c3926f52-41f6-4aa7-9256-9ec265a26a22}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +221,30 @@
     </ClCompile>
     <ClCompile Include="objects\food\Soda.cpp">
       <Filter>Source Files\objects\food</Filter>
+    </ClCompile>
+    <ClCompile Include="mutators\OnFoodEffect.cpp">
+      <Filter>Source Files\mutators</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\MutatorsDebugGui.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\Particle.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="mutators\OnLightningStrikeEffect.cpp">
+      <Filter>Source Files\mutators</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\powerup\Thunder.cpp">
+      <Filter>Source Files\objects\powerup</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\powerup\Star.cpp">
+      <Filter>Source Files\objects\powerup</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\powerup\Magnet.cpp">
+      <Filter>Source Files\objects\powerup</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\powerup\Dash.cpp">
+      <Filter>Source Files\objects\powerup</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -466,6 +487,33 @@
     </ClInclude>
     <ClInclude Include="objects\food\Soda.h">
       <Filter>Source Files\objects\food</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\powerup\IPowerUp.h">
+      <Filter>Source Files\objects\powerup</Filter>
+    </ClInclude>
+    <ClInclude Include="mutators\OnFoodEffect.h">
+      <Filter>Source Files\mutators</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\MutatorsDebugGui.h">
+      <Filter>Source Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\Particle.h">
+      <Filter>Source Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="mutators\OnLightningStrikeEffect.h">
+      <Filter>Source Files\mutators</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\powerup\Thunder.h">
+      <Filter>Source Files\objects\powerup</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\powerup\Star.h">
+      <Filter>Source Files\objects\powerup</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\powerup\Magnet.h">
+      <Filter>Source Files\objects\powerup</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\powerup\Dash.h">
+      <Filter>Source Files\objects\powerup</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

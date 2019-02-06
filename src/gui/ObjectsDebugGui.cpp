@@ -14,6 +14,10 @@
 #include "objects/food/Chocolate.h"
 #include "objects/food/Sandwich.h"
 #include "objects/food/Dango.h"
+#include "objects/powerup/Thunder.h"
+#include "objects/powerup/Star.h"
+#include "objects/powerup/Magnet.h"
+#include "objects/powerup/Dash.h"
 
 
 void ObjectsDebugGui::Render()
@@ -29,6 +33,13 @@ void ObjectsDebugGui::Render()
 	RenderButton<Dango>();
 	ImGui::Separator();
 
+	ImGui::Text("Powerups");
+	RenderButton<Thunder>();
+	RenderButton<Star>();
+	RenderButton<Magnet>();
+	RenderButton<Dash>();
+
+	ImGui::Separator();
 	ImGui::Text("Others");
 	RenderButton<Cube>();
 	RenderButton<Triangle>();

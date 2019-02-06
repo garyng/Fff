@@ -6,6 +6,8 @@
 #include "objects/player/Player.h"
 #include "objects/food/IFood.h"
 #include "mutators/JumpMutator.h"
+#include "mutators/OnFoodEffect.h"
+#include "objects/powerup/IPowerUp.h"
 
 class CollisionService
 {
@@ -57,16 +59,19 @@ public:
 
 	void Collide(std::shared_ptr<Player> player, std::shared_ptr<IObject> item)
 	{
-		std::shared_ptr<IFood> food = std::static_pointer_cast<IFood>(item);
+		std::shared_ptr<IFood> food = std::dynamic_pointer_cast<IFood>(item);
 		if (food != nullptr)
 		{
 			OnFood(player, food);
+			return;
 		}
+		std::shared_ptr<IPowerUp> powerup = std::dynamic_pointer_cast<IPowerUp>(item);
+		// todo: fill in powerup
 	}
 
 	void OnFood(std::shared_ptr<Player> player, std::shared_ptr<IFood> food)
 	{
-		_mutatorFactory->Attach<JumpMutator>(player);
+		_mutatorFactory->Attach<OnFoodEffect>(player);
 		player->Score(player->Score() + 1);
 		food->CanRemove(true);
 		_foodService->New();

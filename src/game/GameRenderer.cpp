@@ -223,12 +223,14 @@ void GameRenderer::Render()
 					glPushMatrix();
 					glPushAttrib(GL_CURRENT_BIT);
 					glPushAttrib(GL_LINE_BIT);
+					glPushAttrib(GL_POINT_BIT);
 					{
 						object->Elapsed(_gameService->DeltaTime());
 						object->Mutate();
 						object->Render();
 						object->TryDetach();
 					}
+					glPopAttrib();
 					glPopAttrib();
 					glPopAttrib();
 					glPopMatrix();
