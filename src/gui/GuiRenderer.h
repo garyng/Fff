@@ -8,7 +8,6 @@ private:
 	std::vector<std::shared_ptr<IGui>> _globalGuis;
 	std::shared_ptr<GuiContainer> _guiContainer;
 	std::shared_ptr<Config> _config;
-	bool _showGui = true;
 
 public:
 	GuiRenderer(const std::vector<std::shared_ptr<IGui>>& globalGuis,
@@ -19,5 +18,7 @@ public:
 	}
 
 	void Render();
+	void ShowGlobalGui();
+	void ShowObjectsGui();
 	void OnKeyboard();
 };

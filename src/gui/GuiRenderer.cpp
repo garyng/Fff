@@ -5,19 +5,31 @@
 void GuiRenderer::Render()
 {
 	OnKeyboard();
-	if (!_showGui) return;
+	ShowGlobalGui();
+	ShowObjectsGui();
+
+	_guiContainer->Purge();
+}
+
+void GuiRenderer::ShowGlobalGui()
+{
+	if (!_config->IsTerminalEnabled()) return;
 
 	for (auto&& gui : _globalGuis)
 	{
 		// render global gui
 		gui->Render();
 	}
+}
+
+void GuiRenderer::ShowObjectsGui()
+{
+	if (!_config->ShowObjectsGui()) return;
 	for (auto&& gui : _guiContainer->All())
 	{
 		// render gui that has object
 		gui->Render();
 	}
-	_guiContainer->Purge();
 }
 
 void GuiRenderer::OnKeyboard()
@@ -27,6 +39,10 @@ void GuiRenderer::OnKeyboard()
 
 	if (ImGui::IsKeyPressed(_config->ToggleTerminalKey, false))
 	{
-		_showGui = !_showGui;
+		_config->IsTerminalEnabled(!_config->IsTerminalEnabled());
+	}
+	if (ImGui::IsKeyPressed(_config->ToggleObjectsGui, false))
+	{
+		_config->ShowObjectsGui(!_config->ShowObjectsGui());
 	}
 }

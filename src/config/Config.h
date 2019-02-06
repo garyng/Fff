@@ -18,6 +18,7 @@ private:
 	bool _isTextureEnabled = true;
 	bool _isGridEnabled = false;
 	bool _isBoundingBoxEnabled = true;
+	bool _showObjectsGui = true;
 	std::shared_ptr<ILogger> _logger;
 
 
@@ -37,6 +38,7 @@ public:
 	const PlayerKeysBinding Player1Keys{'w', 's', 'a', 'd'};
 	const PlayerKeysBinding Player2Keys{357, 359, 356, 358}; // arrow keys
 	const int ToggleTerminalKey = 96; // `
+	const int ToggleObjectsGui = '1'; // 1
 	const int ToggleWireFrameModeKey = 257; // F1
 	const int ToggleLightingKey = 258; // F2
 	const int ToggleTextureKey = 259; // F3
@@ -97,6 +99,10 @@ public:
 		_isBoundingBoxEnabled = value;
 		LogBoolean("Bounding box", value);
 	}
+
+	bool ShowObjectsGui() const { return _showObjectsGui; }
+	void ShowObjectsGui(bool value) { _showObjectsGui = value; }
+	
 	
 
 

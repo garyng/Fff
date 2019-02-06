@@ -14,7 +14,6 @@ public:
 		: _config(config),
 		_gameService(gameService)
 	{
-		_position = Vector3<float>{ -75, 10, 0 };
 	}
 
 

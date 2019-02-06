@@ -15,6 +15,7 @@ void EndScreen::Render()
 	bool isTie = false;
 	std::shared_ptr<Player> winner = _gameService->Winner(isTie);
 	std::string text = isTie ? "It's a tie!" : nameof(*winner) + " is the winner!";
+	_position = isTie? Vector3<float>{ -30, 10, 0 } : Vector3<float>{ -60, 10, 0 };
 
 	Apply();
 	glPushAttrib(GL_LINE_BIT);

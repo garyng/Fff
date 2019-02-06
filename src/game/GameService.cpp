@@ -46,6 +46,10 @@ void GameService::End()
 	_gameState = GameStates::Ended;
 	// dont clear, otherwise the player's information is gone
 	// _objectContainer->Clear();
+	for (auto&& food : _objectContainer->AllOfBase<IFood>())
+	{
+		food->CanRemove(true);
+	}
 	_objectContainer->FirstOf<Countdown>()->CanRemove(true);
 	_objectFactory->Make<EndScreen>();
 }
@@ -71,7 +75,7 @@ float GameService::TotalTimeElapsed() const
 std::shared_ptr<Player> GameService::Winner(bool& isTie)
 {
 	std::vector<std::shared_ptr<Player>> players = _objectContainer->AllOfBase<Player>();
-	
+
 	std::shared_ptr<Player> winner = players[0];
 	for (std::shared_ptr<Player> player : players)
 	{
