@@ -5,6 +5,7 @@
 #include "ITestCollision.h"
 #include "objects/player/Player.h"
 #include "objects/food/IFood.h"
+#include "mutators/JumpMutator.h"
 
 class CollisionService
 {
@@ -14,19 +15,22 @@ private:
 	std::shared_ptr<GameService> _gameService;
 	std::shared_ptr<FoodService> _foodService;
 	std::shared_ptr<ILogger> _logger;
+	std::shared_ptr<MutatorFactory> _mutatorFactory;
 
 public:
+
 
 	CollisionService(const std::shared_ptr<ObjectContainer>& objectContainer,
 	                 const std::shared_ptr<ObjectFactory>& objectFactory,
 	                 const std::shared_ptr<GameService>& gameService,
-	                 const std::shared_ptr<FoodService>& foodService,
-	                 const std::shared_ptr<ILogger>& logger)
+	                 const std::shared_ptr<FoodService>& foodService, const std::shared_ptr<ILogger>& logger,
+	                 const std::shared_ptr<MutatorFactory>& mutatorFactory)
 		: _objectContainer(objectContainer),
 		  _objectFactory(objectFactory),
 		  _gameService(gameService),
 		  _foodService(foodService),
-		  _logger(logger)
+		  _logger(logger),
+		  _mutatorFactory(mutatorFactory)
 	{
 	}
 
@@ -62,6 +66,7 @@ public:
 
 	void OnFood(std::shared_ptr<Player> player, std::shared_ptr<IFood> food)
 	{
+		_mutatorFactory->Attach<JumpMutator>(player);
 		player->Score(player->Score() + 1);
 		food->CanRemove(true);
 		_foodService->New();

@@ -201,6 +201,9 @@
     <ClCompile Include="objects\EndScreen.cpp">
       <Filter>Source Files\objects</Filter>
     </ClCompile>
+    <ClCompile Include="mutators\JumpMutator.cpp">
+      <Filter>Source Files\mutators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\imgui\imconfig.h">
@@ -418,6 +421,9 @@
     </ClInclude>
     <ClInclude Include="objects\EndScreen.h">
       <Filter>Source Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="mutators\JumpMutator.h">
+      <Filter>Source Files\mutators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

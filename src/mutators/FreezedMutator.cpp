@@ -10,12 +10,13 @@ void FreezedMutator::Apply()
 
 bool FreezedMutator::CanDetach()
 {
-	return _gameService->TotalTimeElapsed() > 10;
+	return _gameService->TotalTimeElapsed() - _startTime > 10;
 }
 
 void FreezedMutator::OnInit()
 {
 	_initialPosition = _target->Position();
+	_startTime = _gameService->TotalTimeElapsed();
 }
 
 void FreezedMutator::OnDetach()

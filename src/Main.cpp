@@ -232,7 +232,6 @@ int main(int argc, char** argv)
 		init->OnInit();
 	}
 
-	// todo: start only when user pressed key?
 	_container->resolve<TextureService>()->LoadAll();
 
 	// _container->resolve<ObjectFactory>()->Make<Triangle>();
@@ -246,6 +245,8 @@ int main(int argc, char** argv)
 	// _container->resolve<MutatorFactory>()->Attach<FreezedMutator, Cube>();
 
 	_container->resolve<ObjectFactory>()->Make<StartScreen>();
+	_container->resolve<GameService>()->Start();
+	_container->resolve<Config>()->IsTextureEnabled(false);
 
 	// _container->resolve<GameService>()->Start();
 

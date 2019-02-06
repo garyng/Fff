@@ -13,6 +13,7 @@ private:
 	std::shared_ptr<ILogger> _logger;
 
 	Vector3<float> _initialPosition;
+	float _startTime = 0;
 
 public:
 	FreezedMutator(const std::shared_ptr<GameService>& gameService, const std::shared_ptr<ILogger>& logger)

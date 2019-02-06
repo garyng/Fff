@@ -80,6 +80,8 @@ public:
 	Vector3<float>& BoundingBox() { return _boundingBox; }
 	Vector3<float>& Scale() { return _scale; }
 	Vector3<float>& Position() { return _position; }
+	Vector3<float>& MinPosition() { return _minPosition; }
+	Vector3<float>& MaxPosition() { return _maxPosition; }
 	Vector3<float>& Rotation() { return _rotation; }
 	Vector3<float>& DeltaPosition() { return _deltaPosition; }
 	Vector3<float>& DeltaRotation() { return _deltaRotation; }

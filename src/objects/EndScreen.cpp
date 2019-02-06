@@ -4,6 +4,14 @@
 
 void EndScreen::Render()
 {
+
+	if (_gameService->TotalTimeElapsed() - _sinceLastVisibilityToggle > 0.5)
+	{
+		_visible = !_visible;
+		_sinceLastVisibilityToggle = _gameService->TotalTimeElapsed();
+	}
+	if (!_visible) return;
+
 	bool isTie = false;
 	std::shared_ptr<Player> winner = _gameService->Winner(isTie);
 	std::string text = isTie ? "It's a tie!" : nameof(*winner) + " is the winner!";

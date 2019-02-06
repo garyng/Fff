@@ -65,6 +65,7 @@
     <ClCompile Include="logger\GuiLogger.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="mutators\FreezedMutator.cpp" />
+    <ClCompile Include="mutators\JumpMutator.cpp" />
     <ClCompile Include="mutators\KeyboardMutator.cpp" />
     <ClCompile Include="mutators\NullMutator.cpp" />
     <ClCompile Include="mutators\PlayerKeyboardMutator.cpp" />
@@ -133,6 +134,7 @@
     <ClInclude Include="mutators\FreezedMutator.h" />
     <ClInclude Include="mutators\IMutable.h" />
     <ClInclude Include="mutators\IMutator.h" />
+    <ClInclude Include="mutators\JumpMutator.h" />
     <ClInclude Include="mutators\KeyboardMutator.h" />
     <ClInclude Include="mutators\MutatorFactory.h" />
     <ClInclude Include="mutators\NullMutator.h" />

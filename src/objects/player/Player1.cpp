@@ -27,12 +27,28 @@ void Player1::Animate()
 
 void Player1::Render()
 {
-
 	Apply();
 	if (HasPositionChanged()) Animate();
 	OrientDirection();
 
 	RenderStats(35);
+
+	//glPushMatrix();
+	//{
+	//	glRotatef(_ballRotation.x, 0, 1, 0);
+	//	glPushMatrix();
+	//	{
+	//		glTranslatef(_dimension.x + 1, _ballPosition.x, 0);
+	//		glutSolidSphere(1, 64, 64);
+	//	}
+	//	glPopMatrix();
+
+	//	_ballRotation.x += _ballRotation.y * _elapsed;
+	//	_ballPosition.x += _ballPosition.y * _elapsed;
+	//	// Wrap(_ballRotation.x, _ballRotation.y, _ballRotation.z, _ballRotation.a, WrappingBehaviour::Wrap);
+	//	Wrap(_ballPosition.x, _ballPosition.y, _ballPosition.z, _ballPosition.a, WrappingBehaviour::Wrap);
+	//}
+	//glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(0.0f, 21.0f, 0.0f);
