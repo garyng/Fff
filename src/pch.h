@@ -34,7 +34,3 @@ using namespace coveo::linq;
 
 #include <boost/format.hpp>
 #include <boost/core/demangle.hpp>
-
-#ifdef __GNUC__
-#include <experimental/algorithm>
-#endif
