@@ -18,6 +18,7 @@
 #include "objects/powerup/Star.h"
 #include "objects/powerup/Magnet.h"
 #include "objects/powerup/Dash.h"
+#include "objects/Particle.h"
 
 
 void ObjectsDebugGui::Render()
@@ -48,6 +49,7 @@ void ObjectsDebugGui::Render()
 	RenderButton<Player2>();
 	RenderButton<SceneSpotLight>();
 	RenderButton<Grid>();
+	RenderButton<Particle>();
 
 	ImGui::End();
 }
